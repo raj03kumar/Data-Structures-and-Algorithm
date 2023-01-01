@@ -6,11 +6,11 @@ You will soon get graph and dp related questions.
 -------------------------------------------------------
 DATA STRUCTURES AND ALGORITHMS BEGIN
 
+- OPERATORS
 Left shift operator:
 4<<1
 (0100)-->(1000) i.e. 4 becomes 8
 a<<n        -->a*2^n;
-
 Right shift operator:
 4>>1
 (0100)-->(0010) i.e. 4 becomes 2
@@ -43,11 +43,14 @@ int main(){
     return 0;
 }
 
-learn convertion of binary to decimal and decimal to binary.
+CONVERSION OF BINARY TO DECIMAL AND VICE-VERSA IN C++
+
+1. uisng stoi(string to integer function)
 int main(){
     //binary to decimal
     string a="1111111101010101010101010110011";
-    int dec=stoi(a,nullptr, 2); //or int dec=stoi(a,0,2); //if we change the base of the given string from 2 to 10 then it will return same string, if 16 then it understands the input string as hexadecimal number and converts hexadecimal to integer.
+    int dec=stoi(a,nullptr, 2); //or int dec=stoi(a,0,2); 
+    //if we change the base of the given string from 2 to 10 then it will return same string, if 16 then it understands the input string as hexadecimal number and converts hexadecimal to integer.
     cout<<dec;
     return 0;
 }
@@ -58,13 +61,15 @@ int main(){
     cout<<dec;
     return 0;
 }
-or
+2. using bitset
 int binaryToDecimal(string s)
 {
     bitset<64> bits(s);
     int number = bits.to_ulong();
     return number;
 }
+
+BASIC SORTING ALGORITHMS:
 
 SELECTION SORT:find the minimum element in unsorted array and swap it with the element in the beginning.
 i loop from 0 to n-1 
@@ -78,9 +83,10 @@ BUBBLE SORT: repeatedly swap 2 adjacent elements if they are out of order. It is
 INSERTION SORT: insert an element from unsorted array to its correct position in sorted array. And the first element is considered to be the sorted array. then we check it with the just next element. and so on. if we find any element greater then we put it in its correct place in the sorted array.
 first for loop and then while iteration because we have to shift all the elements.(while is a type of recursion). this is easy but remember it.
 
-Q. Max element till i in an array: o(n) traverse the array and store the maximum till that number.
+GOOD ALGORITHMS:
 
-Number of subarray in an array of n elements is = nC2 + n =n*(n+1)/2
+Q. Max element till i in an array: o(n) traverse the array and store the maximum till that number.
+-> Number of subarray in an array of n elements is = nC2 + n =n*(n+1)/2
 subsequences of array: means numbers of array in same order of index but any index can be missed, but the main point is the order of index always remains same. 12345 is the array then 245 can be a subsequence.
 number of subsequence in an array of n elemnts in 2^n.
 
