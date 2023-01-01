@@ -6,7 +6,7 @@ You will soon get graph and dp related questions.
 -------------------------------------------------------
 DATA STRUCTURES AND ALGORITHMS BEGIN
 
-- OPERATORS
+- OPERATORS: 
 Left shift operator:
 4<<1
 (0100)-->(1000) i.e. 4 becomes 8
