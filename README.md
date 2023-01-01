@@ -18,6 +18,8 @@ a>>n        -->a/2^n;
 int great=max(a,max(b,c));
 
 TO REVERSE A STRING:
+
+```c++
 int main(){
     string a;
     cin>>a;
@@ -42,7 +44,8 @@ int main(){
     reverse("raj");
     return 0;
 }
-
+```
+  
 CONVERSION OF BINARY TO DECIMAL AND VICE-VERSA IN C++
 
 1. uisng stoi(string to integer function)
