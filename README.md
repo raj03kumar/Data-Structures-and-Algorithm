@@ -3,6 +3,13 @@ This repository consists of most important questions of related to array, search
 
 You will soon get graph and dp related questions.
 
+# Rules: 
+```
+Use # rarely #### for sub-topics and ### for new topic.
+
+```cpp for better formating og code and dont forget to align your code.
+```
+
 -------------------------------------------------------
 ### DATA STRUCTURES AND ALGORITHMS BEGIN
 
