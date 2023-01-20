@@ -4,9 +4,10 @@ This repository consists of most important questions of related to array, search
 You will soon get graph and dp related questions.
 
 -------------------------------------------------------
-DATA STRUCTURES AND ALGORITHMS BEGIN
+### DATA STRUCTURES AND ALGORITHMS BEGIN
 
-- OPERATORS: 
+```
+OPERATORS: 
 Left shift operator:
 4<<1
 (0100)-->(1000) i.e. 4 becomes 8
@@ -16,8 +17,9 @@ Right shift operator:
 (0100)-->(0010) i.e. 4 becomes 2
 a>>n        -->a/2^n;
 int great=max(a,max(b,c));
+```
 
-TO REVERSE A STRING:
+#### TO REVERSE A STRING:
 
 ```c++
 int main(){
@@ -46,14 +48,16 @@ int main(){
 }
 ```
   
-CONVERSION OF BINARY TO DECIMAL AND VICE-VERSA IN C++
+#### CONVERSION OF BINARY TO DECIMAL AND VICE-VERSA IN C++
 
-1. uisng stoi(string to integer function)
+1. Using SToI(string to integer function)
+```cpp
 int main(){
     //binary to decimal
     string a="1111111101010101010101010110011";
     int dec=stoi(a,nullptr, 2); //or int dec=stoi(a,0,2); 
-    //if we change the base of the given string from 2 to 10 then it will return same string, if 16 then it understands the input string as hexadecimal number and converts hexadecimal to integer.
+    //if we change the base of the given string from 2 to 10 then it will return same string, 
+    //if 16 then it understands the input string as hexadecimal number and converts hexadecimal to integer.
     cout<<dec;
     return 0;
 }
@@ -64,28 +68,38 @@ int main(){
     cout<<dec;
     return 0;
 }
-2. using bitset
+```
+
+2. Using bitset
+```cpp
 int binaryToDecimal(string s)
 {
     bitset<64> bits(s);
     int number = bits.to_ulong();
     return number;
 }
-
-BASIC SORTING ALGORITHMS:
-
+```
+#### BASIC SORTING ALGORITHMS:
+```
 SELECTION SORT:find the minimum element in unsorted array and swap it with the element in the beginning.
 i loop from 0 to n-1 
 j loop from i+1 to n
 //implement selection sort on your own.
 --> in selection sort the first half of the array becomes sorted as intermediate result
 --> in bubble sort the second half of the array becomes sorted as intermediate result.
-
-BUBBLE SORT: repeatedly swap 2 adjacent elements if they are out of order. It is called bubble sort because the largest element comes out first like a bubble. here we make int counter=1; while loop till counter<n and for loop till n-counter.
-
-INSERTION SORT: insert an element from unsorted array to its correct position in sorted array. And the first element is considered to be the sorted array. then we check it with the just next element. and so on. if we find any element greater then we put it in its correct place in the sorted array.
-first for loop and then while iteration because we have to shift all the elements.(while is a type of recursion). this is easy but remember it.
-
+```
+```
+BUBBLE SORT: repeatedly swap 2 adjacent elements if they are out of order. 
+It is called bubble sort because the largest element comes out first like a bubble. 
+here we make int counter=1; while loop till counter<n and for loop till n-counter.
+```
+```
+INSERTION SORT: insert an element from unsorted array to its correct position in sorted array. 
+And the first element is considered to be the sorted array. then we check it with the just next element. and so on. 
+if we find any element greater then we put it in its correct place in the sorted array.
+first for loop and then while iteration because we have to shift all the elements.(while is a type of recursion). 
+this is easy but remember it.
+```
 GOOD ALGORITHMS:
 
 Q. Max element till i in an array: o(n) traverse the array and store the maximum till that number.
