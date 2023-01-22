@@ -7,7 +7,7 @@ You will soon get graph and dp related questions.
 ```
 Use # rarely #### for sub-topics and ### for new topic.
 
-```cpp for better formating og code and dont forget to align your code.
+```cpp for better formating of code and dont forget to align your code.
 ```
 
 -------------------------------------------------------
