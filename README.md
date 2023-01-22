@@ -107,24 +107,33 @@ if we find any element greater then we put it in its correct place in the sorted
 first for loop and then while iteration because we have to shift all the elements.(while is a type of recursion). 
 this is easy but remember it.
 ```
-GOOD ALGORITHMS:
 
+## GOOD ALGORITHMS:
+```
 Q. Max element till i in an array: o(n) traverse the array and store the maximum till that number.
 -> Number of subarray in an array of n elements is = nC2 + n =n*(n+1)/2
-subsequences of array: means numbers of array in same order of index but any index can be missed, but the main point is the order of index always remains same. 12345 is the array then 245 can be a subsequence.
+subsequences of array: means numbers of array in same order of index but any index can be missed, 
+but the main point is the order of index always remains same. 
+12345 is the array then 245 can be a subsequence.
 number of subsequence in an array of n elemnts in 2^n.
-
+```
+```
 Q. Sum of all subarrays: O(n^2) using i and j loops. But it can be done in O(n) see g4g.
-
+```
+```
 Q. Longest arithemetic subarray: see good algos.
-
+```
+```
 Q. record breaker: see good algos. lecture 8.4
-
+```
+```
 Q. TO FIND THE INDEX OF FIRST REPEATING ELEMENT IN AN ARRAY? lecture 8.5: see good algos.
 approach is like count sort;    
-NOTE: WE CAN'T DECLARE AN ARRAY OF LENGHT 10^6 inside main function. We can do this outside main function because the memory allocated to main funtion is limited.
-IN ANY QUESTION IF WE HAVE TO FIND MAX OR MIN, THEN WE HAVE TO MAKE ELEMENTS TO STORE THE MIN AND THEN ANOTHER VARIABLE TO STORE CURRENT AND CHANGE BY min or max FUNCTION IN ELSE CASE OF IF-ELSE.
-
+NOTE: WE CAN'T DECLARE AN ARRAY OF LENGHT 10^6 inside main function. We can do this outside main function because 
+the memory allocated to main funtion is limited.
+IN ANY QUESTION IF WE HAVE TO FIND MAX OR MIN, THEN WE HAVE TO MAKE ELEMENTS TO STORE THE MIN AND THEN ANOTHER 
+VARIABLE TO STORE CURRENT AND CHANGE BY min or max FUNCTION IN ELSE CASE OF IF-ELSE.
+```
 Q. Subarray with given sum? : see good algos. here we have to do 2 pointer approach. we have to maintain two pointers at the start and see if the given sum is less than the current sum by iterating through the elemnts. if it is greater then we move the other pointer so the sum is in our desired limit. O(n)
 
 Q. smallest positive missing number? we make a boolean array just like count sort and mark true for all the elements present in the array. we iterate and find the first false element. O(n)
@@ -143,7 +152,8 @@ Q. Pair sum problem? Lecture 8.6 Here we are given a sorted array and we have to
 Matrix transpose(very easy), Matrix multiplication, 2D matrix search(boring)--> these in lecture 9.2 
 
 Character arrays: Character arrays are array of characters with null at last. They are exactly like strings. (NOT IN USE)
-To get input of a sentence in cpp:
+```cpp
+//To get input of a sentence in cpp:
 int main(){
     string a;   //better use string instead of char array.
     // cin>>a;
@@ -151,7 +161,8 @@ int main(){
     cout<<a;
     return 0;
 }
-
+```
+```
 POINTERS: simply declaring pointer int *ptr;
 ptr=&a;
 cout<<ptr; //will give the address of a
@@ -187,8 +198,10 @@ delete[]p;
 p=NULL; //to point p to NULL. 
 when we exit our main function then p also gets destroyed.
 Memory leak is the situation when we allocate the memory in heap and don't delete it. it is an serious issue. No issue for computers as because when the program gets terminated then everything gets deleted but for web servers were it is always on there it is a serious issue.
+```
 
-STRINGS:
+#### STRINGS:
+```cpp
 string str;
 getLine(cin,str);// to get complete sentence as input.
 s1+s2 to concatenate
@@ -196,13 +209,15 @@ s1.sppend(s2) to append s2 at last of s1. but here s1 changes.
 s1.compare(s1) compares the strings in dictionary order.
 s1.find("something")--> to find if 
 sort(s.begin(), s.end())--> to sort a string.
+
 TO SORT AN STRING INTO DECREASING order
+
 sort(s.begin(), s.end(), greater<int>());
 transform(some parameters) is used to transform complete string to uppercase or to lowercase.
 transform(s.begin(), s.end(), s.begin(), ::toupper)
 transform(s.begin(), s.end(), s.begin(), ::tolower)
-
-BIT MANIPULATION: easy simple common sense hai.
+```
+### BIT MANIPULATION: easy simple common sense hai.
  1<<n == 2^n. you know this is left set bit. />/STRIVER ZINDABAD. this means that you shift 1 by n bits left side.
 since, a<<n        -->a*2^n;
 1. getBit: we need to get bit of a given position i say i=2.
