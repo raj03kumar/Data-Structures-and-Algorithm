@@ -134,18 +134,34 @@ the memory allocated to main funtion is limited.
 IN ANY QUESTION IF WE HAVE TO FIND MAX OR MIN, THEN WE HAVE TO MAKE ELEMENTS TO STORE THE MIN AND THEN ANOTHER 
 VARIABLE TO STORE CURRENT AND CHANGE BY min or max FUNCTION IN ELSE CASE OF IF-ELSE.
 ```
-Q. Subarray with given sum? : see good algos. here we have to do 2 pointer approach. we have to maintain two pointers at the start and see if the given sum is less than the current sum by iterating through the elemnts. if it is greater then we move the other pointer so the sum is in our desired limit. O(n)
-
-Q. smallest positive missing number? we make a boolean array just like count sort and mark true for all the elements present in the array. we iterate and find the first false element. O(n)
-
+```
+Q. Subarray with given sum? : see good algos. here we have to do 2 pointer approach. 
+we have to maintain two pointers at the start and see if the given sum is less than the current 
+sum by iterating through the elemnts. if it is greater then we move the other pointer so the sum is in our desired limit. 
+O(n)
+```
+```
+Q. smallest positive missing number? we make a boolean array just like count sort and mark true for all 
+the elements present in the array. we iterate and find the first false element. O(n)
+```
+```
 Q. to print all the subarray of a set? O(n^3) using i, j and k loops. easy hai.
-
+```
+```
 Q. maximum subarray sum? KADANE'S ALGORITHM. O(n).
-
-Q. ciruclarMaxSubArray? here we define contributing and non-contributing terms. and max sum will be total sum - noncontributingSum. and to find the noncontibuting elements we reverse the sign of the arrayelements and run kadane's algorithm.
-
-Q. Pair sum problem? Lecture 8.6 Here we are given a sorted array and we have to find continous element who's sum is equal to the given sum. So here we make two pointer approach. in this we make a low pointer and a high pointer if the sum of both the element is less than the sum then we move the low pointer to increase the current sum else to decrease the current sum we move the high pointer towrds left.
-
+```
+```
+Q. ciruclarMaxSubArray? here we define contributing and non-contributing terms. 
+and max sum will be total sum - noncontributingSum. and to find the noncontibuting elements,
+we reverse the sign of the arrayelements and run kadane's algorithm.
+```
+```
+Q. Pair sum problem? Lecture 8.6 Here we are given a sorted array and we have to find continous 
+element who's sum is equal to the given sum. So here we make two pointer approach. 
+in this we make a low pointer and a high pointer if the sum of both the element is less 
+than the sum then we move the low pointer to increase the current sum else to decrease the 
+current sum we move the high pointer towrds left.
+```
 7 QUESTIONS in good algo are very good and must try.
 
 2D ARRAY IS VERY EASY. Searching, Spiral order print, 
@@ -168,7 +184,9 @@ ptr=&a;
 cout<<ptr; //will give the address of a
 and *ptr will give the value of a. 
 you already know it Raj.
-NOTE: If we are making function especially void then it is sure that we want changes in our original data. so we pass value by reference and that is by simply adding & and nothing more, no * nothing. it is old method.
+NOTE: If we are making function especially void then it is sure that we want changes 
+in our original data. so we pass value by reference and that is by simply adding & and 
+nothing more, no * nothing. it is old method.
 
 void swap(int &a, int &b){
     int temp=a;
@@ -186,7 +204,8 @@ int main(){
 }
 
 PASSING POINTERS TO FUNCTION: we write *a, *b in the function, and when we r calling then we send swap(&a,&b).
-STACK VS HEAP: if we are storing memory dynamically by making a pointer then it gets stored in heap and act as a global variable. So we have to deallocate the memory also
+STACK VS HEAP: if we are storing memory dynamically by making a pointer then it
+gets stored in heap and act as a global variable. So we have to deallocate the memory also
 
 similar to java use cpp. 
 int *p = new int(); //to dynamically allocate memeory in heap.
@@ -197,7 +216,9 @@ int p= new int[n]; //to dynamically allocate memory in heap.
 delete[]p;
 p=NULL; //to point p to NULL. 
 when we exit our main function then p also gets destroyed.
-Memory leak is the situation when we allocate the memory in heap and don't delete it. it is an serious issue. No issue for computers as because when the program gets terminated then everything gets deleted but for web servers were it is always on there it is a serious issue.
+Memory leak is the situation when we allocate the memory in heap and don't delete it.
+it is an serious issue. No issue for computers as because when the program gets terminated 
+then everything gets deleted but for web servers were it is always on there it is a serious issue.
 ```
 
 #### STRINGS:
