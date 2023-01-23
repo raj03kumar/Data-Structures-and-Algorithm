@@ -178,16 +178,16 @@ int main(){
     return 0;
 }
 ```
-```
+```cpp
 POINTERS: simply declaring pointer int *ptr;
 ptr=&a;
 cout<<ptr; //will give the address of a
-and *ptr will give the value of a. 
-you already know it Raj.
-NOTE: If we are making function especially void then it is sure that we want changes 
+//and *ptr will give the value of a. 
+//you already know it Raj.
+/* NOTE: If we are making function especially void then it is sure that we want changes 
 in our original data. so we pass value by reference and that is by simply adding & and 
 nothing more, no * nothing. it is old method.
-
+*/
 void swap(int &a, int &b){
     int temp=a;
     a=b;
@@ -202,19 +202,24 @@ int main(){
     cout<<b<<"\n";
     return 0;
 }
-
+```
+```
 PASSING POINTERS TO FUNCTION: we write *a, *b in the function, and when we r calling then we send swap(&a,&b).
 STACK VS HEAP: if we are storing memory dynamically by making a pointer then it
 gets stored in heap and act as a global variable. So we have to deallocate the memory also
 
 similar to java use cpp. 
+```
+```cpp
 int *p = new int(); //to dynamically allocate memeory in heap.
 cin>>p;
 delete(p);
-here p is in stack but it is pointing to heap.
+//here p is in stack but it is pointing to heap.
 int p= new int[n]; //to dynamically allocate memory in heap.
 delete[]p;
-p=NULL; //to point p to NULL. 
+p=NULL; //to point p to NULL.
+```
+```
 when we exit our main function then p also gets destroyed.
 Memory leak is the situation when we allocate the memory in heap and don't delete it.
 it is an serious issue. No issue for computers as because when the program gets terminated 
