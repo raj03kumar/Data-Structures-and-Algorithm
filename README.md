@@ -287,6 +287,7 @@ int updateBit(int n,int pos, int value){
     return n|(value<<pos)
 }
 ```
+```cpp
 Q. to find if a number is power of 2. n&(n-1)==0;
 //these are the funtions of bit manipulation.
 Q. count the number of set bits in a number?--> good algo 8
@@ -306,13 +307,17 @@ while(xor){
 }
 
 NOTE: XOR of all the subsets is always zero unless there is only 1 element then it is 1.
-
+```
+```
 POWER SET ALGORITHM FOR GENERATING ALL THE SUBSETS OF A GIVEN SET?--> good algo 9
 same as digital system analogy.
 practice some easy bit manipulation questions in lecture 14.3 Q1, to find the unique elemnt in array, Q2. find 2 unique element in an array. Q3. if all numbers are repeated 3 times then find the elemnt which is repeated 2 times.
-
+```
+```
 Seive of Eratosthenes: u know it.       and to find the prime factors of a number using seive.
 INCLUSION AND EXCLUSION PRINCIPLE: it is same as set which we studied in class 11. Q. check how many numbers between 1 and 100 are divisible by 5 or 7? Ans: numbers divisible by 5 + numbers divisible by 7 - numbers divisible by 35.
+```
+```cpp
 Euclid algo to find gcd: it is the same gcd finding thing. remember if we subtract two numbers then their gcd doesn't change.
 int gcd(int a, int b){
     while(b!=0){
@@ -339,8 +344,10 @@ switch(a){          //a can be int or char
 #define n 100
 #define ll long long
 // means we are defining value of n as 100 throughout the program.;
+```
 
-----------------------------------------------RECURSION------------------------------------------------
+#### -----------RECURSION------------
+```
 NOTE: better go with void in recursion data type. or create a temporary variable or static variable to store the values.
 1. calculate sum of numbers till n using recursion.
 2. calculate powers of n using recursion.//remember the calculation starts from the point when the base condition is hit. after that only the value starts calculating. else it is just in stack uncalculated.
@@ -355,7 +362,8 @@ bool isSorted(int arr[], int n){
 6. print the numbers from 1 to n in increasing and decreasing order?
 --> to reverse a thing recursion is the best process.
 NOTE: better go with void in recursion data type. or create a temporary variable or static variable to store the values.
-
+```
+```cpp
 void decr(int n){
     if(n==0) return ;
     cout<<n;        //first print then return n-1
@@ -367,6 +375,8 @@ void incr(int n){
     incr(n-1);      //first do all the returns and finally print the values from last return value(i.e. the base condition) present in the stack.
     cout<<n;
 }
+```
+```cpp
 7. to check the first occurrence and last occurence of a number in an array? for this we make two recursive functions one finds the first occurence and other one finds the last occurence. In first we check if the element is equal to the key if yes then we return the index otherwise we return rest of the array.
 in second one, we return the array and check later.
 int first(int arr[], int n, int i, int key){
@@ -399,7 +409,8 @@ void rev(string a){
     rev(a.substr(1, a.size()-1)); //or rev(a.substr(1));
     cout<<a.substr(0,1);    //or cout<<a[0];
 }
-
+```
+```
 9. replace pi with 3.14? (boring question)
 10.Tower of hanoi? u already know this. BEST PROBLEM OF RECURSION.
 11. Move all x in a string to the last of the string. better with iteration.
@@ -419,35 +430,51 @@ Another approach which will work is the store the answer in a set so that all th
 See GOOD ALGOS.
 SO THE BASIC IDEA IS: while swapping, avoid duplicates.
 when we find two same numbers then we continue the loop.
-
+```
 Last lecture on RECURSION:(Lecture 16.4)
+```
 1. TILING PROBLEM: in this question we are given a board(2xn) and a tile(2x1) and we have to find number of way to tile the board using these tiles.(interesting...)--> the solution comes out to be the fibonacci of n. This is the ans. eg: for n=4 ans is 3.
 2. Friends pairing problem: Find the number of ways in which n friends can remain single or can be paired up.(useless question...)
+```cpp
 int friendsPairing(int n){
     if(n==0 or n==1 or n==2) return n;
     return friendsPairing(n-1)+friendsPairing(n-2)*(n-1);
 }
 so for 4 people 10 is the ans.
+```
+```
 3. 0-1 KNAPSACK PROBLEM: (Very improtant question...)using recursion. SEE good algo.
 4. Fractional knapsack is also very easy. We just have to remove to else if part from the algorithm. Means we dont have to put nay other fractional object. We can put any other object if its weight is less than the final remaining weight.
-
---------------------------------------BACK-TRACKING(using recursion)--------------------------------------------------------
+```
+#### ------------BACK-TRACKING(using recursion)-------------
+```
 There are 2 questions in back tracking: 1. Rat in a maze problem, 2. N-queens problem.
-Backtracking means if the constraints are not satisfied then from that point only we go back to the previous step. Whenever we find that this solution doesn't satisfy then from the middle only we will back track.
-DEFINITION: Backtracking is an algorithmic-technique for solving recursive problems by trying to build every possible solution incrementally and removing those solutions that fail to satisfy the constraints of the problem at any point of time.
+Backtracking means if the constraints are not satisfied then from that point only we go 
+back to the previous step. Whenever we find that this solution doesn't satisfy then from 
+the middle only we will back track.
+DEFINITION: Backtracking is an algorithmic-technique for solving recursive problems by 
+trying to build every possible solution incrementally and removing those solutions that 
+fail to satisfy the constraints of the problem at any point of time.
 
 RAT IN A MAZE: see good algo. we have also implemented dynamic array.
-Rat can only move in right direction and in downward direction. So we will be given an adjacency matrix of 1 and 0, where 1 means there is a way and 0 means there is no way.
+Rat can only move in right direction and in downward direction. So we will be given an 
+adjacency matrix of 1 and 0, where 1 means there is a way and 0 means there is no way.
 OUTPUT: we have to output a 2D matrix denoting the path of rat by 1 and other paths by 0.
 
 N-queens PROBLEM:   RECURSION AND BACKTRACKING      --> see good algo.
-we are given NxN chess board and we have to place n queens so that no two queens attack wach other.
+we are given NxN chess board and we have to place n queens so that no two queens attack 
+aach other.
 we have to place one by one and check for safe places in other rows correspondingly.
 
 to check we have to check if there is already a queen in that column or diagonal.
-we only need to check in the upper hemisphere, and not in the lower hemisphere because we have't placed our queen there so it is not possible that any queen checks from lower hemisphere. We don't need to check for that particular row also because we are in a row where no queen is placed yet. so we only need to check for the columns and diagonals(both left and right of upper hemisphere.)
-
--------------------------------------------learning vectors-------------------------------------------------
+we only need to check in the upper hemisphere, and not in the lower hemisphere because
+we have't placed our queen there so it is not possible that any queen checks from lower 
+hemisphere. We don't need to check for that particular row also because we are in a row
+where no queen is placed yet. so we only need to check for the columns and diagonals
+(both left and right of upper hemisphere.)
+```
+### -------learning vectors--------
+```cpp
 vector<int> v;  //where int is the data type and v is the name of the vector.
 to insert elements: v.push_back(11);
 to delete the last element: v.pop_back();
@@ -478,6 +505,7 @@ pair<int,int> p; //here both data types can be different also according to our c
 pair.first=1; //for accessing pair<first,second> p where first and second are datatypes.
 pair.second=2;
 ----------------------------------------------------------------------------------------------------------------
+```
 
 Merge Sort: Divide and conquer. In this we find the mid of the array and divide our array into two parts. similarly we divide our arrays into multiple parts. REMEMBER: An array with single element is always sorted array. Now we have to call a merge functions which merges two sorted arrays. It applies two pointer approach. i on first array and j on second array. and we have to checck which one is smaller. Here we also use a temporary array for storing values.
 
