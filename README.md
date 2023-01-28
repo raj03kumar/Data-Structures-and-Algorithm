@@ -62,9 +62,13 @@ int main(){
 int main(){
     //binary to decimal
     string a="1111111101010101010101010110011";
-    int dec=stoi(a,nullptr, 2); //or int dec=stoi(a,0,2); 
-    //if we change the base of the given string from 2 to 10 then it will return same string, 
-    //if 16 then it understands the input string as hexadecimal number and converts hexadecimal to integer.
+    int dec=stoi(a,nullptr, 2); //or int dec=stoi(a,0,2);
+    /*
+    if we change the base of the given string from 2 to 10 then 
+    it will return same string, 
+    if 16 then it understands the input string as hexadecimal 
+    number and converts hexadecimal to integer.
+    */
     cout<<dec;
     return 0;
 }
@@ -101,10 +105,12 @@ It is called bubble sort because the largest element comes out first like a bubb
 here we make int counter=1; while loop till counter<n and for loop till n-counter.
 ```
 ```
-INSERTION SORT: insert an element from unsorted array to its correct position in sorted array. 
-And the first element is considered to be the sorted array. then we check it with the just next element. and so on. 
+INSERTION SORT: insert an element from unsorted array to its correct position 
+in sorted array. And the first element is considered to be the sorted array. 
+Then we check it with the just next element. and so on. 
 if we find any element greater then we put it in its correct place in the sorted array.
-first for loop and then while iteration because we have to shift all the elements.(while is a type of recursion). 
+first for loop and then while iteration because we have to shift all the elements.
+(while is a type of recursion). 
 this is easy but remember it.
 ```
 
@@ -244,8 +250,12 @@ transform(s.begin(), s.end(), s.begin(), ::toupper)
 transform(s.begin(), s.end(), s.begin(), ::tolower)
 ```
 ### BIT MANIPULATION: easy simple common sense hai.
- 1<<n == 2^n. you know this is left set bit. />/STRIVER ZINDABAD. this means that you shift 1 by n bits left side.
+```
+1<<n == 2^n. you know this is left set bit. />/STRIVER ZINDABAD. 
+this means that you shift 1 by n bits left side.
 since, a<<n        -->a*2^n;
+```
+```cpp
 1. getBit: we need to get bit of a given position i say i=2.
 we use left shift operator at i. i=0010.
 and indexing of the numbers start from back side. i.e here n=0101 so indexing goes:
@@ -276,6 +286,7 @@ int updateBit(int n,int pos, int value){
     n = n & mask;
     return n|(value<<pos)
 }
+```
 Q. to find if a number is power of 2. n&(n-1)==0;
 //these are the funtions of bit manipulation.
 Q. count the number of set bits in a number?--> good algo 8
