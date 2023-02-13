@@ -133,22 +133,25 @@ Q. Longest arithemetic subarray: see good algos.
 Q. record breaker: see good algos. lecture 8.4
 ```
 ```
-Q. TO FIND THE INDEX OF FIRST REPEATING ELEMENT IN AN ARRAY? lecture 8.5: see good algos.
+Q. TO FIND THE INDEX OF FIRST REPEATING ELEMENT IN AN ARRAY? 
+lecture 8.5: see good algos.
 approach is like count sort;    
-NOTE: WE CAN'T DECLARE AN ARRAY OF LENGHT 10^6 inside main function. We can do this outside main function because 
+NOTE: WE CAN'T DECLARE AN ARRAY OF LENGHT 10^6 inside main function. 
+We can do this outside main function because 
 the memory allocated to main funtion is limited.
-IN ANY QUESTION IF WE HAVE TO FIND MAX OR MIN, THEN WE HAVE TO MAKE ELEMENTS TO STORE THE MIN AND THEN ANOTHER 
+IN ANY QUESTION IF WE HAVE TO FIND MAX OR MIN, THEN WE HAVE TO MAKE 
+ELEMENTS TO STORE THE MIN AND THEN ANOTHER 
 VARIABLE TO STORE CURRENT AND CHANGE BY min or max FUNCTION IN ELSE CASE OF IF-ELSE.
 ```
 ```
 Q. Subarray with given sum? : see good algos. here we have to do 2 pointer approach. 
 we have to maintain two pointers at the start and see if the given sum is less than the current 
-sum by iterating through the elemnts. if it is greater then we move the other pointer so the sum is in our desired limit. 
-O(n)
+sum by iterating through the elemnts. if it is greater then we move the other pointer so the sum 
+is in our desired limit. O(n)
 ```
 ```
-Q. smallest positive missing number? we make a boolean array just like count sort and mark true for all 
-the elements present in the array. we iterate and find the first false element. O(n)
+Q. smallest positive missing number? we make a boolean array just like count sort and mark true 
+for all the elements present in the array. we iterate and find the first false element. O(n)
 ```
 ```
 Q. to print all the subarray of a set? O(n^3) using i, j and k loops. easy hai.
@@ -173,7 +176,8 @@ current sum we move the high pointer towrds left.
 2D ARRAY IS VERY EASY. Searching, Spiral order print, 
 Matrix transpose(very easy), Matrix multiplication, 2D matrix search(boring)--> these in lecture 9.2 
 
-Character arrays: Character arrays are array of characters with null at last. They are exactly like strings. (NOT IN USE)
+Character arrays: Character arrays are array of characters with null at last. They are exactly like 
+strings. (NOT IN USE)
 ```cpp
 //To get input of a sentence in cpp:
 int main(){
@@ -210,7 +214,7 @@ int main(){
 }
 ```
 ```
-PASSING POINTERS TO FUNCTION: we write *a, *b in the function, and when we r calling then we send swap(&a,&b).
+PASSING POINTERS TO FUNCTION: we write *a, *b in the function, and when we r calling then we send swap(&a,&b)
 STACK VS HEAP: if we are storing memory dynamically by making a pointer then it
 gets stored in heap and act as a global variable. So we have to deallocate the memory also
 
