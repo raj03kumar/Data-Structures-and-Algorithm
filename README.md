@@ -214,7 +214,7 @@ int main(){
 }
 ```
 ```
-PASSING POINTERS TO FUNCTION: we write *a, *b in the function, and when we r calling then we send swap(&a,&b)
+PASSING POINTERS TO FUNCTION: we write *a,*b in the function, and when we r calling then we send swap(&a,&b)
 STACK VS HEAP: if we are storing memory dynamically by making a pointer then it
 gets stored in heap and act as a global variable. So we have to deallocate the memory also
 
