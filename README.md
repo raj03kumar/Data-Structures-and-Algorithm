@@ -269,12 +269,16 @@ and indexing of the numbers start from back side. i.e here n=0101 so indexing go
 so 1<<i=0100.
 //learn better from video or practice on paper.
 
-1. get bit: we do and operation with 2 exp i or 1<<i and do and operation. if the result is 0, then the bit is not set. else the bit is set.
+1. get bit: we do and operation with 2 exp i or 1<<i and do and operation. if the result is 0, then the 
+bit is not set. else the bit is set.
 2. set bit: we follow the above process but we do or operation.
-3. clear bit: we create same thing but we use negation of 2 exp i or the mask. and we do and operation, so that the other bits are not disturbed.
+3. clear bit: we create same thing but we use negation of 2 exp i or the mask. and we do and operation, 
+so that the other bits are not disturbed.
 4. clear last bit: we simply do n&(n-1). simple logic think yourself.
-5. update bit: FALTU HAI YE SIMPLE BILKUL. first clear the bit then do left shift of the value. and or operation because we want to set.
-different analogy is if the value is 0 then clear the bit at that position, if value is one then set the bit to that position.
+5. update bit: FALTU HAI YE SIMPLE BILKUL. first clear the bit then do left shift of the value. and or 
+operation because we want to set.
+different analogy is if the value is 0 then clear the bit at that position, if value is one then set 
+the bit to that position.
 
 int getBit(int n, int pos){
     return ((n&(1<<pos))!=0);
