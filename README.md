@@ -320,14 +320,19 @@ NOTE: XOR of all the subsets is always zero unless there is only 1 element then 
 ```
 POWER SET ALGORITHM FOR GENERATING ALL THE SUBSETS OF A GIVEN SET?--> good algo 9
 same as digital system analogy.
-practice some easy bit manipulation questions in lecture 14.3 Q1, to find the unique elemnt in array, Q2. find 2 unique element in an array. Q3. if all numbers are repeated 3 times then find the elemnt which is repeated 2 times.
+practice some easy bit manipulation questions in lecture 14.3 Q1, to find the unique elemnt in array, 
+Q2. find 2 unique element in an array. 
+Q3. if all numbers are repeated 3 times then find the elemnt which is repeated 2 times.
 ```
 ```
 Seive of Eratosthenes: u know it.       and to find the prime factors of a number using seive.
-INCLUSION AND EXCLUSION PRINCIPLE: it is same as set which we studied in class 11. Q. check how many numbers between 1 and 100 are divisible by 5 or 7? Ans: numbers divisible by 5 + numbers divisible by 7 - numbers divisible by 35.
+INCLUSION AND EXCLUSION PRINCIPLE: it is same as set which we studied in class 11. 
+Q. check how many numbers between 1 and 100 are divisible by 5 or 7? 
+Ans: numbers divisible by 5 + numbers divisible by 7 - numbers divisible by 35.
 ```
 ```cpp
-Euclid algo to find gcd: it is the same gcd finding thing. remember if we subtract two numbers then their gcd doesn't change.
+Euclid algo to find gcd: it is the same gcd finding thing. remember if we subtract two numbers 
+then their gcd doesn't change.
 int gcd(int a, int b){
     while(b!=0){
         int rem=a%b;
