@@ -1299,13 +1299,15 @@ To minimise abs(A[i]-A[j])
 
 For sorted Array,
 Min Diff = (sum of odd elements)-(sum of even elements)
+
 --------------------------------------GRAPH THEORY-----------------------------------------------
 Components of a graph: 
 1. Nodes: These are the states or vertex. For instance, users in facebook.
 2. Edges: Links between states in a graph. For instance, connections between users.
     - undirected graph: Two way edges.
     - directed graph: One way edges.
-3. Representation: 1. Adjacency Matrix: 2D array, where a[i][j]=1 if there is an edge from i to j, else a[i][j]=0
+3. Representation: 
+    1. Adjacency Matrix: 2D array, where a[i][j]=1 if there is an edge from i to j, else a[i][j]=0
     2. Adjacency List: Array of lists, where each a[i] is a list of nodes Xi, that are reachable from i.
 
 TRAVERSALS: BFS(queue) and DFS(stack).
@@ -1327,8 +1329,19 @@ Tree: Tree is connected acyclic graph.
 
 NUMBER OF EDGES IN A COMPLETE GRAPH: nC2 =(n*(n-1))/2
 
-Graph Representation: 
+Graph Representation: BY Adjacency list and BY Adjacency Matrix
 
+Topological Sort: Proper sequence of order like birth->infant->adult->old is known as topological sort.
+A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from node A to node B, node A appears before node B in the ordering.
+Note: Topological ordering are NOT unique. NOT every graph has topological Sort!(In directed and cyclic graph)
+Only directed Acyclic graph (DAG) have a valid topological sort. 
+Basic idea is to write all the leave nodes, then remove them and repeat the process.
+ALGORITHM:
+while(all the nodes are not visited){
+    nodes with zero indegree can be added to the output array.
+    all the nodes which are adjacent to terminal nodes, gets their indegree subtracted.
+}
+--> can be used to detect cycle in a graph.
 
 
 ------------------------------------DYNAMIC PROGRAMMING-------------------------------------------
