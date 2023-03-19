@@ -1255,7 +1255,30 @@ APPROACH:
     2. Take 2 top elements one by one and add the cost to answer. Push the merged file to the MinHeap.
     3. When single element remains, output the cost.
 
-5. EXPEDI(EXPEDITION): This is a good question to build concept in greedy. (not completed. Can watch the video)
+5. EXPEDI(EXPEDITION): This is a good question to build concept in greedy.
+Q. A group of cows grabbed a truck and ventured on an expedition deep into the jungle. The truck leak 1 unit of fuel every unit of distance it travels.
+To repair the truck, the cows need to drive to the nearest town(no more than 10^6 unit distance). On this road between the town and the current location, there are N stops where the cows can stop to acquire additional fuel.
+The cows want to make MINIMUM POSSIBLE NUMBER OF STOPS FOR FUEL ON THE WAY TO TOWN.
+Capacity of the tank is sufficiently large to hold any amount of fuel.
+
+Initial unit of fuel: P
+Initial distance from Town: L
+
+Determine minimum number of stops to reach the town ?
+
+NOTE: Better we find the distance from truck so see which stop is close to truck
+
+BRUTE FORCE:
+    1. Generate all subsequence of stops.
+    2. Iterate over all subsequence, choose the one that is feasible and has minimum no of stops.
+
+    Time Complexity: O(2^n) --> TLE
+
+OPTIMAL SOLUTION:
+    1. Create a maxheap, which stores the fuels available at the stops that we have traversed.
+    2. Sort the stops, on the basis of distance of stops from inital position of truck.
+    3. Keep iterating on the stops, and whenever fuel in the truck becomes empty, take the fuel from the max-heap and add it to the truck(greedy step).
+    4. Maintain the count of stops from which we have taken fuel.
 
 6. Maximum and minimum array difference: easy logic...
 You are given an array, A, of n elements. You have to remove exactly n/2 elements from array A and add it to another array B(initally empty).
