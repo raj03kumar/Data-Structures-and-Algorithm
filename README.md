@@ -1343,6 +1343,85 @@ while(all the nodes are not visited){
 }
 --> can be used to detect cycle in a graph.
 
+Q. Cycle detection in undirected graph?
+Keep on traversing the graph. If you found an edge pointing to an already visited node(except the parent node), a cycle is found. We use dfs and check if we visit an already visited edge or not.
+
+Q. Cycle detection in directed graph?
+Algorithm:
+    1. Mark the current node as visited node and also mark the index in recursion stack.
+    2. Find all the vertices which are not visited and are adjacent to the current node.
+    3. If the adjacent vertices are already marked in the recursion stack then cycle is found.
+
+Q. What is connected component?
+A connected component is a subgraph in which any two vertices are connected to each other by paths, and which is connected to no additional vertices in the supergraph.
+IDEA:
+    1. visit the nodes in depth-first fashion.
+    2. If the node is not visited, visit that node and its neighbour recursively.
+Each time a unvisited node is found, a new component will be found.
+
+Q. There are N friends numbered from 0 to N-1. You have to choose 2 person such that they are not related to each other. You are given information in the form of M pairs(X,Y) i.e. there is a link between friend X and Y. Find out the number of ways in which 2 person from different groups can be choosen?
+IDEA:
+    Find the components and their sizes. At i'th component, choose one person from it and other person from the rest of the groups.
+
+Bipartite Graph: 
+    1. Its vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V. 
+    2. The graph doesnot contain any odd-length cycles.
+    3. The graph is 2 Colorable.
+Note: If we are able to color the graph with only two colors then the graph is bipartite.
+
+DISJOINT SET UNION(DSU) or UNION FIND:
+    Parent concept: Parent is any element of the set which we assign as the leader of the set. It can be any element. All the other elements are represented using that leader. For Example: If we want to see if two elements belongs to same set then we can simply check their leader and if the leaders are equal then we can conclude that both the elements belong to same set.
+
+Naive implementation: O(N) but with little optimisation we reduce the length of the tree with path compression i.e we join all the nodes independently so that the tree length is reduced and the width increases. Thus the Time complexity remains O(log N).
+
+O(alpha(n)) or O(1) implementation: here alpha is known as inverse Ackermann function.
+Union by Size/Rank: In naive implementation union(a,b) b gets attached a, long chains can be formed, which leads to O(n) complexity. What we do is that we join the set with less element to the set with more elements which reduces the time complexity.
+
+Q. Cycle detection in undirected graph using DSU?
+PSEUDOCODE:
+    for all edge(u,v) in edges:
+        x=find_set(u)
+        y=find_set(v)
+        if(x==y)
+            //both belongs to same set, Cycle is found
+            return true
+        union(u,v)
+    return false
+
+Applications: 
+    1. Minimum spanning tree
+    2. Connected components in a graph
+    3. Cycle detection and many more.
+
+Spanning Tree: Given an undirected and connected graph G(V,E), a spanning tree of the graph G is a tree that spans G (that is, it includes every vertex of G) and is a subgroup of G(every edge in the tree belongs to G).
+
+The cost of the spanning tree is the sum of the weights of all the edges in the tree.
+Note: There can be many spanning trees.
+
+MINIMUM SPANNING TREE: MST is the spanning tree where the cost is minimum among all the spanning trees. There can be many MST as well.
+
+Kruskal's Algorithm: For minimum spanning tree. Time Complexity: O(E log V) Space Complexity: O(E+V)
+PSEUDOCODE:
+    1. Sort the edges in increasing order of their weights.
+    2. Iterate in the sorted edges,
+        If inclusion of i'th edge leads to a cycle, then skip this edge.
+        else
+            include the edge in MST.
+
+Prim's Algorithm: Greedy algorithm
+IDEA: 
+    Select an arbitrary vertex x s to start the tree from.
+        While (there are still nontree vertices)
+            Select the edge of minimum weight between a tree and nontree vertex.
+            Add the selected edge and vertex to the tree.
+
+Dijkstra's Algorithm: Single source shortest path to all the vertices in weighted graph. If the node is unreachable then print -1.
+Note: The weight of the edges should be positive.
+IDEA: 
+    1. Assign a distance value to all vertices in the input graph. Initialise all distance values as INFINITE. Assign distance value as 0 for the source vertex.
+    2. While set is not empty
+        A. Pick a vertex u from set s that has minimum distance value.
+        B. Update distance value of all adjacent vertices of u.
 
 ------------------------------------DYNAMIC PROGRAMMING-------------------------------------------
 Properties of Dynamic Programming: 
