@@ -1423,6 +1423,30 @@ IDEA:
         A. Pick a vertex u from set s that has minimum distance value.
         B. Update distance value of all adjacent vertices of u.
 
+Bellman Ford Algorithm: Single source shortest path to all the vertices in weighted graph.
+Idea: 
+    1. Initially d[v]=0 and for all other elements d[]=infinity.
+    2. On each pass, relax all the edges.
+        i.e. for edge (a,b) having weight w,
+            d[b]=min(d[b], d[a]+w)
+    3. Assuming no negative cycle, since there are n vertices , shortest path can only contain 'n-1' edges. Therefore, we will get our answer in at most 'n-1' passes.
+What makes it better than dijkstra?
+--> It will work for negative edges and negative cycles.
+--> It can detect negative cycle as well.
+
+Floyd Warshall Algorithm: To find all pair shortest path algorithm.
+
+Q. Snakes and Ladders? The game of snake and ladder.
+You are at square 1 and have to reach square 100. You have complete control over the die and can get any number from 1-6.
+For given ladders and snakes, find the minimum steps to reach.
+IDEA:
+    1. BFS
+    2. Push 1 into the queue,
+        For all possibilities in the dice:
+            Check if the next position is ladder, snake or empty.
+            Mark the square as visited and push into queue.
+    3. Stop the traversal, when you reached 100.
+
 ------------------------------------DYNAMIC PROGRAMMING-------------------------------------------
 Properties of Dynamic Programming: 
 1. Optimal Substructure: If we can write a recurrence relation, then a problem is said to have optimal substructure.
