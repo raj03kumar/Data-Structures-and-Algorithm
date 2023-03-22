@@ -1532,3 +1532,77 @@ Given two strings S1 and S2. We need to output length of the longest common subs
 Q6. Matrix Chain Multiplication?
 We are given 'n' matrices, we have to multiply them in such a way that total no. of operations are minimum.
 Time Complexity: O(n^3)
+
+Q. Minimum Jumps to reach end? more efficient is greedy solution and it is in O(n). Dp solution takes O(n^2).
+
+Q7. Optimal game strategy? 
+Rahul and Neha are playing a coin game. They are given n coins with values x1, x2...xn. where n is always even. They take alternate turns. In each turn, a player pics, either the first or the last coin from the row and removes it from the row. The value of coin is received by the player. Determine the maximum value that Rahul can win if he moves first. Both players play optimally.
+Input: 
+4
+1 2 3 4
+Rahul takes 4, Neha takes 3, Rahul takes 2, Neha takes 1. Hence Rahul has 6.
+DP Recurrence:
+For a given arrangement of coins A[i...j]
+We have two choices, 1. We can choose A[i] 2. We can choose A[j].
+In each case, our opponent will also have two choices. She will try to maximize her score and minimize ours.
+
+Therefore, our subproblem will reduce to 
+Choice1 = a[i]+min(solve(i+2, j), solve(i+1, j-1));
+Choice2 = a[j]+min(solve(i, j-2), solve(i+1, j-1));
+
+Q8. Number of Subsequences? You are given a string s consisting of lower case latin letters ('a'-'z') and some '?'
+Your task is to find no. of subsequences 'abc'in all the strings '?' should be replaced with either of {'a', 'b', 'c'}. HINT: We make 3^x strings. where x is '?'
+BRUTEFORCE: 
+1. Compute all the strings and then count subsequences in each string. (Not an optimal soln)
+
+DYNAMIC PROGRAMMING: (Optimal Approach)
+Declare 4 variables
+(i) e-> denoting count of all possible strings upto current element.
+(ii) a-> denoting count of subsequences ('a') in all the strings upto current element.
+(iii) ab-> denoting count of subsequence ('a b') in all the strings upto current element.
+(iv) abc-> denoting count of subsequence ('a b c') in all the strings upto current element.
+
+Q9. (IMPORTANT) Count the number of binary strings without consecutive 1s.
+Given a positive integer N, count all possible distinct binary strings of length N, such that there are no consecutive 1's.
+TESTCASE:
+INPUT:
+N=3
+OUTPUT: 5
+The 5 strings are 000, 001, 010, 100, 101
+States of dp only depends on the last character and 'n' the states will be number of strings of lenght 'i' ending with 1 or 0.
+--> Finally the ans is fibonacci of (n+1);
+
+Q.10 O-N Knapsack?
+Given an array of items with their weight and value. Find the max number of items that can be stolen using a knapsack of capacity W.
+Note: You can choose infinite items of each type.
+
+Q11. Kadane's Algorithm?
+
+Q12. Maximum length of bitonic subsequence? (Remember LIS Longest increeasing Subsequence)
+Given an array of n numbers. Find the maximum length of bitonic subsequence. A subsequence is bitonic if it is firstly strictly increasing and then strictly decreasing or entirely increasing or decreasing.
+IDEA: We know LIS so we can also find LDS(longest decreasing subsequence) from an element i.
+Hence the bitonic subsequence = forward[i]+backward[i]-1; here -1 becauase we have already counted it in forward and backward.
+
+Q13. Friends pairing problem?
+Given n friends, each one can remain single or can be paired up with some other friend. Each friend can be paired only once. Find out the total number of ways in which friends can remain single or can be paired up.
+IDEA: Let f(n) = ways n people can remain single or pair up.
+For n-th person there are two choices:
+1. n-th person remains single, we recur for f(n-1)
+2. n-th person pairs up with any of the remaining n-1 persons. We get (n-1)*f(n-2)
+
+f(n)=f(n-1)+(n-1)*f(n-2)
+
+Q14. UGLY NUMBERS?
+Ugly numbers are those numbers whose prime factors are 2, 3 or 5. The first 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12. By, convention 1, is included.
+Given, n print the n'th Ugly number.
+BRUTEFORCE: 1. Generate all the ugly numbers. 2. Sort the distinct ugly numbers. 3. Print the n'th ugly number.
+
+DP: Keep 3 pointers, think of it as merging three sorted lists.
+Assume you have Uk, the k'th ugly number.
+Then uk+1 must be min(p1*2, p2*3, p3*5) where p1, p2 and p3 are already generated numbers.
+Next potential ugly number will be the smallest multiple of already calculated numbers.
+
+Q15. LCS with 3 Strings?
+Print the LCS of 3 Strings. Length of all the strings is |s|<200. EASY ONLY!!!
+
+Q16. K-ordered LCS? DP
