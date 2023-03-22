@@ -1447,10 +1447,17 @@ IDEA:
             Mark the square as visited and push into queue.
     3. Stop the traversal, when you reached 100.
 
+Q. Surrounded Regions? Given a 2D board containing 'X' and 'O'. Capture all regions surrounded by 'X'. A region is captured by flipping all 'O's into 'X' in that surrounded region.
+
+IDEA: We find the 'O's which we can't capture.
+1. Traverse the 'O' components around the edges of the grid and change it to '*'
+2. Remaining 'O' components will be surrounded regions that can be captured.
+3. Change the '*' back to 'O'.
+
 ------------------------------------DYNAMIC PROGRAMMING-------------------------------------------
 Properties of Dynamic Programming: 
 1. Optimal Substructure: If we can write a recurrence relation, then a problem is said to have optimal substructure.
-2. Overlapping Subproblem: If our subproblems repeat, then a problem is said to have overlapping subproblem.
+2. Overlapping Subproblem: If our subproblems repeat, then a problem is said to have overlapping subproblem. For this we have to make a recursion tree and check.
 For example: if we have to compute fibonacci of 4. then we can use recurrence relation. And also we have to find fibonacci of some numbers again and again so we don't compute then again. we store and use it. So fibonacci follows both the properties.
 
 Ways to handle Overlapping Subproblem: 
@@ -1460,3 +1467,68 @@ Ways to handle Overlapping Subproblem:
 KEY POINTS: Minimization and maximization problems are generally solved using dp where we want exhaustive solution.   (Sometimes with binary Search on answer).
 "Find the number of ways" is also a very popular type of DP problems.
 Wherever we can form recurrence relation or given in question can be solved using DP. (Sometimes with matrix Exponentiation).
+
+Q1. FIBONACCI USING DYNAMIC PROGRAMMING: O(n) easy using array or vectors. You already know.
+
+Q2. Minimum number of squares whose sum equals to given number 'n'?
+Example: X=26 = 16+9+1 (square of 3 numbers are used)
+         X=26 = 25+1 (only 2 squares are used)
+        Hence the minimum number of numbers requires is 2.
+    Recurrence Relation: f(x)=min(f(x-i*i)+1); where i varies from i to sqrt(x)
+    Hence, it follows optimal substructure property.
+    It also has overlapping subproblems.
+    ALGORITHM: 1. Write the recusion algorithm. 2. Memoize in dp table.
+
+Q3. Coin change problem?
+Given a set of coins and a value 'V'. Find the number of ways we can make change of 'V'.
+IDEA: Here we have two options: either take it or don't take it.
+Let s={1,2,3} v=3
+cnt(s[],m,V)=cnt(s[],m,v-s)+cnt(s[], m-1, v)
+Since it can be represented as a Recurrence relation hence it has optimal substructure property.
+It also has overlapping subproblem property. Hence, it can be solved using Dynamic programming.
+Approach 1: (Using Memoization)
+            1. Write the recurrence relation
+            2. Memoize it - Basically means, create a DP table and store the results.
+Approach 2: (Tabulation-Bottom Up)
+            1. Take each coin one by one and fill DP table till that coin, for all the values from 0 to V.
+Approach 3: (Tabulation with Space Efficiency)
+            1. Just a minor change in approach 2.
+            2. We knew for every cell, we have 2 options.
+                (i) Take that coin
+                (ii) Do not take that coin. {We don't take an extra row, Update on the same cell}
+
+Time Complexity: O(V*m) and Space Complexity: O(n)
+
+Q. O-1 KNAPSACK DYNAMIC PROGRAMMING? We can't apply greedy here because the weights are indivisible.
+IDEA: We iterate from left to right in items array. For each item we have 2 choices.
+    (i) Take it = remaining capacity of Knapsack
+    (ii) Not take it = Capacity remains same.
+DP[n][w]=max(dp[n-1][w], dp[n-1][w-wt[n]]+val[n]);
+
+Time complexity: O(n*w)
+
+Q4. Longest increasing subsequence?
+You are given an array. Find the length of longest increasing subsequence.
+We define: Lis(i)=Length of longest increasing subsequence ending at i'th element
+Therefore, Lis(i) depends on Lis(k), where (0<k<i-1);
+If, a[i]>a[k],
+    Then, Lis(i)=max(Lis(i), 1+Lis(k)) (0<k<i-1);
+Since, we can write recurrence relation, hence it has optimal substructure property.
+
+Approach (using tabulation): 
+(1) Make a dp array and initialise all the dp(i) by 1. (Since single element is also in Lis)
+(2) For every i from left to right, iterate from j=0 to j=i-1.
+Checking:
+    if(a[i]>a[j]){
+        dp[i]=max(dp[i], 1+dp[j]);
+    }
+(3) After loop ends, Output [dp(n-1)]
+
+Time complexity: O(n^2)
+
+Q5. Longest Common Subsequence?
+Given two strings S1 and S2. We need to output length of the longest common subsequence.
+
+Q6. Matrix Chain Multiplication?
+We are given 'n' matrices, we have to multiply them in such a way that total no. of operations are minimum.
+Time Complexity: O(n^3)
