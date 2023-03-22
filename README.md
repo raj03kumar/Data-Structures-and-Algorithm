@@ -1606,3 +1606,7 @@ Q15. LCS with 3 Strings?
 Print the LCS of 3 Strings. Length of all the strings is |s|<200. EASY ONLY!!!
 
 Q16. K-ordered LCS? DP
+Print the LCS of two sequences given that you are allowed to change atmost K elements in the first sequence to any value you wish to.
+
+------------------------------------TRIES-------------------------------------------
+
