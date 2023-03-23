@@ -1609,4 +1609,58 @@ Q16. K-ordered LCS? DP
 Print the LCS of two sequences given that you are allowed to change atmost K elements in the first sequence to any value you wish to.
 
 ------------------------------------TRIES-------------------------------------------
+Tries are also known as prefix trees.
 
+Q. Maximum XOR of two numbers in an array?
+ARRAY = [3, 10, 5, 15, 2]
+BRUTE FORCE: run two loops and check for each pair. There will be nC2 combinations.
+
+Q. Trie Bash!
+Given an array arr. You are supposed to find the maximum value of (arr[a]^arr[a+1]....^arr[b])+(arr[c]^arr[c+1]....^arr[d]) where 1<=a<=b<=c<=d<=N, where N is the size of the array. ^ denotes XOR operation.
+Sample test case:
+INPUT: 
+4
+1 2 6 8
+OUTPUT:
+17
+EXPLAINATION:
+a=1, b=2, c=3, d=4, so (1^2)+(6^8)=3+14=17
+IDEA: 
+    1. We know how to calculate maximum XOR Subarray at 'i', let us denote it as lmax[]
+    2. If we do the same from right side, we can get maximum XOR Subarray at 'i', let us denote it as rmax[]
+    3. Final ans would be the maximum of lmax[i]+rmax[i+1]
+
+Q. Digital Dictionary?
+Neha has a digital dictionary. It has an input field in which one can search any string and the dictionary displays all the words whose prefix is that input string in lexicographical order.
+
+Now you are given a task to make your own digital dictionary. You will be given words that you can store in your database and then you need to design tbe search functionality. And if no such words are available for a given word, add this to your dictionary.
+INPUT: 
+Single integer N which denotes the number of words which are to be stored in the database of the dictionary.
+N lines of input, where in each line there is a string made up of lowercase letter.
+Single integer Q which denotes the number of Queries.
+Q number of lines describing the query string on each line given by user.
+SAMPLE INPUT:
+4
+pet 
+peter
+rat 
+rack
+5
+pe
+pet
+r
+rac
+rat
+SAMPLE OUTPUT:
+pet 
+peter
+pet
+peter
+rack
+rat
+rack
+rat
+
+IDEA: We will create a Trie data structure and store all the words that are in the dictionary. Now, in queries, we need to just check the words which have the prefix same as given in input. And then we need to use DFS for getting all the possiblities of words.
+
+-------------------------------------ADVANCED NUMBER THEORY------------------------------------------
