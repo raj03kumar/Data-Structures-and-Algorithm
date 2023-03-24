@@ -1664,3 +1664,59 @@ rat
 IDEA: We will create a Trie data structure and store all the words that are in the dictionary. Now, in queries, we need to just check the words which have the prefix same as given in input. And then we need to use DFS for getting all the possiblities of words.
 
 -------------------------------------ADVANCED NUMBER THEORY------------------------------------------
+Diophantine Equations: These are the polynomial equations for which integral solution exists.
+Example: ax+by=c. Solution of this equation exists only when gcd(a,b) divides c.
+
+EXTENDED EUCLID ALGORITHM: 
+GCD(a,b) has the property that ax+by=gcd(a,b)
+
+    LITTLE MATHS:
+    ax+by=gcd(a,b)
+    gcd(a,b)=gcd(b,a%b)
+    gcd(b, a%b)=bx1+(a%b)y1
+    a%b=a-(a/b)*b
+
+    From the above equations we get,
+    ax+by=bx1+(a%b)y1
+    ax+by=bx1+(a-(a/b)*b)y1
+    ax+by=ay1+b(x1-(a/b)*y1)
+
+    Comparing the coefficients of a and b, we get
+    x=y1
+    y=x1-(a/b)*y1
+
+MULTIPLICATIVE MODULO INVERSE:
+Consider the equation: (AxB)%m=1;
+Note: Multiplicative modulo inverse exists only if A and m are co-prime i.e. gcd(A, m)=1;
+We have to find B here. And B is our x in extended Euclid Algorithm.
+
+    LITTLE MATHS:
+    A*B==1 (over mod m)
+    (A*B-1)==0 (over mod m)
+    A*B-1=mq
+    A*B+mq=1 where B is the value of x in our Extended Euclid Algorithm.
+
+EULER TOTIENT FUNCTION:
+number of numbers from 1 to n-1 which are co-prime with n.
+    Boring derivation
+IMPLEMENTATION: similar to Sieve of Eratosthenes
+    1. Declare an array a[] of size n+1
+    2. Initialize the array with a[i]=i
+    3. Iterate from 2 to n and check if(a[i]==i), if yes that means it is a prime number because it is not touched by previous numbers during the iteration. Change it to a[i]-1 and multiply all its multiples with (1-1/a[i])
+    4. You have your array with totient values ready.
+
+Binary Exponentiation:
+Many times, our answer is out of range of int. To avoid this we use modulo operation to overcome this problem. Some of the properties of modulo operation are:
+    (a+b)%m=(a%m)+(b%m)
+    (a*b)%m=(a%m)*(b%m)
+    (a-b)%m=(a%m)-(b%m) --> this value can be negative also so add the negative value with m
+    (a/b)%m=(a%m)*(b-1%m) --> where b-1 is inverse of b or 1/b
+
+    Recursive Version: To calculate a^n
+        Cases:
+            First CASE: n->odd
+                a^n=a^(n/2)*a^(n/2)*a;
+            Second CASE: n->even
+                a^n=a^(n/2)*a^(n/2)
+    Iterative Version: To calculate a^n
+    
