@@ -1782,4 +1782,34 @@ And the matrix is [1,1][1,0] i.e 2x2 matrix.
 
 ------------------------------------------STRING ALGORITHM--------------------------------------
 
-1. String Hash
+1. String Hash:
+a-> 1 ...... z-> 26
+"apna" -> 1*27^3 + 16*27^2 + 14*27^1 + 1*27^0 .... we have to use like this and the number should be greater than or equal to 27 atleast because we we can't assign 0 to a because then a, aa, aaa will have same hash function.
+
+But this grows exponentially so we use mod. 
+
+Q. Find the number of unique strings?
+Simply put then in unordered_set and return size of set.
+
+Q. Calculate the indices of the occurences of string s in t. (NAIVE STRING MATCHING ALGORITHM)
+LEARN: substr function s.substr(index, length_of_substr)
+
+Q. KMP Algorithm? O(m+n)
+    Prefix Function: very easy. just we have to start from begin and the see if the pattern gets repeated of not. Watch Abdul Bari video.
+
+Q. Rabin Karp Algorithm?(HASHING) O(m+n) and worst case is O(mn)
+
+--------------------------GUIDE TO INTERACTIVE PROBLEMS-----------------------------------------------
+LEETCODE API questions. Easy approach
+
+Only thing to remember is that we have to flush our input after each cin/cout.
+By default cin/ cout flushes but for other languages like JAVA and Python we have to do it manually.
+
+Q. Guess the number?
+There are two different responses testing program can provide: 
+string "<", if the hidden number is less than the integer in your query
+string ">=", if the hidden number is greater than or equal to the integer in your query.
+Your program can make only 25 queries atmost.
+When your program wants to guess the hidden number, print ! x, where x is the answer, and terminate your program immediately after flushing the output stream.
+
+-----------------------------------------SEGMENT TREE---------------------------------------------
