@@ -1813,3 +1813,40 @@ Your program can make only 25 queries atmost.
 When your program wants to guess the hidden number, print ! x, where x is the answer, and terminate your program immediately after flushing the output stream.
 
 -----------------------------------------SEGMENT TREE---------------------------------------------
+Need of Segment Trees:
+Let us take an example of returning and updating sum of the subarray a[i...j] of size n.
+
+Approach 1: If we want the sum from index 1 to 5 then we can simply iterate and we can find the sum and hence it the query(sum) will take O(n) complexity. If we want to update any element then it will take O(1). So the query takes O(n) and update takes O(1).
+
+Approach 2: If we make prefix sum of the array then we can get the query in O(1) but for the update query we have to update all the elements in our prefix array till the last hence again it is O(n).
+So the query takes O(1) and O(n).
+
+If we want both the operations in reasonable time, then we use segment tree and it does both query and update in O(log n)
+
+Segment Tree Construction: It is same as in merge sort we divide the array till the last node.
+    Given Array: 5 3 2 4 1 8 6 10
+
+    For safety, we make segment tree of 4xn size.
+
+    BUILDING OF SEGMENT TREE:
+    -> It is very simple
+    -> We use divide and conquer to build segment tree.
+
+Query: 
+For a query[1, 5] carefully see the process.
+    (i) Complete Segment
+    (ii) Partial Segment
+    Learn better from video
+
+Maximum And Minimum Queries/Updates:
+Given an array a[] for size n. We have to answer and process following operations.
+    (i) Query: Output the maximum/minimum for the sub-array a[i...j]
+    (ii) Update: Update the ith element of the array arr(idx) = Updated Value.
+    SEGMENT TREE IS VERY SIMPLE CONCEPT.
+    NOTE: Update is just like binary search. we have to search for a value in tree and update it.
+
+Q. Number of minimums on a segment?
+This question is from CodeForces.
+Change the code of the segment tree so that, in addition to the minimum on a segment, it also counts the number of elements equals to the minimum.
+
+Q. Segment with Maximum Sum?
