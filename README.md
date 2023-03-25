@@ -1705,7 +1705,7 @@ IMPLEMENTATION: similar to Sieve of Eratosthenes
     3. Iterate from 2 to n and check if(a[i]==i), if yes that means it is a prime number because it is not touched by previous numbers during the iteration. Change it to a[i]-1 and multiply all its multiples with (1-1/a[i])
     4. You have your array with totient values ready.
 
-Binary Exponentiation:
+Binary Exponentiation: Very Important in competitive coding
 Many times, our answer is out of range of int. To avoid this we use modulo operation to overcome this problem. Some of the properties of modulo operation are:
     (a+b)%m=(a%m)+(b%m)
     (a*b)%m=(a%m)*(b%m)
@@ -1719,4 +1719,67 @@ Many times, our answer is out of range of int. To avoid this we use modulo opera
             Second CASE: n->even
                 a^n=a^(n/2)*a^(n/2)
     Iterative Version: To calculate a^n
+        To calculate a^45
+    We can write 45 in binary format as (101101)
+    Algorithm:
+    1. Start with variable x=1. Keep multiplying it with itself.
+    2. Whenever there is 1 in binary representation, multiply with ans.
+
+Fermat's Little Theorem:
+    Fermat's Little theorem states that if p is a prime number then for any integer a, the number a^p-a, is an integer multiple of p.
+    a^p=a (over mod p)
+    - If a is not divisible by p, Fermat's little theorem is equivalent to the statement that (a^p-1)-1 is an integer multiple of p
+        a^(p-1) = 1 (over mod p)
+    APPLICATIONS:
+    1. Modulo inverse using Fermat's little theorem.
+        a^p = a (over mod p)
+        If a is not divisible by p,
+        a^(p-1)=1 (over mod p)
+        Multiplying both sides by a^(-1)
+            a^(p-2)=a^(-1) (over mod p)
     
+    2. Evaluating (a/b)%m = (a%m)*((b-inverse)%m)
+        - (a/b)%m = ((a%m)*((b-inverse)%m))%m
+
+    3. Evalutaing (nCr)%p using Fermat's little theorem:
+        Only if p>n;
+        1. Pre-calculate factorials taking modulo p
+        2. nCr%p=(fact[n]*modInverse(fact[r])%p*modInverse(fac[n-r])%p)%p
+
+Wilson's Theorem:
+    - A positive integer n>1 is a prime if and only if (n-1)! = -1 (over mod n) or (n-1)!=n-1 (over mod n)
+    - In other words , (n-1)! is 1 less than a multiple of n.
+    - For example, since we know that 101 is prime number, we can conclude immediately that 100! = 101k-1 for some integer k
+
+Q. Boring Factorials ?
+Neha gives you a prime number P and an integer N close to P, and ask you to Find N! modulo.
+Constraints: 
+1 < P <= 2*10^9
+1 <= N <= 2*10^9
+Abs(N-P) <= 1000
+
+IDEA:
+N being very large, hence calculating n!mod p is not possible.
+
+- If n >=P, then (n!)%p = 0, because (1....p....n)%p = 0
+- If n < p, We use wilson theorem
+        (p-1)! = p-1 (over mod p)
+    But, now we have to remove (n+1)*(n+2)*....(p-1)
+    We will remove them by taking inverse modulo
+
+    For (int i=n+1; i < p; i++){
+        res = (res*modInverse(i, p))%p
+    }
+
+Time Complexity: Taking inverse of 'p-n' numbers in log time. Hence, O((p-n)*logn)
+
+Q. Fibonacci in O(log n) using MATRIX EXPONENTIATION?
+Matrix exponentiation is made by Matrix Multiplication and Binary Exponentiation concept.
+Matrix multiplication takes O(k^3) time where k is constant and Binary Exponentiation takes O(log n) time. Hence the final time complexity is O(log n).
+
+Representing fibonacci series in the form of matrix multiplication.
+And the matrix is [1,1][1,0] i.e 2x2 matrix.
+
+------------------------------------------STRING ALGORITHM--------------------------------------
+
+1. String Hash
