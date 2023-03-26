@@ -1850,6 +1850,93 @@ This question is from CodeForces.
 Change the code of the segment tree so that, in addition to the minimum on a segment, it also counts the number of elements equals to the minimum.
 
 Q. Segment with Maximum Sum?
+This question is from CodeForces.
+In this problem, you need to write a segment tree to find the segment with the maximum sum.
+IDEA:
+In these kind of problems we require four variables for each segment of the segment tree.
+    1. Sum - Stores the sum of the segment
+    2. Suff - Store the maximum suffix sum of the segment
+    3. Pref - Stores the maximum prefix sum of the segment
+    4. Ans - Stores the ans that is the maximum sum of the segment
+For Updation:
+    Left child - L, Right child - R. Then the parent P's properties are:
+    1. P.sum = L.sum + R.sum
+    2. P.suff = max(R.suff, R.sum+L.suff)
+    3. P.pref = max(L.pref, L.sum+R.pref)
+    4. P.ans = max({L.ans, R.ans, L.suff+R.pref})
+
+Q. K-th One?
+This question is from CodeForces.
+In this problem, you need to add to the segment tree the operation of finding the K-th One.
+The queries are as follows:
+    1 i: change the element with index i to the opposite.(if 1 then 0 if 0 then 1)
+    2 k: find the k'th one(one's are numbered from 0)
+OUTPUT:
+For each operation of the second type, print the index of the corresponding one.
+
+IDEA:
+In these kind of problems, we descend the segment tree
+
+When we are standing at any segment, we have the decision ability to either go to the left child of the segment or right child of the segment.
+
+SEGMENT TREE + BINARY SEARCH
+
+Q. First Element atleast X
+Problem: Given an array a[] of size n.
+Constraints: 1<n<10^5
+You are given m queries of the form:
+    1 i v: change a[i] to V
+    2 x: Find the minimum index j such that a[j]>=x
+
+APPROACH: 
+    1. After building the max segment tree we can analyze our array to be sorted in increasing order.
+    Eg: Array --> 1 3 2 4 6
+    after applying the queries from 0:m we get our ans as. Our query is to find the max element between 0:m
+    Array --> 1 3 2 4 6
+    Ans   --> 1 3 3 4 6 (sorted)
+    2. Since our array is sorted, we can apply binary search
+
+Q. First Element atleast X (Part - 2)
+In this task, you need to add to the segment tree the operation of finding for the given x and l the minimum index j such that j>=l and a[j]>=x
+You are given m queries of the form:
+    1 i v: change a[i] to V
+    2 x l: Find the minimum index j such that j>=l and a[j]>=x
+
+NESTED SEGMENTS:
+
+Q. Given an array of 2n numbers, each number from 1 to n in it and occurs exactly twice. We say that the segment x if both occurences of number x. Find for each segment i, how many segments are there that are nested inside it.
+Constraints: 1<=n<=10^5
+
+Example: n = 5  Array: 5 1 2 2 3 1 3 4 5 4
+                Index: 0 1 2 3 4 5 6 7 8 9
+
+                So for 1: two 1 are from index 1 to 5 and there is one element between the index which is repeated twice i.e 2 so we return 1 {2}
+                for 2: index is from 2 to 3 hence no number lies between it so we return 0
+                for 3: index is from 4 to 6 and only single 1 lies so return 0
+                for 4: only single 5 is between so return 0
+                for 5: index is from 0 to 8 and we find two 1, two 2, two 3 inside the index so we return 3 {1, 2, 3}
+
+    Let us make the intervals out of the given array.
+        1 - [1,5]    
+        2 - [2,3]
+        3 - [4,6]
+        4 - [7,9]
+        5 - [0,8]
+    So our problem reduces to finding for each segment, the number of segments lying completely inside it.
+
+    APPROACH: Slight modification in 'present sir' approach.
+    1. Sort all the interval in increasing order of 'r' values
+    2. Start from the left and after calculating ans for each interval, mark the 'l' on the number line as present.
+    3. When [1,5] comes, we need to find the number of 'present sir' on the number line from [1,5]
+    4. Similarly for [4,6], [0,8] and [7,9]. Keep updating the query's response in the answer array.
+
+
+
+
+
+
+
+
 
 
 -----------------------------POLICY BASED DATA STRUCTURE--------------------------------
