@@ -1850,3 +1850,35 @@ This question is from CodeForces.
 Change the code of the segment tree so that, in addition to the minimum on a segment, it also counts the number of elements equals to the minimum.
 
 Q. Segment with Maximum Sum?
+
+
+-----------------------------POLICY BASED DATA STRUCTURE--------------------------------
+- Ordered Set (Special type of set)
+- Based on Red Black Tree
+- Other sets are implemented by balanced BST but this is implemented using Red Black Trees
+
+Fix for windows users if it doesn't work
+
+ORDERED SET:
+first declare the ordered set:
+template<class T> using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>
+
+- null type: It is mapped policy. It is null here to use it as a set. If we want to get map but not set, as the second argument type must be use mapped type.
+- less: It is the basis for comparison of two functions. Use less_equal for ordered multiset.
+- rb_tree_tag: type of tree used.
+- tree_order_statistics_node_update: It is included in tree_policy.hpp and contains various operations for updating the node variants of a tree-based container, so we can keep track of metadata like the number of nodes in a subtree.
+
+OPERATIONS:
+- Normal set operations
+- Random access in O(log N)
+    Find k'th largest element in the set
+- Number of items less than K in O(log N)
+
+CODE:
+- order_of_key(k): Number of items strictly smaller than k
+- find_by_order(k): k-th element in set (counting from zero)
+
+Q. Given q queries, of 3 types:
+    1. Insert a number X into the set
+    2. Print the k'th element
+    3. Print the number of elements less than k
