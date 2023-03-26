@@ -1982,7 +1982,7 @@ CODES:
     }
 - For Updates:
     void update(int idx, int val){
-        while(idx < N){
+        while(idx <= N){
             bit[idx]+=val;
             idx+=idx & (-idx);
         }
@@ -2008,8 +2008,71 @@ For query of type 2:
     2. Push 'val' to all the values which are responsible for A[idx]
 
 Q. Range Sum with Range Updates using Fenwick Tree?
+    - update(L, R, val)
+        Add val to arr[L], arr[L+1]....arr[R]
+        - We update the segment arr[L:] with 'val', and the segment arr[R+1:] with '-val'(negative val)
+        - The contribution of val, gets limited to arr[L,R]
+    - query(L)
+        To get value stored at arr[L]
+        - Query(L): we take the sum from A[0], A[1], ...A[L], i.e. query(L)
+
+    Explaination:
+        1. For i<j<l, update(i, j, val) net contribution in query(L) would be zero.
+        2. For i<L<j, update(i, j, val) net contribution in query(L) would be val.
+        3. For L<i<j, update(i, j, val) net contribution in query(L) would be zero.
 
 Note: We can implement it using segment trees as well but the code of Fenwick tree is less than that of Segment trees so we prefer Fenwick tree
+
+
+Q. Count Inversions using Fenwick Tree?
+Two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
+
+Array: 3 5 6 9 1 2 7 8
+
+Inversions: 10
+Explaination: (3,1), (3,2), (5,1), (5,2), (6,1), (6,2), (9,1), (9,2), (9,7), (9,8)
+
+Brute-force: O(N^2) using 2 for loops
+
+USING BIT(Binary Indexed Tree): O(nlogn)
+IDEA: Traverse through the array and for every index find the number of smaller elements on its right side of the array. Sum up the counts for all indexes in the array and print the sum.
+
+APPROACH: 1. Convert the array into relative ordering: For example: if the array is {-3, 2, 0} then the array gets converted to {1,3,2}
+
+To take negative and large values into account we give the smallest number value as 1.
+
+PSEUDOCODE:
+//Traverse all elements from right.
+for(int i=n-1; i>=0;i--){
+    //get count of elements smaller than arr[i]
+    invcount+=getSum(BIT, arr[i]-1);
+    //Add current element to BIT
+    update(BIT, n, arr[i], 1);
+}
+
+Q. Square Root Decomposition?
+We know that queries for calculating sum in range[l,r] by brute-force is O(n) but this Square root decomposition is O(sqrt(n))
+
+IDEA: We break our block of array into sqrt(arr.size()) segments.
+
+Easy only. Sometimes we get complete blocks, sometimes we get partial blocks
+
+Q. RMQSQ - Spoj question (Range min query using sqrt decomposition)
+You are given a list of N numbers and Q queries. Each query is specified by two numbers i and j; the answer to each query is the minimum number between the range [i,j] (inclusive)
+NOTE: the query ranges are specified using 0-based indexing.
+
+INPUT:
+3
+1 4 1
+2
+1 1
+1 2
+OUTPUT:
+4
+1
+
+MO's ALGORITHM (Square Root Decomposition):
+
 
 -----------------------------POLICY BASED DATA STRUCTURE--------------------------------
 - Ordered Set (Special type of set)
