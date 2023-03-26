@@ -1930,14 +1930,86 @@ Example: n = 5  Array: 5 1 2 2 3 1 3 4 5 4
     3. When [1,5] comes, we need to find the number of 'present sir' on the number line from [1,5]
     4. Similarly for [4,6], [0,8] and [7,9]. Keep updating the query's response in the answer array.
 
+INTERSECTING SEGMENTS:
+Given an array of 2n numbers, each number from 1 to n in it occurs exactly twice. We say that the segment y intersects the segment x if exactly one occurence of the number y is between the occurences of the number x. Find for each segment i, how many segment are there that intersect with i'th segment.
 
+Same as before just here we have to count only one occurence and ignore the numbers with 2 occurences.
 
+Let us make the intervals out of the given array.
+        1 - [1,5]    
+        2 - [2,3]
+        3 - [4,6]
+        4 - [7,9]
+        5 - [0,8]
+    So our problem reduces to finding for each segment, the number of segments lying partially inside it.
 
+    Number of segments lying partially inside it = Number of numbers between the segment - 2*(number of segments lying completely inside it) i.e our nested segment problem
 
+---------------------FENWICK TREE (BINARY INDEX TREE)----------------------------------
+Given an array, find the sum of array(L,R). This can be done using prefixSum array. O(N) for preprocessing and O(1) for query. Sum(L,R) = prefix[R]-prefix[L-1]. But what if we have to update the elements also. So for updating the prefix array we would need O(N) time.
+So the fenwick tree helps us to reduce the O(N) time. Rest finding the sum remains same.
+For each number LSB, we define its responsibility.
 
+FOR QUERY:
+Chain of responsibilities:
+Sum(1....11) = A[11]+A[10]+A[8] because only they are responsible.
+Dropping LSB, and getting the next number.
 
+Easy only check the diagram once again if confused. We have to count numbers down of what the LSB denotes. If LSB denotes 7 then the number is responsible for the 7 numbers below it. If it is 16 then if is responsible for 16 numbers below it. We have to add the numbers until we completely come to 0 or we take all the numbers responsible until 0.
 
+FOR UPDATES:
+- What if we have to do point updates?
+- update according to their responsibilty
 
+Point Updates: Point updates are the opposite of this, we want to add the LSB to propagate the value up to the cells responsible for us.
+
+SIMPLE: If we have to do query then we have to subtract the LSB, and when we have to do updates then we have to add the LSB.
+
+ISOLATION OF LSB (Extraction of LSB):
+- Let a positive number be of the form: 'a1b' where 'a' contains random binary bits, and 'b' contains only '0's
+- hence, taking the two's complement of the number would be '~a1b'.
+- hence taking bitwise AND of a1b and ~a1b we get 1b or 10000......0
+
+CODES:
+- For Query:
+    int query(int idx){
+        int ans = 0;
+        while(idx>0){
+            ans+=bit[idx];
+            idx-=idx & (-idx);
+        }
+        return ans;
+    }
+- For Updates:
+    void update(int idx, int val){
+        while(idx < N){
+            bit[idx]+=val;
+            idx+=idx & (-idx);
+        }
+    }
+
+TIME COMPLEXITY:
+- For Querying: In each iteration we are removing a LSB from the number. In the worst case, there will be O(log N) operations.
+- For Point Updates: In each iteration we are adding LSB in the number. In the worst case, there will be O(log N) operations.
+
+Updates are of two types:
+- Range sum in Point Updates
+- Range sum with Range Updates
+
+Q. Range Sum with Point Updates using Fenwick Tree?
+Given an array A and Q queries. There are two types of queries:
+    1. LR, Print the sum of Array[L....R]
+    2. idx val, Update A[idx] to val
+
+IDEA:
+For query of type 1: Sum(L...R) = Query(R)-Query(L-1)
+For query of type 2: 
+    1. Push '-A[idx]' to all the nodes responsible for A[idx]
+    2. Push 'val' to all the values which are responsible for A[idx]
+
+Q. Range Sum with Range Updates using Fenwick Tree?
+
+Note: We can implement it using segment trees as well but the code of Fenwick tree is less than that of Segment trees so we prefer Fenwick tree
 
 -----------------------------POLICY BASED DATA STRUCTURE--------------------------------
 - Ordered Set (Special type of set)
