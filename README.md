@@ -2072,6 +2072,60 @@ OUTPUT:
 1
 
 MO's ALGORITHM (Square Root Decomposition):
+You are given an array of size n and q queries. Each query is a range query. In each query, we have to perform some operation and output answer of each query.
+
+Brute-force: For each query -> Compute the answer for that query -> Jump onto next query
+Time complexity: O(n*Q)
+
+Efficient Solution - MO's Algorithm:
+Input all the queries simultaneously -> Sort the queries in a particular fashion
+Note: This step is known as offline processing of queries.
+
+Like we first complete the first segment block queries and so on.
+
+Example: If we are given    L R     ->      L R
+                            7 8             2 7
+                            1 6             1 6
+                            2 7             7 8
+
+Variables: curr_l, curr_r (Pointers pointing to the current computed answer) 
+           l, r (Pointers pointing to the required query)
+
+Four Cases: 
+curr_l < l          curr_l > l          curr_r < r          curr_r > r
+(increase curr_l)  (decrease curr_l)  (increase curr_r)  (decrease curr_r)
+
+Time Complexity:
+For sorting all the queries: Qlog(Q)
+Call for all blocks: n/sqrt(n)*n(i.e for each block)  (n/sqrt(n) is the T.C. for number of blocks)
+Number of times change in value of curr_l -> sqrt(n)*Q
+Total time complexity: O((n+Q)*sqrt(n))
+
+Q. DQUERY - SPOJ QUESTION using MO's Algorithm:
+Given a sequence of n numbers a1, a2, ..., an and a number of d-queries. A d-query is a pair (i, j) (1 ≤ i ≤ j ≤ n). For each d-query (i, j), you have to return the number of distinct elements in the subsequence ai, ai+1, ..., aj.
+
+Input
+Line 1: n (1 ≤ n ≤ 30000).
+Line 2: n numbers a1, a2, ..., an (1 ≤ ai ≤ 106).
+Line 3: q (1 ≤ q ≤ 200000), the number of d-queries.
+In the next q lines, each line contains 2 numbers i, j representing a d-query (1 ≤ i ≤ j ≤ n).
+
+Output
+For each d-query (i, j), print the number of distinct elements in the subsequence ai, ai+1, ..., aj in a single line.
+
+Example
+Input
+5
+1 1 2 1 3
+3
+1 5
+2 4
+3 5
+
+Output
+3
+2
+3 
 
 
 -----------------------------POLICY BASED DATA STRUCTURE--------------------------------
