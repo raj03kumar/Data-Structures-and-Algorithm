@@ -527,6 +527,10 @@ Quick Sort: Divide and conquer. In this we select an element(pivot) and put it i
 now we iterate: if j < pivot then i++ and swap i and j and then j++. if j>pivot then only j++. And finally we swap pivot and i+1.
 now the left and right subarray are not sorted so we have to apply again.
 
+```
+QUICK SORT explained quickly: Here we choose the first element as the pivot element always. We have to find the right place of this element and to do this we make a partition function. We use two pointer approach with i and j. Our main goal of i pointer is to find the element which is currently greater than the pivot element and on left side so that we can swap it with j pointer and bring it right side. And the goal of j pointer is to find an element which is smaller than the pivot element so that we can swap with i and bring it on the left side. The elements on the left are smaller than the pivot element and the elements on the right are always bigger than the element. Note: when j crosses i then we swap j and pivot element.
+```
+
 Count inversion problem: implementation of merge sort. lecture 19.3 (boring)
 
 Count Sort: Find the count of every distinct element. Calculate the position of each element in sorted array. Easy h...u already know.Code with harry is best for count sort.
