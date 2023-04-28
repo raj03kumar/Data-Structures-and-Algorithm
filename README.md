@@ -917,10 +917,13 @@ DEQUE: stands for doubly ended queue. here we can push and pop both from both en
 ```
 ```
 Q. SLIDING WINDOW MAXIMUM?
-APPROACH: HERE, the approach is that we first find the first sliding window value. i.e. by running for loop from i=0 to i=k, where k is given in question. 
+APPROACH: HERE, the approach is that we first find the first sliding window value. i.e. by running for loop from i=0 to i=k, 
+where k is given in question. 
+
 Now we us another loop where we decrease the value from beginning and add the next upcoming values. 
 
---> Here we are given an array and a number k. we have to find the max of all the elements containing in every subset which has length 3.
+--> Here we are given an array and a number k. 
+We have to find the max of all the elements containing in every subset which has length 3.
 So we have to print maximum of all the elements in the window.
 [1,3,-1,-3,5,3,6,7]
 --> 3,3,5,5,6,7
@@ -929,13 +932,16 @@ So we have to print maximum of all the elements in the window.
 approach 1: using for loop. TIME COMPLEXITY: O(N*k) and Space complexity: O(1)
 
 approach 2: Using deque: O(n) and space complexity O(k)
-in deque we only store the useful elements inside deque: useful elements are those elements which doesn't have any smaller number on its left. 
-Or you can think that if k = 3 then the useful elements are the elements from the subset of length 3 which are in decreasing order from left to right and we remove the last element.
-say [4,1,3,5,1,2,3,2,1,1,5].
+in deque we only store the useful elements inside deque: useful elements are those elements which doesn't have 
+any smaller number on its left. 
+Or you can think that if k = 3 then the useful elements are the elements from the subset of length 3 which are in decreasing order 
+from left to right and we remove the last element say [4,1,3,5,1,2,3,2,1,1,5].
 the ans of sliding window maximum is 4,5,5,5,3,3,3,2,5
 so the useful elements are as follows.
-[4,3] because we first insert [4,1] and then we insert 3 and we find out that one is there which is smaller than 3 so we remove 1 and we get [4,3].
-[5] because in next step we remove 4 because it is not a part now and we are left with [3] so we insert 5 and we find that 3 is smaller so we remove 3 and add 5.
+[4,3] because we first insert [4,1] and then we insert 3 and we find out that one is there which is smaller than 3 so we 
+remove 1 and we get [4,3].
+[5] because in next step we remove 4 because it is not a part now and we are left with [3] so we insert 5 and we find that 3 is 
+smaller so we remove 3 and add 5.
 [5,1] since 1 is smaller so we just insert it.
 [5,2] since 1 is smaller than 2 so we remove one and insert 2.
 [3] we remove 5 because it is not a part anymore. we remove 2 because 3 is greater than 2.
@@ -943,57 +949,93 @@ so the useful elements are as follows.
 [3,2,1]
 [2,1,1]
 [5]
-here our ans is always the first element of the array. so we make deque to make the above subset array and with pop_front() we get our maximum value.
-NOTE: we have to maintain a decreasing order and we have to store the index of elements in deque and not the elements. above one is only for understanding.
+here our ans is always the first element of the array. 
+So we make deque to make the above subset array and with pop_front() we get our maximum value.
+
+NOTE: we have to maintain a decreasing order and we have to store the index of elements in deque and not the elements. 
+
+Above one is only for understanding.
 ```
 ---
 ### STACK-QUESTIONS
 ```
 1. LARGEST RECTANGLE IN A HISTOGRAM: use of stack.
-Given an array. Each element represents the height of the HISTOGRAM bar and the width of each bar is 1. Find the area of largest rectangle in HISTOGRAM.
-STACK APPROACH: we will push the elements if they are in increasing order. and if we get a smaller element then we get a potential area so we will find out the area. and we will find out the maximum of all such areas.
+
+Given an array. Each element represents the height of the HISTOGRAM bar and the width of each bar is 1. 
+Find the area of largest rectangle in HISTOGRAM.
+
+STACK APPROACH: we will push the elements if they are in increasing order. and if we get a smaller element then we get a 
+potential area so we will find out the area. and we will find out the maximum of all such areas.
 For visualisation you can see video. it is bookmarked.
 ```
 ```
 2. TRAPPING RAINWATER HARVESTING: use of stack. 
-Given non-negative integers representing an elevation map where the width of each bar is 1. Compute how much water can trap after rain.
+
+Given non-negative integers representing an elevation map where the width of each bar is 1. 
+Compute how much water can trap after rain.
 ARRAY: [0,1,0,2,1,0,1,3,2,1,2,1] here ith element represents the height of the ith bar.
 understand it like you are given a model we have to find out the maximum water this model can collect.
 here the ans is 6.
-STACK APPROACH: if we are getting decreasing elements then water will move away. so as soom as a big element is found. a countainer is made and it can store the water.
+
+STACK APPROACH: if we are getting decreasing elements then water will move away. so as soom as a big element is found. 
+A container is made and it can store the water.
 ```
 ```
-3. REDUNDANT PARENTHESIS: means it there is any extra unncessary parenthesis in the given expression or not. USE of stack.  HERE WE ONLY USE SMALL BRACKETS FOR SIMPLICITY.
-Given a valid mathematical expression, find whether it have redundant parenthesis or not. It contains the following operators. '+', '-', '*', '/'. 
+3. REDUNDANT PARENTHESIS: means it there is any extra unncessary parenthesis in the given expression or not. 
+USE of stack. HERE WE ONLY USE SMALL BRACKETS FOR SIMPLICITY.
+
+Given a valid mathematical expression, find whether it have redundant parenthesis or not. 
+It contains the following operators. '+', '-', '*', '/'. 
 ((a+b))--> yes, it has redundant parenthesis.
 (a+(a+b))--> no, all is fine.
-APPROACH: We have to use stack and push the parenthesis and the operators inside the stack. if we find a closing parenthesis then we have to make sure that there is alteast one operator present before we find its other pair. if no operator then it is redundant parentheis i.e. unncessary parenthesis.
+
+APPROACH: We have to use stack and push the parenthesis and the operators inside the stack. 
+if we find a closing parenthesis then we have to make sure that there is alteast one operator present 
+before we find its other pair. 
+if no operator then it is redundant parentheis i.e. unncessary parenthesis.
 ```
 ```
 4. THE STOCK SPAN PROBLEM: 
-The span of the stock price today is defined as the maximum number of consecutive days(starting from today and going backwards) for which the price of the stocks was less than or equal to today's price.
+The span of the stock price today is defined as the maximum number of consecutive days(starting from today and going backwards) 
+for which the price of the stocks was less than or equal to today's price.
 Find the span of the stock for all the days.
 ARRAY: [100, 80, 60, 70, 60, 75, 85]
 ANS:   [1, 1, 1, 2, 1, 4, 6]
 
 STACK APPROACH: here we make a stack of pairs. in which the first element stores price and second element shows days.
-now we push (100,1) then (80,1) then (60,1) then we get get 70 which is greater than 60 so we pop out 60 and we push (70, 1+(st.top.second)); now we push (60,1) now we check if 75 is greater or not. so we pop 60 ans push(75, 1+(st.top.second)) we again pop 70 and we finally push(75, 1+1+2) i.e. (75,4) and at last we push(85, 1+4+1) i.e. (85,6)
+now we push (100,1) then (80,1) 
+then (60,1) then we get get 70 which is greater than 60 so we pop out 60 
+and we push (70, 1+(st.top.second)); 
+now we push (60,1) now we check if 75 is greater or not. 
+so we pop 60 ans push(75, 1+(st.top.second)) we again pop 70 
+and we finally push(75, 1+1+2) i.e. (75,4) and at last we push(85, 1+4+1) i.e. (85,6)
 ```
 ```
-5. 3 SUM problem: You already know two sum(leetcode) If we use brute force approach then we have to find all the combinations who sum is equal to given sum but it will be of T.C. O(n^3).
+5. 3 SUM problem: You already know two sum(leetcode). 
+If we use brute force approach then we have to find all the combinations who sum is equal to given sum 
+But it will be of T.C. O(n^3).
 So we first sort the array and use two pointer approach.
 Given an array and a value, find if there exists three numbers whose sum is equal to the given value.
 n=6, target=24, arr= 12, 3, 7, 1, 6, 9
 OUTPUT: true(12,3,9)
+
 TWO POINTER APPROACH:
 so we fix one pointer and send for two sum problem to find if there exist any sum who's value is target - current pointer value.
-if there exist any element then there exist a value because we will simply add the elements we get from two sum to the current pointer element and voila! we get the value.
-We know the time complexity of two sum problem is O(n) so here we are traversing the array also so our new T.C. becomes O(n*n) so O(n^2) and for sorting it takes O(nlog n) so final time compelxity is O(n^2).
-TwoSum: it is simple. O(nlog n) algorithm. we sort the elements(O(nlogn)) it uses two pointers low and high. low is at 0 index and high at last index. we find if curretn sum i.e arr[low]+arr[high]==target then return true. else if current sum<target then i++; if currentsum > target then high--; and we run the while loop (low<high).
+if there exist any element then there exist a value because we will simply add the elements we get from two sum to the current 
+pointer element and voila! we get the value.
+We know the time complexity of two sum problem is O(n) so here we are traversing the array also so our new T.C. 
+becomes O(n*n) so O(n^2) and for sorting it takes O(nlog n) so final time compelxity is O(n^2).
+
+TwoSum: it is simple. O(nlog n) algorithm. we sort the elements(O(nlogn)) it uses two pointers low and high. 
+low is at 0 index and high at last index. we find if curretn sum i.e arr[low]+arr[high]==target then return true. 
+else if current sum<target then i++; if currentsum > target then high--; and we run the while loop (low<high).
 ```
 ```
 6. MAXIMUM CONSECUTIVE ONES: 
-we are given an array A consisting of 0 and 1. we have to find lenght of longest contigous subarray that contains only 1. But here we are given k. which means that we can change atmost k 0s to 1. and then find out the longest subarray.
+we are given an array A consisting of 0 and 1. we have to find lenght of longest contigous subarray that contains only 1. 
+But here we are given k. which means that we can change atmost k 0s to 1. 
+and then find out the longest subarray.
+
 APPROACH: we have to find longest subarray with k zeros.
 ```
 ---
