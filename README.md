@@ -316,7 +316,7 @@ while(xor){
 
 NOTE: XOR of all the subsets is always zero unless there is only 1 element then it is 1.
 ```
-#####Power Set:
+##### Power Set:
 ```
 POWER SET ALGORITHM FOR GENERATING ALL THE SUBSETS OF A GIVEN SET?--> good algo 9
 same as digital system analogy.
@@ -396,13 +396,15 @@ void decr(int n){
 
 void incr(int n){
     if(n==0) return ;
-    incr(n-1);//first do all the returns and finally print the values from last return value(i.e. the base condition)present in the stack.
+    incr(n-1);/*first do all the returns and finally print the values from last return value
+    (i.e. the base condition)present in the stack.*/
     cout<<n;
 }
 ```
 ```cpp
 7. to check the first occurrence and last occurence of a number in an array? for this we make two recursive functions one finds 
-the first occurence and other one finds the last occurence. In first we check if the element is equal to the key if yes then we return the index otherwise we return rest of the array.
+the first occurence and other one finds the last occurence. 
+In first we check if the element is equal to the key if yes then we return the index otherwise we return rest of the array.
 in second one, we return the array and check later.
 int first(int arr[], int n, int i, int key){
 
@@ -454,8 +456,8 @@ do{
 ```
 ```
 17. find permutations for elements which can be repeating? Note: if u remove the duplicate from the array then the solution will 
-be wrong as it will generate less permutations. eg: [1,1,2] if we make the array [1,2] then total number of permutaions will be 2 which is wrong. 
-here we get 3 permuations.
+be wrong as it will generate less permutations. eg: [1,1,2] if we make the array [1,2] then total number of permutaions will be 
+2 which is wrong. here we get 3 permuations.
 
 Another approach which will work is the store the answer in a set so that all the unique permuations are stored. 
 This will work but it is not much optimised.
@@ -479,7 +481,8 @@ so for 4 people 10 is the ans.
 ```
 3. 0-1 KNAPSACK PROBLEM: (Very improtant question...)using recursion. SEE good algo.
 4. Fractional knapsack is also very easy. We just have to remove to else if part from the algorithm. 
-Means we dont have to put any other fractional object. We can put any other object if its weight is less than the final remaining weight.
+Means we dont have to put any other fractional object. 
+We can put any other object if its weight is less than the final remaining weight.
 ```
 ### BACK-TRACKING(using recursion)
 ```
@@ -555,9 +558,12 @@ now we iterate: if j < pivot then i++ and swap i and j and then j++. if j>pivot 
 now the left and right subarray are not sorted so we have to apply again.
 
 ```
-QUICK SORT explained quickly: Here we choose the first element as the pivot element always. We have to find the right place of this element and to do this 
-we make a partition function. We use two pointer approach with i and j. Our main goal of i pointer is to find the element which is currently greater than 
-the pivot element and on left side so that we can swap it with j pointer and bring it right side. And the goal of j pointer is to find an element which is 
+QUICK SORT explained quickly: Here we choose the first element as the pivot element always. 
+We have to find the right place of this element and to do this we make a partition function. 
+We use two pointer approach with i and j. 
+Our main goal of i pointer is to find the element which is currently greater than 
+the pivot element and on left side so that we can swap it with j pointer and bring it right side. 
+And the goal of j pointer is to find an element which is 
 smaller than the pivot element so that we can swap with i and bring it on the left side. 
 The elements on the left are smaller than the pivot element and the elements on the right are always bigger than the element. 
 Note: when j crosses i then we swap j and pivot element.
