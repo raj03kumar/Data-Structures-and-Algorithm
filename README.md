@@ -694,7 +694,8 @@ Polymorphism is of two types: 1. compile time polymorphism 2. run-time polymorph
     1. function overloading(very easy) 
     2. operator overloading(see above)
 
-2. run-time polymorphism: it is achieved through virtual functions. Imagine if there is a function with same name in both base and derived class. 
+2. run-time polymorphism: it is achieved through virtual functions. 
+Imagine if there is a function with same name in both base and derived class. 
 So the compiler becomes confused. So Basically we put virtual keyword to the base class so that it is not called during runtime.
 ```
 ## LINKED-LIST
