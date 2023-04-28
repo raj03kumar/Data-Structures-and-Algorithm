@@ -1,34 +1,28 @@
-# Data-Structures-and-Algorithm
-This repository consists of most important questions of related to array, searching, sorting, linked list, stack, queues, binary tree, binary search tree, recursion, backtracking, heaps, hashing and greedy algorithms
-
-You will soon get graph and dp related questions.
-
-# Rules: 
-```
-Use # rarely #### for sub-topics and ### for new topic.
-
-```cpp for better formating of code and dont forget to align your code.
-```
+# Data Structures And Algorithms
+Complete Data Structures and Algorithms Documentation
 
 -------------------------------------------------------
 ### DATA STRUCTURES AND ALGORITHMS BEGIN
 
-```
+```cpp
 OPERATORS: 
+
 Left shift operator:
 4<<1
 (0100)-->(1000) i.e. 4 becomes 8
 a<<n        -->a*2^n;
+
 Right shift operator:
 4>>1
 (0100)-->(0010) i.e. 4 becomes 2
 a>>n        -->a/2^n;
+
 int great=max(a,max(b,c));
 ```
 
 #### TO REVERSE A STRING:
 
-```c++
+```cpp
 int main(){
     string a;
     cin>>a;
@@ -39,7 +33,8 @@ int main(){
     cout<<ans;
     return 0;
 }
-
+```
+```cpp
 USING RECURSION:
 void reverse(string a){
     if(a.length()==0){
@@ -83,8 +78,7 @@ int main(){
 
 2. Using bitset
 ```cpp
-int binaryToDecimal(string s)
-{
+int binaryToDecimal(string s){
     bitset<64> bits(s);
     int number = bits.to_ulong();
     return number;
@@ -171,13 +165,16 @@ in this we make a low pointer and a high pointer if the sum of both the element 
 than the sum then we move the low pointer to increase the current sum else to decrease the 
 current sum we move the high pointer towrds left.
 ```
+```
 7 QUESTIONS in good algo are very good and must try.
 
 2D ARRAY IS VERY EASY. Searching, Spiral order print, 
 Matrix transpose(very easy), Matrix multiplication, 2D matrix search(boring)--> these in lecture 9.2 
-
+```
+```
 Character arrays: Character arrays are array of characters with null at last. They are exactly like 
 strings. (NOT IN USE)
+```
 ```cpp
 //To get input of a sentence in cpp:
 int main(){
@@ -260,7 +257,7 @@ transform(s.begin(), s.end(), s.begin(), ::tolower)
 this means that you shift 1 by n bits left side.
 since, a<<n        -->a*2^n;
 ```
-```cpp
+```
 1. getBit: we need to get bit of a given position i say i=2.
 we use left shift operator at i. i=0010.
 and indexing of the numbers start from back side. i.e here n=0101 so indexing goes:
@@ -268,7 +265,8 @@ and indexing of the numbers start from back side. i.e here n=0101 so indexing go
 3210 ->indexes.
 so 1<<i=0100.
 //learn better from video or practice on paper.
-
+```
+```
 1. get bit: we do and operation with 2 exp i or 1<<i and do and operation. if the result is 0, then the 
 bit is not set. else the bit is set.
 2. set bit: we follow the above process but we do or operation.
@@ -279,7 +277,8 @@ so that the other bits are not disturbed.
 operation because we want to set.
 different analogy is if the value is 0 then clear the bit at that position, if value is one then set 
 the bit to that position.
-
+```
+```cpp
 int getBit(int n, int pos){
     return ((n&(1<<pos))!=0);
 }
@@ -317,6 +316,7 @@ while(xor){
 
 NOTE: XOR of all the subsets is always zero unless there is only 1 element then it is 1.
 ```
+#####Power Set:
 ```
 POWER SET ALGORITHM FOR GENERATING ALL THE SUBSETS OF A GIVEN SET?--> good algo 9
 same as digital system analogy.
@@ -324,12 +324,14 @@ practice some easy bit manipulation questions in lecture 14.3 Q1, to find the un
 Q2. find 2 unique element in an array. 
 Q3. if all numbers are repeated 3 times then find the elemnt which is repeated 2 times.
 ```
+##### Seive of Eratosthenes
 ```
 Seive of Eratosthenes: u know it.       and to find the prime factors of a number using seive.
 INCLUSION AND EXCLUSION PRINCIPLE: it is same as set which we studied in class 11. 
 Q. check how many numbers between 1 and 100 are divisible by 5 or 7? 
 Ans: numbers divisible by 5 + numbers divisible by 7 - numbers divisible by 35.
 ```
+##### Euclid Algo for GCD
 ```cpp
 Euclid algo to find gcd: it is the same gcd finding thing. remember if we subtract two numbers 
 then their gcd doesn't change.
@@ -341,9 +343,11 @@ int gcd(int a, int b){
     }
     return a;
 }
-
+```
+```
 NOTE: If we have to pass vectors in functions then passing the reference to vector is good practice and consumes less time complexity.
-
+```
+```cpp
 To calculate the range of data types: int -> 4 bytes means 32 bits. one bit can store 0 or 1 so 32 bits can store 2^32 so 2^31 negative integers and 2^31 postivite integers are stored.
 do{
 
@@ -360,13 +364,15 @@ switch(a){          //a can be int or char
 // means we are defining value of n as 100 throughout the program.;
 ```
 
-#### -----------RECURSION------------
+### RECURSION
 ```
 NOTE: better go with void in recursion data type. or create a temporary variable or static variable to store the values.
 1. calculate sum of numbers till n using recursion.
 2. calculate powers of n using recursion.//remember the calculation starts from the point when the base condition is hit. after that only the value starts calculating. else it is just in stack uncalculated.
 3. factorial of a number?
 4. fibonacci number.
+```
+```cpp
 5. check if the given array is sorted or not?  check if arr[0]<arr[1] then sorted, then check for arr[1: last].
 bool isSorted(int arr[], int n){
     if(n==1) return true;
@@ -432,13 +438,16 @@ void rev(string a){
 13. print all the permutations of a string? lecture 16.4 advanced recursion. see in good algos.
 14. count the number of paths possible from start point to end point in gameboard?(boring)
 15. count number of possible path in a maze?(boring)
+```
+```cpp
 16. find permutations for distinct elements in an array? Same as 13. but here we will do with stl.
 --> Time Complexity: O(N!). same as last one. See in good algo. Normal code is also there in good algo.
 sort(nums.begin(), nums.end());
 do{
     ans.push_back(nums);
 }while(next_permutation(nums.begin(), nums.end()));
-
+```
+```
 17. find permutations for elements which can be repeating? Note: if u remove the duplicate from the array then the solution will be wrong as it will generate less permutations. eg: [1,1,2] if we make the array [1,2] then total number of permutaions will be 2 which is wrong. here we get 3 permuations.
 Another approach which will work is the store the answer in a set so that all the unique permuations are stored. this will work but it is not much optimised.
 See GOOD ALGOS.
@@ -460,7 +469,7 @@ so for 4 people 10 is the ans.
 3. 0-1 KNAPSACK PROBLEM: (Very improtant question...)using recursion. SEE good algo.
 4. Fractional knapsack is also very easy. We just have to remove to else if part from the algorithm. Means we dont have to put nay other fractional object. We can put any other object if its weight is less than the final remaining weight.
 ```
-#### ------------BACK-TRACKING(using recursion)-------------
+### BACK-TRACKING(using recursion)
 ```
 There are 2 questions in back tracking: 1. Rat in a maze problem, 2. N-queens problem.
 Backtracking means if the constraints are not satisfied then from that point only we go 
@@ -487,7 +496,7 @@ hemisphere. We don't need to check for that particular row also because we are i
 where no queen is placed yet. so we only need to check for the columns and diagonals
 (both left and right of upper hemisphere.)
 ```
-### -------learning vectors--------
+### Learning Vectors
 ```cpp
 vector<int> v;  //where int is the data type and v is the name of the vector.
 to insert elements: v.push_back(11);
@@ -505,6 +514,7 @@ for(it=v.begin();it!=v.end();it++){
 for(auto element: v){
     cout<<element<<endl;
 }
+
 ANOTHER WAY:
 vector<int> v2 (3,50);
 //there are three elements and all are initiated with 50. 
@@ -512,17 +522,21 @@ vector<int> v2 (3,50);
 
 //for swapping two vectors: swap(v,v2);
 //for sorting: sort(v.begin(),v.end());
--------------------------------learning pairs------------------------------------------
+```
+
+#### Learning Pairs
+```cpp
 1. similar to dictionary in python.
 pair<int,int> p; //here both data types can be different also according to our choice.
 //to access
 pair.first=1; //for accessing pair<first,second> p where first and second are datatypes.
 pair.second=2;
-----------------------------------------------------------------------------------------------------------------
 ```
 
+### Merge Sort
 Merge Sort: Divide and conquer. In this we find the mid of the array and divide our array into two parts. similarly we divide our arrays into multiple parts. REMEMBER: An array with single element is always sorted array. Now we have to call a merge functions which merges two sorted arrays. It applies two pointer approach. i on first array and j on second array. and we have to checck which one is smaller. Here we also use a temporary array for storing values.
 
+### Quick Sort
 Quick Sort: Divide and conquer. In this we select an element(pivot) and put it in its right place which means all the elements left side are smaller and all the elements right side are greater than that element. To find the pivot element we use two pointer approach. And we find the pivot element through a function called partition. Pivot can be any element of our choice either it can be the first element of the array or the last element of the array. and now with the two pointer approach we find the correct positionof the element. Here i and j are important. Significance of i is that it will be denoting the last element smaller than pivot.
 now we iterate: if j < pivot then i++ and swap i and j and then j++. if j>pivot then only j++. And finally we swap pivot and i+1.
 now the left and right subarray are not sorted so we have to apply again.
