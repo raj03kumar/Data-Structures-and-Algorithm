@@ -345,10 +345,12 @@ int gcd(int a, int b){
 }
 ```
 ```
-NOTE: If we have to pass vectors in functions then passing the reference to vector is good practice and consumes less time complexity.
+NOTE: If we have to pass vectors in functions then passing the reference to vector is good practice and gives less time complexity
 ```
 ```cpp
-To calculate the range of data types: int -> 4 bytes means 32 bits. one bit can store 0 or 1 so 32 bits can store 2^32 so 2^31 negative integers and 2^31 postivite integers are stored.
+To calculate the range of data types: int -> 4 bytes means 32 bits. one bit can store 0 or 1 so 32 bits can store 
+2^32 so 2^31 negative integers and 2^31 postivite integers are stored.
+
 do{
 
 }while();
@@ -368,7 +370,8 @@ switch(a){          //a can be int or char
 ```
 NOTE: better go with void in recursion data type. or create a temporary variable or static variable to store the values.
 1. calculate sum of numbers till n using recursion.
-2. calculate powers of n using recursion.//remember the calculation starts from the point when the base condition is hit. after that only the value starts calculating. else it is just in stack uncalculated.
+2. calculate powers of n using recursion.//remember the calculation starts from the point when the base condition is hit. 
+after that only the value starts calculating. else it is just in stack uncalculated.
 3. factorial of a number?
 4. fibonacci number.
 ```
@@ -376,7 +379,8 @@ NOTE: better go with void in recursion data type. or create a temporary variable
 5. check if the given array is sorted or not?  check if arr[0]<arr[1] then sorted, then check for arr[1: last].
 bool isSorted(int arr[], int n){
     if(n==1) return true;
-    return (arr[0]<arr[1] && isSorted(arr+1, n-1));     //note here arr+1 is a pointer to array and not the array. arr[1:n-1] wont work here.
+    return (arr[0]<arr[1] && isSorted(arr+1, n-1));//note here arr+1 is a pointer to array and not the array. 
+    //arr[1:n-1] wont work here.
 }
 
 6. print the numbers from 1 to n in increasing and decreasing order?
@@ -392,12 +396,13 @@ void decr(int n){
 
 void incr(int n){
     if(n==0) return ;
-    incr(n-1);      //first do all the returns and finally print the values from last return value(i.e. the base condition) present in the stack.
+    incr(n-1);//first do all the returns and finally print the values from last return value(i.e. the base condition)present in the stack.
     cout<<n;
 }
 ```
 ```cpp
-7. to check the first occurrence and last occurence of a number in an array? for this we make two recursive functions one finds the first occurence and other one finds the last occurence. In first we check if the element is equal to the key if yes then we return the index otherwise we return rest of the array.
+7. to check the first occurrence and last occurence of a number in an array? for this we make two recursive functions one finds 
+the first occurence and other one finds the last occurence. In first we check if the element is equal to the key if yes then we return the index otherwise we return rest of the array.
 in second one, we return the array and check later.
 int first(int arr[], int n, int i, int key){
 
@@ -448,15 +453,21 @@ do{
 }while(next_permutation(nums.begin(), nums.end()));
 ```
 ```
-17. find permutations for elements which can be repeating? Note: if u remove the duplicate from the array then the solution will be wrong as it will generate less permutations. eg: [1,1,2] if we make the array [1,2] then total number of permutaions will be 2 which is wrong. here we get 3 permuations.
-Another approach which will work is the store the answer in a set so that all the unique permuations are stored. this will work but it is not much optimised.
+17. find permutations for elements which can be repeating? Note: if u remove the duplicate from the array then the solution will 
+be wrong as it will generate less permutations. eg: [1,1,2] if we make the array [1,2] then total number of permutaions will be 2 which is wrong. 
+here we get 3 permuations.
+
+Another approach which will work is the store the answer in a set so that all the unique permuations are stored. 
+This will work but it is not much optimised.
 See GOOD ALGOS.
 SO THE BASIC IDEA IS: while swapping, avoid duplicates.
 when we find two same numbers then we continue the loop.
 ```
 Last lecture on RECURSION:(Lecture 16.4)
 ```
-1. TILING PROBLEM: in this question we are given a board(2xn) and a tile(2x1) and we have to find number of way to tile the board using these tiles.(interesting...)--> the solution comes out to be the fibonacci of n. This is the ans. eg: for n=4 ans is 3.
+1. TILING PROBLEM: in this question we are given a board(2xn) and a tile(2x1) and we have to find number of way to tile the board 
+using these tiles.(interesting...)--> the solution comes out to be the fibonacci of n. 
+This is the ans. eg: for n=4 ans is 3.
 2. Friends pairing problem: Find the number of ways in which n friends can remain single or can be paired up.(useless question...)
 ```cpp
 int friendsPairing(int n){
@@ -467,7 +478,8 @@ so for 4 people 10 is the ans.
 ```
 ```
 3. 0-1 KNAPSACK PROBLEM: (Very improtant question...)using recursion. SEE good algo.
-4. Fractional knapsack is also very easy. We just have to remove to else if part from the algorithm. Means we dont have to put nay other fractional object. We can put any other object if its weight is less than the final remaining weight.
+4. Fractional knapsack is also very easy. We just have to remove to else if part from the algorithm. 
+Means we dont have to put any other fractional object. We can put any other object if its weight is less than the final remaining weight.
 ```
 ### BACK-TRACKING(using recursion)
 ```
@@ -510,7 +522,8 @@ vector<int>::iterator it;
 for(it=v.begin();it!=v.end();it++){
     cout<<*it<<endl;
 }
-//---> another simple way is by auto. we are telling our compiler that u decide what type of data is stored according to the initailization of vector
+/*---> another simple way is by auto. we are telling our compiler that u decide what type of data 
+is stored according to the initailization of vector*/
 for(auto element: v){
     cout<<element<<endl;
 }
@@ -542,7 +555,12 @@ now we iterate: if j < pivot then i++ and swap i and j and then j++. if j>pivot 
 now the left and right subarray are not sorted so we have to apply again.
 
 ```
-QUICK SORT explained quickly: Here we choose the first element as the pivot element always. We have to find the right place of this element and to do this we make a partition function. We use two pointer approach with i and j. Our main goal of i pointer is to find the element which is currently greater than the pivot element and on left side so that we can swap it with j pointer and bring it right side. And the goal of j pointer is to find an element which is smaller than the pivot element so that we can swap with i and bring it on the left side. The elements on the left are smaller than the pivot element and the elements on the right are always bigger than the element. Note: when j crosses i then we swap j and pivot element.
+QUICK SORT explained quickly: Here we choose the first element as the pivot element always. We have to find the right place of this element and to do this 
+we make a partition function. We use two pointer approach with i and j. Our main goal of i pointer is to find the element which is currently greater than 
+the pivot element and on left side so that we can swap it with j pointer and bring it right side. And the goal of j pointer is to find an element which is 
+smaller than the pivot element so that we can swap with i and bring it on the left side. 
+The elements on the left are smaller than the pivot element and the elements on the right are always bigger than the element. 
+Note: when j crosses i then we swap j and pivot element.
 ```
 
 Count inversion problem: implementation of merge sort. lecture 19.3 (boring)
