@@ -725,10 +725,12 @@ we call reversive function for head node. and it returns us a linked list like t
 if k=2 then we have to reverse the first two nodes then the other two nodes and the other two nodes and so on.
 1->2->3->4->5->6 is the linked list then for k=2;
 2->1->4->3->6->5
-Approach: here we make a iterative function to reverse the first k nodes. and for the remaining linked list of k+1th nodes we call the recursive function. 
+Approach: here we make a iterative function to reverse the first k nodes. and for the remaining linked list of k+1th nodes 
+we call the recursive function. 
 now we have to join these two linked list. 
 means we have to join our first k nodes linked list with the linked list we got from recusion in the right format.
-so the head remains at 1 and the previous pointer points at 2 in the first k nodes. now we have to point that head to the linked list we got from recursion. 
+so the head remains at 1 and the previous pointer points at 2 in the first k nodes. now we have to point that head to 
+the linked list we got from recursion. 
 So we do, head->next=linkedlist we got back from recursion.
 therefore we return 2 which is the prev pointer and our new head.
 ```
@@ -736,7 +738,8 @@ therefore we return 2 which is the prev pointer and our new head.
 3. DETECTION AND REMOVAL OF CYCLE IN LINKED LIST (a.k.a Floyd's Algorithm or Hare and Tortoise Algorithm):
 --> for detection of cycle:
 if next of two nodes points to same node then it forms a cycle in linked list.
-let hare and Tortoise be at head node in the beginning and let hare moves with 2 nodes forward at a time and tortoise move with one node at a time.
+let hare and Tortoise be at head node in the beginning and let hare moves with 2 nodes forward at a time and tortoise move with 
+one node at a time.
 if hare and tortoise comes to same node then we can say that there is a cycle in linked list. 
 
 NOTE: hare and tortoise can come to any node in the circle, any node but will always be a same node for each time. 
@@ -793,10 +796,13 @@ note: you can't run both iterative and recusive in one program so i have made tw
 TIME Complexity: O(sum of length of both linked list)
 
 It is same as merging two sorted arrays.
-we use 3 pointer approach here. we make a dummy node. now ptr1 points to linkedlist1, ptr points to linked list 2 and ptr3 points to dummy node.
-Now we compare ptr1 and ptr2 whichever is small we add that to ptr3 and move that pointer and again compare till anyone of the node points to NULL. 
+we use 3 pointer approach here. we make a dummy node. now ptr1 points to linkedlist1, ptr points to linked list 2 
+and ptr3 points to dummy node.
+Now we compare ptr1 and ptr2 whichever is small we add that to ptr3 and move that pointer and again compare till anyone of 
+the node points to NULL. 
 if any node points to null then we add the complete another pointer to the last of ptr3.
-Note: our dummy node is empty node so we return pt3->next because we have to return a linkedlist which first element is an element and not an empty element.
+Note: our dummy node is empty node so we return pt3->next because we have to return a linkedlist which first element is an element 
+and not an empty element.
 ```
 ```
 7. PUT EVEN ELEMENTS AFTER ODD ELEMENTS IN LINKED LIST:     TIME Complexity: O(n)
