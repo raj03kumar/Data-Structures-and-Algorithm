@@ -700,66 +700,91 @@ So the compiler becomes confused. So Basically we put virtual keyword to the bas
 ## LINKED-LIST
 
 NOTE: IF YOU WANT TO INSERT ELEMENTS OR CREATE A LINKED LIST LIKE ARRAY THEM take create an array and using for loop iterate over it and using insert at end in the for loop insert all the elements of array in linked list.
-
+```
 insertion, deletion in linked list.
 go to linked list folder for linked list quesitons.
-
+```
+```
 1. REVERSE A LINKED LIST:
 
 (i) iterative way of reversing a linked list:
-we use 3 pointer approach. previous, current and next pointers.  initially previous is at null, current is at head and next is at head->next.
+we use 3 pointer approach. previous, current and next pointers. 
+initially previous is at null, current is at head and next is at head->next.
 so we change the link of current-> next to previous<-current. now we move all the pointers with one step.
 same now we again do current->next to previous <- current.
 break the loop if current pointer is at null. now change the head pointer to the previous pointer.
+
 (ii) recursive way of reversing a linked list:
 we call reversive function for head node. and it returns us a linked list like this.
 1->2<-3<-4 if the linked list earlier was 1->2->3->4. now we just reverse the head node pointer.
-
+```
+```
 2. REVERSING K NODES IN LINKED LIST:
 
 if k=2 then we have to reverse the first two nodes then the other two nodes and the other two nodes and so on.
 1->2->3->4->5->6 is the linked list then for k=2;
 2->1->4->3->6->5
 Approach: here we make a iterative function to reverse the first k nodes. and for the remaining linked list of k+1th nodes we call the recursive function. 
-now we have to join these two linked list. means we have to join our first k nodes linked list with the linked list we got from recusion in the right format.
-so the head remains at 1 and the previous pointer points at 2 in the first k nodes. now we have to point that head to the linked list we got from recursion. so we do, head->next=linkedlist we got back from recursion.
+now we have to join these two linked list. 
+means we have to join our first k nodes linked list with the linked list we got from recusion in the right format.
+so the head remains at 1 and the previous pointer points at 2 in the first k nodes. now we have to point that head to the linked list we got from recursion. 
+So we do, head->next=linkedlist we got back from recursion.
 therefore we return 2 which is the prev pointer and our new head.
-
+```
+```
 3. DETECTION AND REMOVAL OF CYCLE IN LINKED LIST (a.k.a Floyd's Algorithm or Hare and Tortoise Algorithm):
 --> for detection of cycle:
 if next of two nodes points to same node then it forms a cycle in linked list.
 let hare and Tortoise be at head node in the beginning and let hare moves with 2 nodes forward at a time and tortoise move with one node at a time.
-if hare and tortoise comes to same node then we can say that there is a cycle in linked list. NOTE: hare and tortoise can come to any node in the circle, any node but will always be a same node for each time. we can only find that node by solving and not by guessing.
+if hare and tortoise comes to same node then we can say that there is a cycle in linked list. 
+
+NOTE: hare and tortoise can come to any node in the circle, any node but will always be a same node for each time. 
+We can only find that node by solving and not by guessing.
 
 in real we use fast and slow pointer.  and the base condition is that if fast=null or fast->next=null then stop.
 
 --> for removal of cycle:
-it is now back to hare and tortoise story. after we find that hare and tortoise are at same node. then we bring the hare to head and now move them with one step only each. When we find out that both hare->next and tortoise->next points to same element then this indicates the starting of the cycle.
+it is now back to hare and tortoise story. after we find that hare and tortoise are at same node. 
+Then we bring the hare to head and now move them with one step only each. 
+When we find out that both hare->next and tortoise->next points to same element then this indicates the starting of the cycle.
 now tortoise->next=NULL; this is the removal of cycle in linked list.
 
-IMPORTANT OBSERVATION: m = l - n; where m is the length from head to starting point of circle. l is the length of circle and n is the point where both hare and tortoise meet at first.
+IMPORTANT OBSERVATION: m = l - n; where m is the length from head to starting point of circle. 
+l is the length of circle and n is the point where both hare and tortoise meet at first.
 Therefore, we now run both fast and slow pointer with same speed.
-
+```
+```
 4. (KAPPEND) APPEND LAST K NODES TO START OF THAT LINKED LIST:  
 1->2->3->4->5->6        for k = 3
 ans = 4->5->6->1->2->3
 
 here we are given length of linked list, value of k and the linked list.
 
-APPROACH: we now start traversing the linkedlist with head at the first element and at (l-n) node we put the pointer newTail and the new head of the linkedlist will be newTail->next and we point that with new head pointer and at the last element we place our tail pointer. 
+APPROACH: we now start traversing the linkedlist with head at the first element and at (l-n) node 
+we put the pointer newTail and the new head of the linkedlist will be newTail->next and we point that with new head pointer 
+and at the last element we place our tail pointer. 
 
 now, we just change the links.
 newHead=newTail->next;
 newTail->next = NULL;
 tail->next=head;
 and return newHead.
-
-5. FIND INTERSECTION POINT OF 2 LINKED LIST: we are given two linked list and they intersect at some point imagine like a tuning fork. that the two ends are the linked list and the handle is the intersection point of the linked list.
+```
+```
+5. FIND INTERSECTION POINT OF 2 LINKED LIST: 
+we are given two linked list and they intersect at some point imagine like a tuning fork. 
+that the two ends are the linked list and the handle is the intersection point of the linked list.
 if both linked list are different then we return that there is no intersection point.
 
-APPROACH: we find the length of both the linked list and we subtract them. we use two pointer approach here. here we place ptr1 on first linked list and ptr2 on second linkedlist where ptr2 is the head of the second linked list and ptr1 is at position (l1-l2) of the first linked list means both are now equal step back at before the intersection point you can imagine like this. now we move both the pointers before any one of them gets null and we check if at any node ptr1==ptr2. we return the value of that pointer.
+APPROACH: we find the length of both the linked list and we subtract them. we use two pointer approach here. 
+here we place ptr1 on first linked list and ptr2 on second linkedlist where ptr2 is the head of the second linked list and ptr1 
+is at position (l1-l2) of the first linked list 
+means both are now equal step back at before the intersection point you can imagine like this. 
+now we move both the pointers before any one of them gets null and we check if at any node ptr1==ptr2. 
+we return the value of that pointer.
 Time complexity: O(length of the longer linked list);
-
+```
+```
 6. MERGE TWO SORTED LINKED LISTS: we are given two sorted linkedlist. 
 (i) iterative.
 (ii) recursive.
@@ -768,9 +793,11 @@ TIME Complexity: O(sum of length of both linked list)
 
 It is same as merging two sorted arrays.
 we use 3 pointer approach here. we make a dummy node. now ptr1 points to linkedlist1, ptr points to linked list 2 and ptr3 points to dummy node.
-Now we compare ptr1 and ptr2 whichever is small we add that to ptr3 and move that pointer and again compare till anyone of the node points to NULL. if any node points to null then we add the complete another pointer to the last of ptr3.
+Now we compare ptr1 and ptr2 whichever is small we add that to ptr3 and move that pointer and again compare till anyone of the node points to NULL. 
+if any node points to null then we add the complete another pointer to the last of ptr3.
 Note: our dummy node is empty node so we return pt3->next because we have to return a linkedlist which first element is an element and not an empty element.
-
+```
+```
 7. PUT EVEN ELEMENTS AFTER ODD ELEMENTS IN LINKED LIST:     TIME Complexity: O(n)
 1->2->3->4->5->6 becomes 1->3->5->2->4->6.
 we use three pointer approach. one odd ptr, one even ptr, and one evenStart ptr to store the starting index of even pointer.
@@ -779,19 +806,29 @@ we put odd->next=even->next; odd=odd->next;
 we put even->next=odd->next; even=even->next;
 if even->next==null; then we understand that we have reached the end of the list. so now, odd->next=evenStart;
 if odd->next==null; then it is sure that even->next is not null. so we have to make it null and odd->next=evenStart;
+```
+---
 
-----------------------------------------------------------------------------------------------------
+### DOUBLY LINKED LIST: 
+```
+easy hai only insertion and deletion.
+```
+### CIRCULAR LINKED LIST: 
+```
+complete implementation by apni kaksha.
+```
 
-DOUBLY LINKED LIST: easy hai only insertion and deletion.
-
-CIRCULAR LINKED LIST: complete implementation by apni kaksha.
-
-Time complexity using master's theorem: easy only three cases.
-
-------------------------------------STACK-----------------------------------------------------------
+### Time complexity using master's theorem: 
+```
+easy only three cases.
+```
+---
+## STACK
+```cpp
 LIFO: last in first out.
 now we can use stl for stack 
 stack <int> s;
+```
 1. Reverse a string using stack: We can and should use stack to reverse anything. It is better than recursion and easy also.
 2. Reverse a stack: Without using another stack. We use recursion here.
 How to insert at bottom in a stack? we pop out all the elements and then we push the element which we want at bottom. and the callback funtion pushes all the elements back to the stack now.
