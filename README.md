@@ -836,13 +836,21 @@ LIFO: last in first out.
 now we can use stl for stack 
 stack <int> s;
 ```
+```
 1. Reverse a string using stack: We can and should use stack to reverse anything. It is better than recursion and easy also.
+```
+```
 2. Reverse a stack: Without using another stack. We use recursion here.
-How to insert at bottom in a stack? we pop out all the elements and then we push the element which we want at bottom. and the callback funtion pushes all the elements back to the stack now.
+How to insert at bottom in a stack? we pop out all the elements and then we push the element which we want at bottom. 
+And the callback funtion pushes all the elements back to the stack now.
+```
 
-INFIX, PREFIX(Polish notation) AND POSTFIX(reverse polish notation): you know already.
+#### INFIX, PREFIX(Polish notation) AND POSTFIX(reverse polish notation)
+```
 1. PREFIX EXPRESSION EVALUATION: we are given a prefix expression we have to return the final value say +75 gives 12.
-we use stack. we push the elements from back of the string if it is an operand. if we get a operator then we pop out two elements perform the operation and push it back to stack. until the stack is empty. O(N) time complexity.
+we use stack. we push the elements from back of the string if it is an operand. 
+if we get a operator then we pop out two elements perform the operation and push it back to stack. until the stack is empty. 
+O(N) time complexity.
 
 2. POSTFIX EXPRESSION EVALUATION: we are given a postflix expression we have to return the final value say 75- gives 2.
 we use stack. Only difference is that here we start from beginning.
@@ -852,38 +860,61 @@ we use stack. Only difference is that here we start from beginning.
 4. INFIX TO PREFIX EVALUATION: we are given an infix string we have to convert it into prefix string. NOTE: 
 
 5. BALANCED PARENTHESIS: easy hai ye kaafi.
-
-----------------------------------------------QUEUE----------------------------------------------------------
+```
+---
+### QUEUE
+```
 FIFO: first in first out.
 In stack we only have a top pointer but here we have 2 pointers. front and back.
+```
+```
 Some operations: enqueue(x): inserts element at back using back pointer, 
 dequeue(): removes element from front pointer, 
 peek(): returns the element stored in front pointer. simmilar to stack.top(), 
 empty(): if front==rear then queue is empty.
-
+```
+```
 NOTE: queue is waste of storage because only the pointer moves here and nothing happens to elements already inserted.
-
+```
+```
 1. Linked List implementation of Queue:
-Note: queue using linked listt is good because there is no shortage and excess of size in linked list implementation of queue.
+Note: queue using linked list is good because there is no shortage and excess of size in linked list implementation of queue.
 (i) for push: we insert at back.
 (ii) for pop: we delete the first node.
 (iii) for peek: we return the head node or the front node.
-(iv) for empty: we check if front pointer is null or not, because when front pointer moves after the rear pointer, we know that rear pointer points to NULL. So the front will point to null in this case(when front>rear) and initally we know front==NULL.
-
+(iv) for empty: we check if front pointer is null or not, because when front pointer moves after the rear pointer. 
+We know that rear pointer points to NULL. 
+So the front will point to null in this case(when front>rear) and initally we know front==NULL.
+```
+```
 2. Queue implementation using stack:    very very easy.
-APPROACH 1: we use two stacks. for enqueue we use stack1 and for dequeue we pop out the elements and push into stack2 and then we pop out from stack2. Time complexity of enqueue is O(1) and dequeue is O(n).
-APPROACH 2: instead of two stack we can use one stack and one function inbuilt stack. enqueue operation is same. For dequeue:
+
+APPROACH 1: we use two stacks. 
+for enqueue we use stack1 and for dequeue we pop out the elements and push into stack2 and then we pop out from stack2. 
+Time complexity of enqueue is O(1) and dequeue is O(n).
+
+APPROACH 2: instead of two stack we can use one stack and one function inbuilt stack. enqueue operation is same. 
+For dequeue:
 if stack1 is empty then print error.
 if stack1 has only one element then return it
-if stack1 has more than one element, recursively pop eveything from stack1, store the popped item in res, push res back to stack and return res.
+if stack1 has more than one element, recursively pop eveything from stack1, store the popped item in 
+res, push res back to stack and return res.
+```
+```
+3. Implementing stack using Queues: 
+Here we use two queue. 
+One approach is by making the push operation costlier and the another approach is by making pop operation costlier. 
 
-3. Implementing stack using Queues: Here we use two queue. One approach is by making the push operation costlier and the another approach is by making pop operation costlier. THIS IS NOT IMPORTANT QUESTION SO WE CAN LEAVE IT.
-
-------------------------------------------------DEQUE--------------------------------------------------------------
+THIS IS NOT IMPORTANT QUESTION SO WE CAN LEAVE IT.
+```
+---
+### DEQUE
+```
 DEQUE: stands for doubly ended queue. here we can push and pop both from both ends.
 1. We can push and pop from the end.
 2. we can insert and delete from start.
 --> simply we can use it from STL.
+```
 
 Q. SLIDING WINDOW MAXIMUM?
 APPROACH: HERE, the approach is that we first find the first sliding window value. i.e. by running for loop from i=0 to i=k, where k is given in question. now we us another loop where we decrease the value from beginning and add the next upcoming values. 
