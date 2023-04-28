@@ -568,12 +568,17 @@ smaller than the pivot element so that we can swap with i and bring it on the le
 The elements on the left are smaller than the pivot element and the elements on the right are always bigger than the element. 
 Note: when j crosses i then we swap j and pivot element.
 ```
-
+```
 Count inversion problem: implementation of merge sort. lecture 19.3 (boring)
+```
+```
+Count Sort: Find the count of every distinct element. Calculate the position of each element in sorted array. 
+Easy h...u already know.Code with harry is best for count sort.
+```
+```
+DNF sort(0,1,2)sort[Time complexity: O(n)]: A given array contains only 3 elements 0,1,2. so we have to sort them. 
 
-Count Sort: Find the count of every distinct element. Calculate the position of each element in sorted array. Easy h...u already know.Code with harry is best for count sort.
-
-DNF sort(0,1,2)sort[Time complexity: O(n)]: A given array contains only 3 elements 0,1,2. so we have to sort them. So we have to do 3 pointer approach. low, mid and high. RED, WHITE, BLUE. red for 0 , white for 1 and blue for 2.
+So we have to do 3 pointer approach. low, mid and high. RED, WHITE, BLUE. red for 0 , white for 1 and blue for 2.
 here we start from mid pointer. 
 Note: low and mid pointer points to the starting of the array. high pointer points to the last element of the array. 
 if mid==high then our array becomes sorted.
@@ -581,23 +586,34 @@ we check if arr[mid] is:
 if 0, swap arr[low] and arr[mid], low++, mid++;
 if 1, mid++;
 if 2, swap arr[mid] and arr[high], high--;
-
+```
+```
 WAVE SORT: this is not sorting actually. we have to form a wave. (very simple)--> TIME complexity: O(N/2) or O(n).
 a[0]>=a[1]<=a[2]>=arr[3]<=arr[4]...
-we check for the odd indexes first. we check if it is smaller than its neighbourhood or not. if not then swap. note: we are checking for odd indexes so we have to take a jump of 2.
-ONLY THE CATCH: here is that we have to check for the odd indexes and check whether it is smaller than both the neighbours or not If not then swap the elements. and we have to move on to next odd element.
+we check for the odd indexes first. we check if it is smaller than its neighbourhood or not. if not then swap. 
+note: we are checking for odd indexes so we have to take a jump of 2.
 
-------------------------------------------------------OOPS IN CPP---------------------------------------------------------------
+ONLY THE CATCH: here is that we have to check for the odd indexes and check whether it is smaller than both the neighbours or not. 
+If not then swap the elements. and we have to move on to next odd element.
+```
+## OOPS IN CPP
+```
 SAME AS JAVA OOPS...
-~ is used to make a destructor. NOTE: always when the program terminates at return 0; all the deafult destructors are called.
+~ is used to make a destructor. 
+NOTE: always when the program terminates at return 0; all the deafult destructors are called.
+```
+#### Operator Overloading:
+We can add two built in data type members, but we can't add two user defined data memebers of a class. for that we have to redefine the operator inside funtion and it creates additiotnal feature of that operator. like we can use + in strings to concatenate, but string is built in data type, so it works. And of course the real meaning of the operator doesnot change.
 
-operator overloading:
-we can add two built in data type members, but we can't add two user defined data memebers of a class. for that we have to redefine the operator inside funtion and it creates additiotnal feature of that operator. like we can use + in strings to concatenate, but string is built in data type, so it works. And of course the real meaning of the operator doesnot change.
 BEST EXAMPLE OF OPERATOR OVERLOADING IS : COMPLEX NUMBERS ADDITION.
 
 https://www.geeksforgeeks.org/operator-overloading-c/
 
-INHERITANCE IN CPP: Single, Multi-level, Multiple(not in java), Hybrid, Hierarchical.
+### INHERITANCE IN CPP: 
+```
+Single, Multi-level, Multiple(not in java), Hybrid, Hierarchical.
+```
+```cpp
 1. Single inheritance: 
 class A{
     public:
@@ -613,7 +629,8 @@ int main(){
     b.func();
     return 0;
 }
-
+```
+```cpp
 2. Multiple inheritance:
 
 class A{
@@ -638,7 +655,8 @@ int main(){
     c.func();
     return 0;
 }
-
+```
+```cpp
 3. Multi-level inheritance:
 class A{
     public:
@@ -662,16 +680,25 @@ int main(){
     c.func();
     return 0;
 }
+```
+```cpp
 4. Hybrid inheritance: Mixture of multiple and multilevel inehritance. (Not in Java)
 5. Hierarchical inheritance: Big image of multiple inheritance.(not in java).
+```
+### POLYMORPHISM IN CPP:
+You know polymorphism from java.
 
-POLYMORPHISM IN CPP:
-u know polymorphism from java.
-polymorphism is of two types: 1. compile time polymorphism 2. run-time polymorphism
-1. compile time polymorphism: it is achieved through 1. function overloading(very easy) 2. operator overloading(see above)
-2. run-time polymorphism: it is achieved through virtual functions. imagine if there is a function with same name in both base and derived class. so the compiler becomes confused. so Basically we put virtual keyword to the base class so that it is not called during runtime.
+Polymorphism is of two types: 1. compile time polymorphism 2. run-time polymorphism
+```
+1. compile time polymorphism: it is achieved through 
+    1. function overloading(very easy) 
+    2. operator overloading(see above)
 
-------------------------------------------------LINKED-LIST-----------------------------------------------------------------
+2. run-time polymorphism: it is achieved through virtual functions. Imagine if there is a function with same name in both base and derived class. 
+So the compiler becomes confused. So Basically we put virtual keyword to the base class so that it is not called during runtime.
+```
+## LINKED-LIST
+
 NOTE: IF YOU WANT TO INSERT ELEMENTS OR CREATE A LINKED LIST LIKE ARRAY THEM take create an array and using for loop iterate over it and using insert at end in the for loop insert all the elements of array in linked list.
 
 insertion, deletion in linked list.
