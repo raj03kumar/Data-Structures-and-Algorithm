@@ -1234,12 +1234,16 @@ Case 3: If it has 2 childrens.
         Step 3: We now use the case 1 now to delete the leaf node.
 ```
 ```
-1. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find our inorder and in this way now we have both inorder and preorder So we can make our tree easily.
+1. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find 
+our inorder and in this way now we have both inorder and preorder So we can make our tree easily.
 BUT here we will follow a different approach. We will define min and maximum value of node at each step. it is easy. (min, max). 
+
 TIME COMPLEXITY: O(n);
 ```
 ```
-2. Check for BST? We have to check if the given tree is BST or Not. we simply do the inorder traversal of the tree and check if the traversal is sorted or not.
+2. Check for BST? We have to check if the given tree is BST or Not. 
+We simply do the inorder traversal of the tree and check if the traversal is sorted or not.
+
 We have to check the properties of bst.
 1. All nodes of the left subtree are lesser than the node itself.
 2. All nodes of the right subtree are greater than the node itself.
@@ -1249,15 +1253,16 @@ We have to check the properties of bst.
 sorted array.
 ```
 ```
-1. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
+3. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
 APPROACH:   1. make middle of the tree as root.
-            1. recusively do same for the subtrees.
+            2. recusively do same for the subtrees.
                 start to mid-1 for left subtree.
                 mid+1 to end for right subtree.
 ```
 ```
-1. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often involving recursively defined objects.
-their closed form is in terms of binomial coefficents.
+1. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often 
+involving recursively defined objects.
+Their closed form is in terms of binomial coefficents.
 Cn=(1/(n+1))2nCn
 C0=1; 
 C1=1; 
@@ -1266,7 +1271,7 @@ C3=C0C2 + C1C1 + C2C0=5
 C4= C0C3 + C1C2 + C2C1 + C3C0 = 14
 
 So how can we find the nth catalan number?
-It is easy. we can use recursion to find out nth catalan number but it has very high time compelxity so we have to use dynamic programming for this.
+It is easy. we can use recursion to find out nth catalan number but it has very high time compelxity so we have to use DP for this.
 Let's see the APPLICATION OF catalan numbers.
 1. Possible BST's.  --> if n is the number of nodes then catalan(n) is the number of possible BST possible for n nodes.
 2. parenthesis/bracket combinations
