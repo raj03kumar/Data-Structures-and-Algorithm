@@ -1234,14 +1234,14 @@ Case 3: If it has 2 childrens.
         Step 3: We now use the case 1 now to delete the leaf node.
 ```
 ```
-1. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find 
+4. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find 
 our inorder and in this way now we have both inorder and preorder So we can make our tree easily.
 BUT here we will follow a different approach. We will define min and maximum value of node at each step. it is easy. (min, max). 
 
 TIME COMPLEXITY: O(n);
 ```
 ```
-2. Check for BST? We have to check if the given tree is BST or Not. 
+5. Check for BST? We have to check if the given tree is BST or Not. 
 We simply do the inorder traversal of the tree and check if the traversal is sorted or not.
 
 We have to check the properties of bst.
@@ -1253,14 +1253,14 @@ We have to check the properties of bst.
 sorted array.
 ```
 ```
-3. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
+6. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
 APPROACH:   1. make middle of the tree as root.
             2. recusively do same for the subtrees.
                 start to mid-1 for left subtree.
                 mid+1 to end for right subtree.
 ```
 ```
-1. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often 
+7. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often 
 involving recursively defined objects.
 Their closed form is in terms of binomial coefficents.
 Cn=(1/(n+1))2nCn
@@ -1282,16 +1282,16 @@ Let's see the APPLICATION OF catalan numbers.
 7. Dyck words of given length & much more.
 ```
 ```
-7. POSSIBLE BST FOR N NODE:--> if n is the number of nodes then catalan(n) is the number of possible BST possible for n nodes.
+8. POSSIBLE BST FOR N NODE:--> if n is the number of nodes then catalan(n) is the number of possible BST possible for n nodes.
 ```
 ```
-8. Zig-Zag Traversal: it is kind of level order but one time it is right to left so the next time it is left to right.
+9. Zig-Zag Traversal: it is kind of level order but one time it is right to left so the next time it is left to right.
 Approach:   1. use 2 stacks - current level and next level.
             2. variable leftToRight
             3. if LeftToRight, push left child then right else, push right child then left.
 ```
 ```
-9. Are BST indentical? 
+10. Are BST indentical? 
 APPROACH:   1. If both empty, return true;
             2. If both non-empty,
                 a. Check that the data at nodes is equal
@@ -1300,7 +1300,7 @@ APPROACH:   1. If both empty, return true;
             3. if (a,b,c) are true, return true else return false.
 ```
 ```
-10. Largest BST in a binary Tree: We have to return the size of the largest bst in a given binary tree.
+11. Largest BST in a binary Tree: We have to return the size of the largest bst in a given binary tree.
 APPROACH:   for each node store the following information:
             1. min in subtree
             2. max in subtree
@@ -1311,7 +1311,7 @@ APPROACH:   for each node store the following information:
 Or you can do inorder traversal of the tree and we have to find the largest sorted array.
 ```
 ```
-11. Restore BST(Good question): The problem is that 2 nodes in a BST are swapped. Our task is to restore(correct) the BST.
+12. Restore BST(Good question): The problem is that 2 nodes in a BST are swapped. Our task is to restore(correct) the BST.
 
 APPROACH: Inorder traversal of BST is a sorted array.
 2 elements in sorted array are swapped.
@@ -1365,7 +1365,8 @@ Allocate the pages in such a way that maximum pages allocated to a student is mi
 APPROACH:   1. Apply binary search for min and max possible values for 'max' pages.
 note: here the min no. of pages is the first element and the max value if the total sum of the array.
             2. check feasibility of this choosen value.
-Assign pages to each student in sequencial manner, while the current number of allocated pages don't exceed the value set by binary search. 
+Assign pages to each student in sequencial manner, while the current number of allocated pages don't exceed 
+the value set by binary search. 
 If during allocation the number of students don't exceed the limit of 'm' then the solution is feasible. Else, it is not.
 ```
 ```
@@ -1479,7 +1480,10 @@ Final Time complexity: O(n*sqrt(n))
 Heaps are binary tree and not necessarily BST.
 MIN HEAP AND MAX HEAP.
 ```
+```
 1. HEAP-SORT: NOTE: If we have to pass vectors in functions then passing the reference to vector is good practice and consumes less time complexity.
+```
+```
 2. HEAP-STL: In STL we have max heap implemented. It is known as priority queue.
 MAX HEAP: priority-queue<int, vector<int>>
 MIN HEAP: priority-queue<int, vector<int>, greater<int>>
@@ -1487,19 +1491,25 @@ Operations:     1. push: O(log n)
                 2. pop: O(log n)
                 3. top: O(1)
                 4. size: O(1)
+```
+```
 3. Median of running stream: Numbers are coming and we have to tell median after each input.
+
 APPROACH: median is the middle element so if the total number of digits are odd then we can simply return the middle element but if the total number of elements are even then we have to use 2 heaps. One min heap and other one max heap. and we will pop out elements from both of them and we will divide them by two. in this way we get the median.
 We will put one element in maxheap first. then when the second element come then we put the other number in min heap and we get the top element and we find the average. if the number of elements in any heap is less than the other then we get the top element of that heap and that is our answer.
-
+```
+```
 4. MERGE K SORTED ARRAYS: we know how to merge 2 sorted array. So we can use that but the time complexity will be large so we use heap for merging k sorted arrays.
 APPROACH: Efficent solution using HEAPS.
-1. Create a mini heap of pairs.
-    Pair->{value, array number}
-2. Insert{first element, array number} of all the sorted array into MinHeap.
-3. Main Idea: We will pop element from MinHeap and store into the answer Array. Insert the next element of the sorted array into the MinHeap.
-4. We also need to keep track of the indices of the elements.
+    1. Create a mini heap of pairs.
+        Pair->{value, array number}
+    2. Insert{first element, array number} of all the sorted array into MinHeap.
+    3. Main Idea: We will pop element from MinHeap and store into the answer Array. 
+    Insert the next element of the sorted array into the MinHeap.
+    4. We also need to keep track of the indices of the elements.
 --> this is a good question here we apply the sorting of pairs also in which the first of pair gets sorted. 
-
+```
+```
 5. Smallest Subsequence with sum K:
 In Subsequence the order remains the same but it is not necessary to be contigous block of elements.
 "Every subarray is a subsequence but every subsequence is not a subarray"
@@ -1507,10 +1517,14 @@ APPROACH:
 1. Keep a maxheap and insert all the elements.
 2. Keep popping the elements and keep adding them to a variable sum and maintain cnt.
 3. When sum>=k, then quote the answer (cnt).
-
------------------------------------------HASHING--------------------------------------------------
+```
+---
+## HASHING
+```
 You already know hashing.
 Hashing stl.
+```
+```
 1. MAPS: 
     Insertion: O(log n)
     Accessing: O(log n)
@@ -1526,8 +1540,11 @@ Hashing stl.
     Implemented using Hash Tables(basically array of buckets)
 
     unordered_map<int, int>mp;
-
+```
+```
 1. Count Frequency of elements in a given Binary Tree:
+```
+```
 2. Print vertical order of elements of a Binary Tree:
                 10
                /  \
@@ -1535,7 +1552,8 @@ Hashing stl.
              / \   / \
             3  11 14  6 [Note: Here 10, 11 and 14 are in same column]
 
-Answer: 3 7 10 11 14 4 6. where the horizontal distance of 10 11 and 14 from the middle of the array is 0. The distance of 7 is -1 and the distance of 3 is -2. And the distance of 4 is 1 and distance of 6 is 2.
+Answer: 3 7 10 11 14 4 6. where the horizontal distance of 10 11 and 14 from the middle of the array is 0. 
+The distance of 7 is -1 and the distance of 3 is -2. And the distance of 4 is 1 and distance of 6 is 2.
 
 APPROACH: using hashing
 1. Starting from root node.
@@ -1544,23 +1562,31 @@ APPROACH: using hashing
 
 We will create a Map in which we use the key's as horizontal distance and for value we use vectors.
 and we push the values to the vectors.
-
+```
+```
 2. Count Number of subarrays with sum ZERO:
+
 APPROACH: 
 if we go bruteforce then the time Complexity will be O(n^2).
 So we have optimised approach.
 Compute Prefix sum: Prefix sum is the sum from the begining to to current element.
-we have to now find the such indexes which repeat after certain distance. It means that the between elements from the that element to the next index where it repeats returns 0.
+we have to now find the such indexes which repeat after certain distance. 
+It means that the between elements from the that element to the next index where it repeats returns 0.
 So we use combinations here. And from hashing we can calculate the Frequency of such elements.
 
 So, we have: (i) Map prefix sum to a map
             (ii) For every key, choose 2 values from all the occurences of particular prefsum(MC2)
             (iii) Special Case: For prefsum 0,  we have to also include them.
-
+```
+```
 3. TOP K most frequent element
+```
+```
 4. Sudoku Solver: Sudoku means 9X9 matrix. You have to solve for the missing elements.
+```
+---
 
-------------------------------------GREEDY ALGORITHM--------------------------------------------
+## GREEDY ALGORITHM
 Generally sorting is applied while applying greedy technique.
 
 1. Indian coin change: You are given an array of Denominations and a value X. You need to find the minimum number of coins required to make value X.
