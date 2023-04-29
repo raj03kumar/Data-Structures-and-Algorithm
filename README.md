@@ -1997,7 +1997,10 @@ Q. Minimum Jumps to reach end? more efficient is greedy solution and it is in O(
 ```
 ```
 Q7. Optimal game strategy? 
-Rahul and Neha are playing a coin game. They are given n coins with values x1, x2...xn. where n is always even. They take alternate turns. In each turn, a player pics, either the first or the last coin from the row and removes it from the row. The value of coin is received by the player. Determine the maximum value that Rahul can win if he moves first. Both players play optimally.
+Rahul and Neha are playing a coin game. They are given n coins with values x1, x2...xn. where n is always even. They take 
+alternate turns. In each turn, a player pics, either the first or the last coin from the row and removes it from the row. 
+The value of coin is received by the player. Determine the maximum value that Rahul can win if he moves first. 
+Both players play optimally.
 
 Input: 
 4
@@ -2015,7 +2018,9 @@ Choice2 = a[j]+min(solve(i, j-2), solve(i+1, j-1));
 ```
 ```
 Q8. Number of Subsequences? You are given a string s consisting of lower case latin letters ('a'-'z') and some '?'
-Your task is to find no. of subsequences 'abc'in all the strings '?' should be replaced with either of {'a', 'b', 'c'}. HINT: We make 3^x strings. where x is '?'
+Your task is to find no. of subsequences 'abc'in all the strings '?' should be replaced with either of {'a', 'b', 'c'}. 
+HINT: We make 3^x strings. where x is '?'
+
 BRUTEFORCE: 
 1. Compute all the strings and then count subsequences in each string. (Not an optimal soln)
 
@@ -2039,7 +2044,9 @@ States of dp only depends on the last character and 'n' the states will be numbe
 ```
 ```
 Q.10 O-N Knapsack?
-Given an array of items with their weight and value. Find the max number of items that can be stolen using a knapsack of capacity W.
+Given an array of items with their weight and value. 
+Find the max number of items that can be stolen using a knapsack of capacity W.
+
 Note: You can choose infinite items of each type.
 ```
 ```
@@ -2047,13 +2054,17 @@ Q11. Kadane's Algorithm?
 ```
 ```
 Q12. Maximum length of bitonic subsequence? (Remember LIS Longest increeasing Subsequence)
-Given an array of n numbers. Find the maximum length of bitonic subsequence. A subsequence is bitonic if it is firstly strictly increasing and then strictly decreasing or entirely increasing or decreasing.
+Given an array of n numbers. Find the maximum length of bitonic subsequence. 
+A subsequence is bitonic if it is firstly strictly increasing and then strictly decreasing or entirely increasing or decreasing.
+
 IDEA: We know LIS so we can also find LDS(longest decreasing subsequence) from an element i.
 Hence the bitonic subsequence = forward[i]+backward[i]-1; here -1 becauase we have already counted it in forward and backward.
 ```
 ```
 Q13. Friends pairing problem?
-Given n friends, each one can remain single or can be paired up with some other friend. Each friend can be paired only once. Find out the total number of ways in which friends can remain single or can be paired up.
+Given n friends, each one can remain single or can be paired up with some other friend. Each friend can be paired only once. 
+Find out the total number of ways in which friends can remain single or can be paired up.
+
 IDEA: Let f(n) = ways n people can remain single or pair up.
 For n-th person there are two choices:
 1. n-th person remains single, we recur for f(n-1)
@@ -2063,8 +2074,10 @@ f(n)=f(n-1)+(n-1)*f(n-2)
 ```
 ```
 Q14. UGLY NUMBERS?
-Ugly numbers are those numbers whose prime factors are 2, 3 or 5. The first 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12. By, convention 1, is included.
+Ugly numbers are those numbers whose prime factors are 2, 3 or 5. 
+The first 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12. By, convention 1, is included.
 Given, n print the n'th Ugly number.
+
 BRUTEFORCE: 1. Generate all the ugly numbers. 2. Sort the distinct ugly numbers. 3. Print the n'th ugly number.
 
 DP: Keep 3 pointers, think of it as merging three sorted lists.
@@ -2078,7 +2091,7 @@ Print the LCS of 3 Strings. Length of all the strings is |s|<200. EASY ONLY!!!
 ```
 ```
 Q16. K-ordered LCS? DP
-Print the LCS of two sequences given that you are allowed to change atmost K elements in the first sequence to any value you wish to.
+Print the LCS of two sequences given that you are allowed to change atmost K elements in the first sequence to any desired value.
 ```
 ---
 ## TRIES
@@ -2091,7 +2104,9 @@ BRUTE FORCE: run two loops and check for each pair. There will be nC2 combinatio
 ```
 ```
 Q. Trie Bash!
-Given an array arr. You are supposed to find the maximum value of (arr[a]^arr[a+1]....^arr[b])+(arr[c]^arr[c+1]....^arr[d]) where 1<=a<=b<=c<=d<=N, where N is the size of the array. ^ denotes XOR operation.
+Given an array arr. You are supposed to find the maximum value of (arr[a]^arr[a+1]....^arr[b])+(arr[c]^arr[c+1]....^arr[d]) 
+where 1<=a<=b<=c<=d<=N, where N is the size of the array. ^ denotes XOR operation.
+
 Sample test case:
 INPUT: 
 4
@@ -2109,12 +2124,16 @@ IDEA:
 Q. Digital Dictionary?
 Neha has a digital dictionary. It has an input field in which one can search any string and the dictionary displays all the words whose prefix is that input string in lexicographical order.
 
-Now you are given a task to make your own digital dictionary. You will be given words that you can store in your database and then you need to design tbe search functionality. And if no such words are available for a given word, add this to your dictionary.
+Now you are given a task to make your own digital dictionary. 
+You will be given words that you can store in your database and then you need to design tbe search functionality. 
+And if no such words are available for a given word, add this to your dictionary.
+
 INPUT: 
 Single integer N which denotes the number of words which are to be stored in the database of the dictionary.
 N lines of input, where in each line there is a string made up of lowercase letter.
 Single integer Q which denotes the number of Queries.
 Q number of lines describing the query string on each line given by user.
+
 SAMPLE INPUT:
 4
 pet 
@@ -2127,6 +2146,7 @@ pet
 r
 rac
 rat
+
 SAMPLE OUTPUT:
 pet 
 peter
@@ -2137,7 +2157,9 @@ rat
 rack
 rat
 
-IDEA: We will create a Trie data structure and store all the words that are in the dictionary. Now, in queries, we need to just check the words which have the prefix same as given in input. And then we need to use DFS for getting all the possiblities of words.
+IDEA: We will create a Trie data structure and store all the words that are in the dictionary. 
+Now, in queries, we need to just check the words which have the prefix same as given in input. 
+And then we need to use DFS for getting all the possiblities of words.
 ```
 ---
 
@@ -2184,12 +2206,16 @@ number of numbers from 1 to n-1 which are co-prime with n.
 IMPLEMENTATION: similar to Sieve of Eratosthenes
     1. Declare an array a[] of size n+1
     2. Initialize the array with a[i]=i
-    3. Iterate from 2 to n and check if(a[i]==i), if yes that means it is a prime number because it is not touched by previous numbers during the iteration. Change it to a[i]-1 and multiply all its multiples with (1-1/a[i])
+    3. Iterate from 2 to n and check if(a[i]==i), if yes that means it is a prime number 
+       because it is not touched by previous numbers during the iteration. 
+       Change it to a[i]-1 and multiply all its multiples with (1-1/a[i])
     4. You have your array with totient values ready.
 ```
 ```
 Binary Exponentiation: Very Important in competitive coding
-Many times, our answer is out of range of int. To avoid this we use modulo operation to overcome this problem. Some of the properties of modulo operation are:
+Many times, our answer is out of range of int. To avoid this we use modulo operation to overcome this problem. 
+    
+    Some of the properties of modulo operation are:
     (a+b)%m=(a%m)+(b%m)
     (a*b)%m=(a%m)*(b%m)
     (a-b)%m=(a%m)-(b%m) --> this value can be negative also so add the negative value with m
@@ -2210,25 +2236,26 @@ Many times, our answer is out of range of int. To avoid this we use modulo opera
 ```
 ```
 Fermat's Little Theorem:
-    Fermat's Little theorem states that if p is a prime number then for any integer a, the number a^p-a, is an integer multiple of p.
-    a^p=a (over mod p)
-    - If a is not divisible by p, Fermat's little theorem is equivalent to the statement that (a^p-1)-1 is an integer multiple of p
-        a^(p-1) = 1 (over mod p)
-    APPLICATIONS:
-    1. Modulo inverse using Fermat's little theorem.
-        a^p = a (over mod p)
-        If a is not divisible by p,
-        a^(p-1)=1 (over mod p)
-        Multiplying both sides by a^(-1)
-            a^(p-2)=a^(-1) (over mod p)
-    
-    2. Evaluating (a/b)%m = (a%m)*((b-inverse)%m)
-        - (a/b)%m = ((a%m)*((b-inverse)%m))%m
 
-    3. Evalutaing (nCr)%p using Fermat's little theorem:
-        Only if p>n;
-        1. Pre-calculate factorials taking modulo p
-        2. nCr%p=(fact[n]*modInverse(fact[r])%p*modInverse(fac[n-r])%p)%p
+Fermat's Little theorem states that if p is a prime number then for any integer a, the number a^p-a, is an integer multiple of p.
+a^p=a (over mod p)
+- If a is not divisible by p, Fermat's little theorem is equivalent to the statement that (a^p-1)-1 is an integer multiple of p
+    a^(p-1) = 1 (over mod p)
+APPLICATIONS:
+1. Modulo inverse using Fermat's little theorem.
+    a^p = a (over mod p)
+    If a is not divisible by p,
+    a^(p-1)=1 (over mod p)
+    Multiplying both sides by a^(-1)
+        a^(p-2)=a^(-1) (over mod p)
+
+2. Evaluating (a/b)%m = (a%m)*((b-inverse)%m)
+    - (a/b)%m = ((a%m)*((b-inverse)%m))%m
+
+3. Evalutaing (nCr)%p using Fermat's little theorem:
+    Only if p>n;
+    1. Pre-calculate factorials taking modulo p
+    2. nCr%p=(fact[n]*modInverse(fact[r])%p*modInverse(fac[n-r])%p)%p
 ```
 ```
 Wilson's Theorem:
@@ -2262,7 +2289,9 @@ Time Complexity: Taking inverse of 'p-n' numbers in log time. Hence, O((p-n)*log
 ```
 Q. Fibonacci in O(log n) using MATRIX EXPONENTIATION?
 Matrix exponentiation is made by Matrix Multiplication and Binary Exponentiation concept.
-Matrix multiplication takes O(k^3) time where k is constant and Binary Exponentiation takes O(log n) time. Hence the final time complexity is O(log n).
+Matrix multiplication takes O(k^3) time where k is constant and Binary Exponentiation takes O(log n) time. 
+
+Hence the final time complexity is O(log n).
 
 Representing fibonacci series in the form of matrix multiplication.
 And the matrix is [1,1][1,0] i.e 2x2 matrix.
@@ -2273,7 +2302,8 @@ And the matrix is [1,1][1,0] i.e 2x2 matrix.
 ```
 1. String Hash:
 a-> 1 ...... z-> 26
-"apna" -> 1*27^3 + 16*27^2 + 14*27^1 + 1*27^0 .... we have to use like this and the number should be greater than or equal to 27 atleast because we we can't assign 0 to a because then a, aa, aaa will have same hash function.
+"apna" -> 1*27^3 + 16*27^2 + 14*27^1 + 1*27^0 .... we have to use like this and the number should be greater than or equal to 27 
+atleast because we we can't assign 0 to a because then a, aa, aaa will have same hash function.
 
 But this grows exponentially so we use mod. 
 ```
@@ -2287,10 +2317,14 @@ LEARN: substr function s.substr(index, length_of_substr)
 ```
 ```
 Q. KMP Algorithm? O(m+n)
-    Prefix Function: very easy. just we have to start from begin and the see if the pattern gets repeated of not. Watch Abdul Bari video.
+    Prefix Function: very easy. just we have to start from begin and the see if the pattern gets repeated of not. 
+    
+    Watch Abdul Bari video.
 ```
 ```
-Q. Rabin Karp Algorithm?(HASHING) O(m+n) and worst case is O(mn)
+Q. Rabin Karp Algorithm?(HASHING) 
+
+    O(m+n) and worst case is O(mn)
 ```
 ---
 ### GUIDE TO INTERACTIVE PROBLEMS
@@ -2302,11 +2336,14 @@ By default cin/ cout flushes but for other languages like JAVA and Python we hav
 ```
 ```
 Q. Guess the number?
+
 There are two different responses testing program can provide: 
 string "<", if the hidden number is less than the integer in your query
 string ">=", if the hidden number is greater than or equal to the integer in your query.
 Your program can make only 25 queries atmost.
-When your program wants to guess the hidden number, print ! x, where x is the answer, and terminate your program immediately after flushing the output stream.
+
+When your program wants to guess the hidden number, print ! x, where x is the answer, 
+and terminate your program immediately after flushing the output stream.
 ```
 ---
 
@@ -2351,7 +2388,9 @@ Given an array a[] for size n. We have to answer and process following operation
 ```
 Q. Number of minimums on a segment?
 This question is from CodeForces.
-Change the code of the segment tree so that, in addition to the minimum on a segment, it also counts the number of elements equals to the minimum.
+
+Change the code of the segment tree so that, in addition to the minimum on a segment, 
+it also counts the number of elements equals to the minimum.
 ```
 ```
 Q. Segment with Maximum Sum?
@@ -2383,7 +2422,8 @@ For each operation of the second type, print the index of the corresponding one.
 IDEA:
 In these kind of problems, we descend the segment tree
 
-When we are standing at any segment, we have the decision ability to either go to the left child of the segment or right child of the segment.
+When we are standing at any segment, we have the decision ability to either go to the left child of the segment or right child 
+of the segment.
 
 SEGMENT TREE + BINARY SEARCH
 ```
@@ -2405,7 +2445,9 @@ APPROACH:
 ```
 ```
 Q. First Element atleast X (Part - 2)
-In this task, you need to add to the segment tree the operation of finding for the given x and l the minimum index j such that j>=l and a[j]>=x
+In this task, you need to add to the segment tree the operation of finding for the given x and l the minimum index j 
+such that j>=l and a[j]>=x
+
 You are given m queries of the form:
     1 i v: change a[i] to V
     2 x l: Find the minimum index j such that j>=l and a[j]>=x
