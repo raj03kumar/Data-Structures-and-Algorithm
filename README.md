@@ -1344,40 +1344,54 @@ NOTE: you can refer you book for set.
 ---
 
 ## Binary Search CHALLENGES
+```
 1. PLACE ELEMENTS TO MAXIMUM MINIMUM DISTANCE: This is a Binary search problem.
 -->this is very interesting question and easy concepts. Just she explains it hard.
-Given is an array with n elements that represents n positions along a straight line. Find K elements such that the minimum distance between any 2 elements is the maximum possible.
+Given is an array with n elements that represents n positions along a straight line. 
+Find K elements such that the minimum distance between any 2 elements is the maximum possible.
+
 APPROACH:   1. sort the array for binary search technique.
             2. pick middle element as result and check for its feasibility.
             3. If feasible, search the right half of the array with larger minimum distance.
             4. else search the left half of the array.
-
+```
+```
 2. Allocate minimum Pages: NOTE: this is binary search problem. Not bst.
 n - number of pages in n different books( ascending order)
 m - number of students
-All the books have to be divided among m students, consecutively. Allocate the pages in such a way that maximum pages allocated to a student is minimum.
+All the books have to be divided among m students, consecutively. 
+Allocate the pages in such a way that maximum pages allocated to a student is minimum.
+
 APPROACH:   1. Apply binary search for min and max possible values for 'max' pages.
 note: here the min no. of pages is the first element and the max value if the total sum of the array.
             2. check feasibility of this choosen value.
 Assign pages to each student in sequencial manner, while the current number of allocated pages don't exceed the value set by binary search. 
 If during allocation the number of students don't exceed the limit of 'm' then the solution is feasible. Else, it is not.
-
-3. Painter's Partition Problem: This is similar to minimum Pages problem. Only some changes. Here we dont use ans instead we use low which only stores and give us the answer.
+```
+```
+3. Painter's Partition Problem: This is similar to minimum Pages problem. Only some changes. 
+Here we dont use ans instead we use low which only stores and give us the answer.
 n - length of n different boards
 m - painters available
-A painter paints 1 unit of board in 1 unit of time and each painter will paint consecutive boards. Find the minimum time required by the painters to paint all the boards.
 
+A painter paints 1 unit of board in 1 unit of time and each painter will paint consecutive boards. 
+Find the minimum time required by the painters to paint all the boards.
+```
+```
 4. Search in Sorted and Rotated Array: Beautiful question. NOTE: this is horizontal rotation only.
 You can frame a good question if you rotate vertically.
-We are given an ascending sorted array that has been rotated from a pivot point(unknown to us) and an element X. Search for X with a complexity less than linear search.
+We are given an ascending sorted array that has been rotated from a pivot point(unknown to us) and an element X. 
+Search for X with a complexity less than linear search.
 Original array: [10, 20, 30, 40, 50].
 Rotated array: [30, 40, 50, 10, 20]. note: the left and right subarray are sorted if pivot is your mid.
+
 APPROACH:   Find the pivot point. Then apply binary search in left half and right half.
             To find the pivot point: It is a single point where it is greater than the element right to it. arr[i]>arr[i+1];
 //we can use binary search recursive.
-
-5. Find the peak element: 
-For a given array, find the peak element in the array. Peak element is one which is greater than both, left and right neighbours of it self.
+```
+```
+5. Find the peak element: For a given array, 
+find the peak element in the array. Peak element is one which is greater than both, left and right neighbours of it self.
     Corner Case: if the array is in ascending order then the last element is the peak element.
                  if the array is in descending order then the first element is the peak element.
                  if all the elements in array are same then all the elements are peak element.
@@ -1387,11 +1401,14 @@ Compute mid and for each mid check if arr[mid] is a peak element.
 Else if arr[mid-1]>arr[mid], check left for peak.
 Else if arr[mid]<arr[mid+1], check right for peak.
 Given: arr[]={1,3,20,4,1,0}. Start=0, end=5. mid=2 and coincidently mid is also the peak element.
-
+```
+```
 6. Maximum Sum Subarray sliding window challenge: Max sum subarray of size=K and sum<x;
 For a given array and integers K and X, find the maximum sum subarray of size K and having sum less than X.
 NOTE: we just have to return the sum. It is very simple sliding window.
+
 APPROACH 1: Compute sum of all possible subarray of size K. T.C.= O(n*k)
+
 APPROACH 2: Sliding window approach.
     1. Calculate sum of first k elements.
     2. Initialise ans with this sum.
@@ -1399,30 +1416,40 @@ APPROACH 2: Sliding window approach.
         keep adding one element in sum and removing one from start.
         Compare new sum with ans in each iteration.
 TIME COMPLEXITY: O(n);
-
+```
+```
 7. Minimum Size Subarray sliding window challenge: Smallest subarray with sum>X.
 For a given array and an integer X, find the minimum subarray size for which sum > X.
+
 APPROACH 1: Compute sum of all subarray and check the condition.
 TIME COMPLEXITY: O(n^2).
+
 APPROACH 2: Sliding window approach.
     1. use variables ans, sum and start.
     2. iterate over array and start adding elements to sum.
     3. if sum>X, remove elements from start.
 Time Complexity: o(n)
-NOTE: we are looking for subarray > x and not even equal to x.
 
+NOTE: we are looking for subarray > x and not even equal to x.
+```
+```
 8. Number formed from subarray of size K, divisible by 3: 
-For a given array and an integer K, check if any subarray of size K, exists in the array such that elements in subarray form a number divisible by 3.
+For a given array and an integer K, check if any subarray of size K, exists in the array such that elements 
+in subarray form a number divisible by 3.
 Given: [8,23, 45, 12, 56, 4]. and k = 3. so the number formed from last 3 elements is 12564. and it is divisible by 3. 
+
 APPROACH: we know if the sum if divisible by 3 then the number formed is also divisible by 3. 
     So, we use our sliding window approach.
     1. sum of initial K elements from the array.
     2. Use sliding window technique and one by one, start subtracting elements from the beginning and adding from the end. 
     3. At each step, chek if sum divisible by 3 or not. If it is, then print the elements.
-TimeComplexity: O(n).
 
+TimeComplexity: O(n).
+```
+```
 9. Subarray with size K with palindromic concatenation: 
-For a given array and an integer K, check if any subarray of size K exists in the array such that concatenation of elements form a palindrome.
+For a given array and an integer K, check if any subarray of size K exists in the array such that concatenation of 
+elements form a palindrome.
 APPROACH 1: Generate all the subarrays of size K. TimeComplexity: O(n^2).
             Check if their concatenation forms a palindrome. TimeComplexity: O(n).
     Total TimeComplexity: O(n^3)
@@ -1431,20 +1458,27 @@ APPROACH 2: Sliding window approach.
     2. Iterate over the array and start deleting elements from the start and adding elements from end.
     3. At each step, check if the concatenation is a palindrome or not.
     TimeComplexity: O(n^2)
-
-10. Maximum perfect numbers in length K:
-For a given array and an integer K, find the maximum perfect numbers in a subarray of size K.
-Perfect numbers are numbers whose sum of the divisors including the number itself is twice the number or if we exclude the number then the sum of proper divisors if the number.
+```
+```
+10. Maximum perfect numbers in length K: For a given array and an integer K, 
+find the maximum perfect numbers in a subarray of size K.
+Perfect numbers are numbers whose sum of the divisors including the number itself is twice the number or if we 
+exclude the number then the sum of proper divisors if the number.
     6-> 1,2,3 --> 1+2+3=6
+
 APPROACH: Convert the given array into binary array of 0 and 1. only. 1 represent the binary numbers.
         Use Sliding Window approach.
-    Time complexity to find perfect number: O(sqrt(n))
-    Time complexity for sliding window: O(n)
-    Final Time complexity: O(n*sqrt(n))   
 
--------------------------------------------HEAP-----------------------------------------------------
+Time complexity to find perfect number: O(sqrt(n))
+Time complexity for sliding window: O(n)
+Final Time complexity: O(n*sqrt(n))   
+```
+---
+## HEAP
+```
 Heaps are binary tree and not necessarily BST.
 MIN HEAP AND MAX HEAP.
+```
 1. HEAP-SORT: NOTE: If we have to pass vectors in functions then passing the reference to vector is good practice and consumes less time complexity.
 2. HEAP-STL: In STL we have max heap implemented. It is known as priority queue.
 MAX HEAP: priority-queue<int, vector<int>>
