@@ -1774,7 +1774,8 @@ IDEA:
 
 #### Bipartite Graph: 
 ```
-1. Its vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V. 
+1. Its vertices can be divided into two disjoint and independent sets U and V such that every edge connects a 
+   vertex in U to one in V. 
 2. The graph doesnot contain any odd-length cycles.
 3. The graph is 2 Colorable.
 Note: If we are able to color the graph with only two colors then the graph is bipartite.
