@@ -1218,8 +1218,13 @@ APPROACH:   1. Node Val.
 ---
 
 ## BINARY SEARCH TREE
+```
 1. Creating a BST and doing inorder traversal.
+```
+```
 2. Searching in a BST: easy hai.
+```
+```
 3. delete in a BST:
 Case 1: If it is a leaf node then we directly free that node.
 Case 2: A node which has only one child: Replace the node with child and delete the node.
@@ -1227,12 +1232,14 @@ Case 3: If it has 2 childrens.
         Step 1: In this case we have to find our inorder successor.
         Step 2: Replace(or swap) the node with inorder successor.
         Step 3: We now use the case 1 now to delete the leaf node.
-
+```
+```
 1. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find our inorder and in this way now we have both inorder and preorder So we can make our tree easily.
 BUT here we will follow a different approach. We will define min and maximum value of node at each step. it is easy. (min, max). 
 TIME COMPLEXITY: O(n);
-
-1. Check for BST? We have to check if the given tree is BST or Not. we simply do the inorder traversal of the tree and check if the traversal is sorted or not.
+```
+```
+2. Check for BST? We have to check if the given tree is BST or Not. we simply do the inorder traversal of the tree and check if the traversal is sorted or not.
 We have to check the properties of bst.
 1. All nodes of the left subtree are lesser than the node itself.
 2. All nodes of the right subtree are greater than the node itself.
@@ -1240,13 +1247,15 @@ We have to check the properties of bst.
 4. There are no duplicate nodes.
 5. The InOrder traversal of a binary search tree gives an ascending
 sorted array.
-
+```
+```
 1. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
 APPROACH:   1. make middle of the tree as root.
             1. recusively do same for the subtrees.
                 start to mid-1 for left subtree.
                 mid+1 to end for right subtree.
-
+```
+```
 1. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often involving recursively defined objects.
 their closed form is in terms of binomial coefficents.
 Cn=(1/(n+1))2nCn
@@ -1266,14 +1275,17 @@ Let's see the APPLICATION OF catalan numbers.
 5. Possible paths in matrix
 6. Dividing a circle using N chord.
 7. Dyck words of given length & much more.
-
+```
+```
 7. POSSIBLE BST FOR N NODE:--> if n is the number of nodes then catalan(n) is the number of possible BST possible for n nodes.
-
+```
+```
 8. Zig-Zag Traversal: it is kind of level order but one time it is right to left so the next time it is left to right.
 Approach:   1. use 2 stacks - current level and next level.
             2. variable leftToRight
             3. if LeftToRight, push left child then right else, push right child then left.
-
+```
+```
 9. Are BST indentical? 
 APPROACH:   1. If both empty, return true;
             2. If both non-empty,
@@ -1281,7 +1293,8 @@ APPROACH:   1. If both empty, return true;
                 b. Check if left subtrees are same.
                 c. check if right subtrees are same.
             3. if (a,b,c) are true, return true else return false.
-
+```
+```
 10. Largest BST in a binary Tree: We have to return the size of the largest bst in a given binary tree.
 APPROACH:   for each node store the following information:
             1. min in subtree
@@ -1291,12 +1304,15 @@ APPROACH:   for each node store the following information:
             5. isBST
             Recusively, traverse in a bottom-up manner and find out the size of largest BST.
 Or you can do inorder traversal of the tree and we have to find the largest sorted array.
-
+```
+```
 11. Restore BST(Good question): The problem is that 2 nodes in a BST are swapped. Our task is to restore(correct) the BST.
+
 APPROACH: Inorder traversal of BST is a sorted array.
 2 elements in sorted array are swapped.
 CASE 1:     1. swapped elements are not adjacent to each other.
 CASE 2:     1. Swapped elements are adjacent to each other.
+
 APPROACH: we ise three pointers approach: first, last and mid.
 for CASE 1: {1,8,3,4,5,6,7,2}
             First: previous node where 1st number <previous[8];
@@ -1306,7 +1322,7 @@ for CASE 2: {1,2,4,3,5,6,7,8,9}
             First: previous node where 1st number <previous[4]
             Mid: number where 1st number < previous[3]
             Last: NULL
-
+```
 ---
 ### SET
 ```
