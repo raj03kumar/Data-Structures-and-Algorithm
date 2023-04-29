@@ -1481,7 +1481,9 @@ Heaps are binary tree and not necessarily BST.
 MIN HEAP AND MAX HEAP.
 ```
 ```
-1. HEAP-SORT: NOTE: If we have to pass vectors in functions then passing the reference to vector is good practice and consumes less time complexity.
+1. HEAP-SORT: you already know
+
+NOTE: If we have to pass vectors in functions then pass the reference to vector.
 ```
 ```
 2. HEAP-STL: In STL we have max heap implemented. It is known as priority queue.
@@ -1495,11 +1497,17 @@ Operations:     1. push: O(log n)
 ```
 3. Median of running stream: Numbers are coming and we have to tell median after each input.
 
-APPROACH: median is the middle element so if the total number of digits are odd then we can simply return the middle element but if the total number of elements are even then we have to use 2 heaps. One min heap and other one max heap. and we will pop out elements from both of them and we will divide them by two. in this way we get the median.
-We will put one element in maxheap first. then when the second element come then we put the other number in min heap and we get the top element and we find the average. if the number of elements in any heap is less than the other then we get the top element of that heap and that is our answer.
+APPROACH: median is the middle element so if the total number of digits are odd then we can simply return the middle element 
+but if the total number of elements are even then we have to use 2 heaps. One min heap and other one max heap. 
+And we will pop out elements from both of them and we will divide them by two. in this way we get the median.
+We will put one element in maxheap first. then when the second element come then we put the other number in min heap and 
+we get the top element and we find the average. if the number of elements in any heap is less than the other then we get 
+the top element of that heap and that is our answer.
 ```
 ```
-4. MERGE K SORTED ARRAYS: we know how to merge 2 sorted array. So we can use that but the time complexity will be large so we use heap for merging k sorted arrays.
+4. MERGE K SORTED ARRAYS: we know how to merge 2 sorted array. So we can use that but the time complexity will be large so we 
+use heap for merging k sorted arrays.
+
 APPROACH: Efficent solution using HEAPS.
     1. Create a mini heap of pairs.
         Pair->{value, array number}
