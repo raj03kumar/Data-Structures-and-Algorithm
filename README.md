@@ -2460,17 +2460,20 @@ You are given m queries of the form:
 
 ### NESTED SEGMENTS:
 ```
-Q. Given an array of 2n numbers, each number from 1 to n in it and occurs exactly twice. We say that the segment x if both occurences of number x. Find for each segment i, how many segments are there that are nested inside it.
+Q. Given an array of 2n numbers, each number from 1 to n in it and occurs exactly twice. 
+We say that the segment x if both occurences of number x. 
+Find for each segment i, how many segments are there that are nested inside it.
 Constraints: 1<=n<=10^5
 
 Example: n = 5  Array: 5 1 2 2 3 1 3 4 5 4
                 Index: 0 1 2 3 4 5 6 7 8 9
 
-                So for 1: two 1 are from index 1 to 5 and there is one element between the index which is repeated twice i.e 2 so we return 1 {2}
-                for 2: index is from 2 to 3 hence no number lies between it so we return 0
-                for 3: index is from 4 to 6 and only single 1 lies so return 0
-                for 4: only single 5 is between so return 0
-                for 5: index is from 0 to 8 and we find two 1, two 2, two 3 inside the index so we return 3 {1, 2, 3}
+        So for 1: two 1 are from index 1 to 5 and there is one element between the index which is 
+        repeated twice i.e 2 so we return 1 {2}
+        for 2: index is from 2 to 3 hence no number lies between it so we return 0
+        for 3: index is from 4 to 6 and only single 1 lies so return 0
+        for 4: only single 5 is between so return 0
+        for 5: index is from 0 to 8 and we find two 1, two 2, two 3 inside the index so we return 3 {1, 2, 3}
 
     Let us make the intervals out of the given array.
         1 - [1,5]    
@@ -2489,7 +2492,10 @@ Example: n = 5  Array: 5 1 2 2 3 1 3 4 5 4
 
 ### INTERSECTING SEGMENTS:
 ```
-Given an array of 2n numbers, each number from 1 to n in it occurs exactly twice. We say that the segment y intersects the segment x if exactly one occurence of the number y is between the occurences of the number x. Find for each segment i, how many segment are there that intersect with i'th segment.
+Given an array of 2n numbers, each number from 1 to n in it occurs exactly twice. 
+We say that the segment y intersects the segment x if exactly one occurence of the number y is between the occurences 
+of the number x. 
+Find for each segment i, how many segment are there that intersect with i'th segment.
 
 Same as before just here we have to count only one occurence and ignore the numbers with 2 occurences.
 
@@ -2501,12 +2507,15 @@ Let us make the intervals out of the given array.
         5 - [0,8]
     So our problem reduces to finding for each segment, the number of segments lying partially inside it.
 
-    Number of segments lying partially inside it = Number of numbers between the segment - 2*(number of segments lying completely inside it) i.e our nested segment problem
+No. of segments lying partially inside it = No. of numbers between the segment - 2*(No. of segments lying completely inside it)
+i.e our nested segment problem
 ```
 ---
 ## FENWICK TREE (BINARY INDEX TREE)
 ```
-Given an array, find the sum of array(L,R). This can be done using prefixSum array. O(N) for preprocessing and O(1) for query. Sum(L,R) = prefix[R]-prefix[L-1]. But what if we have to update the elements also. So for updating the prefix array we would need O(N) time.
+Given an array, find the sum of array(L,R). This can be done using prefixSum array. O(N) for preprocessing and O(1) for query. 
+Sum(L,R) = prefix[R]-prefix[L-1]. But what if we have to update the elements also. 
+So for updating the prefix array we would need O(N) time.
 So the fenwick tree helps us to reduce the O(N) time. Rest finding the sum remains same.
 For each number LSB, we define its responsibility.
 ```
@@ -2516,14 +2525,18 @@ Chain of responsibilities:
 Sum(1....11) = A[11]+A[10]+A[8] because only they are responsible.
 Dropping LSB, and getting the next number.
 
-Easy only check the diagram once again if confused. We have to count numbers down of what the LSB denotes. If LSB denotes 7 then the number is responsible for the 7 numbers below it. If it is 16 then if is responsible for 16 numbers below it. We have to add the numbers until we completely come to 0 or we take all the numbers responsible until 0.
+Easy only check the diagram once again if confused. We have to count numbers down of what the LSB denotes. 
+If LSB denotes 7 then the number is responsible for the 7 numbers below it. 
+If it is 16 then if is responsible for 16 numbers below it. 
+We have to add the numbers until we completely come to 0 or we take all the numbers responsible until 0.
 ```
 ```
 FOR UPDATES:
 - What if we have to do point updates?
 - update according to their responsibilty
 
-Point Updates: Point updates are the opposite of this, we want to add the LSB to propagate the value up to the cells responsible for us.
+Point Updates: Point updates are the opposite of this, we want to add the LSB to propagate the value up to the cells responsible 
+for us.
 
 SIMPLE: If we have to do query then we have to subtract the LSB, and when we have to do updates then we have to add the LSB.
 
@@ -2587,7 +2600,8 @@ Q. Range Sum with Range Updates using Fenwick Tree?
         2. For i<L<j, update(i, j, val) net contribution in query(L) would be val.
         3. For L<i<j, update(i, j, val) net contribution in query(L) would be zero.
 
-Note: We can implement it using segment trees as well but the code of Fenwick tree is less than that of Segment trees so we prefer Fenwick tree
+Note: We can implement it using segment trees as well but the code of Fenwick tree is less than that of Segment trees 
+so we prefer Fenwick tree
 ```
 ```cpp
 Q. Count Inversions using Fenwick Tree?
@@ -2604,7 +2618,8 @@ USING BIT(Binary Indexed Tree): O(nlogn)
 IDEA: Traverse through the array and for every index find the number of smaller elements on its right side of the array. 
 Sum up the counts for all indexes in the array and print the sum.
 
-APPROACH: 1. Convert the array into relative ordering: For example: if the array is {-3, 2, 0} then the array gets converted to {1,3,2}
+APPROACH: 1. Convert the array into relative ordering: 
+             For example: if the array is {-3, 2, 0} then the array gets converted to {1,3,2}
 
 To take negative and large values into account we give the smallest number value as 1.
 
@@ -2627,7 +2642,9 @@ Easy only. Sometimes we get complete blocks, sometimes we get partial blocks
 ```
 ```
 Q. RMQSQ - Spoj question (Range min query using sqrt decomposition)
-You are given a list of N numbers and Q queries. Each query is specified by two numbers i and j; the answer to each query is the minimum number between the range [i,j] (inclusive)
+You are given a list of N numbers and Q queries. Each query is specified by two numbers i and j; the answer to each 
+query is the minimum number between the range [i,j] (inclusive)
+
 NOTE: the query ranges are specified using 0-based indexing.
 
 INPUT:
@@ -2643,7 +2660,8 @@ OUTPUT:
 
 #### MO's ALGORITHM (Square Root Decomposition):
 ```
-You are given an array of size n and q queries. Each query is a range query. In each query, we have to perform some operation and output answer of each query.
+You are given an array of size n and q queries. Each query is a range query. 
+In each query, we have to perform some operation and output answer of each query.
 
 Brute-force: For each query -> Compute the answer for that query -> Jump onto next query
 Time complexity: O(n*Q)
@@ -2674,7 +2692,8 @@ Total time complexity: O((n+Q)*sqrt(n))
 ```
 ```
 Q. DQUERY - SPOJ QUESTION using MO's Algorithm:
-Given a sequence of n numbers a1, a2, ..., an and a number of d-queries. A d-query is a pair (i, j) (1 ≤ i ≤ j ≤ n). For each d-query (i, j), you have to return the number of distinct elements in the subsequence ai, ai+1, ..., aj.
+Given a sequence of n numbers a1, a2, ..., an and a number of d-queries. A d-query is a pair (i, j) (1 ≤ i ≤ j ≤ n). 
+For each d-query (i, j), you have to return the number of distinct elements in the subsequence ai, ai+1, ..., aj.
 
 Input
 Line 1: n (1 ≤ n ≤ 30000).
@@ -2714,10 +2733,12 @@ ORDERED SET:
 first declare the ordered set:
 template<class T> using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>
 
-- null type: It is mapped policy. It is null here to use it as a set. If we want to get map but not set, as the second argument type must be use mapped type.
+- null type: It is mapped policy. It is null here to use it as a set. 
+    If we want to get map but not set, as the second argument type must be use mapped type.
 - less: It is the basis for comparison of two functions. Use less_equal for ordered multiset.
 - rb_tree_tag: type of tree used.
-- tree_order_statistics_node_update: It is included in tree_policy.hpp and contains various operations for updating the node variants of a tree-based container, so we can keep track of metadata like the number of nodes in a subtree.
+- tree_order_statistics_node_update: It is included in tree_policy.hpp and contains various operations for updating the node 
+variants of a tree-based container, so we can keep track of metadata like the number of nodes in a subtree.
 
 OPERATIONS:
 - Normal set operations
