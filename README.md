@@ -1042,10 +1042,12 @@ APPROACH: we have to find longest subarray with k zeros.
 ### BINARY-TREE
 ```
 WITHOUT RECURSION YOU CAN'T LEARN AND MAKE TREE. THERE IS ONLY AND ONLY RECURSION IN TREE.
-```
 
 basic concepts you already know.
+```
+```cpp
 To make a tree:
+
 struct Node{
     int data;
     struct Node* left;
@@ -1058,7 +1060,10 @@ struct Node{
         right=NULL;
     }
 };
+```
+```cpp
 Binary tree traversals: Preorder, Inorder, Postorder.
+
 void preOrder(struct node* root){
     if(root==NULL){
         return;
@@ -1067,89 +1072,153 @@ void preOrder(struct node* root){
     preOrder(root->left);
     preOrder(root->right);
 }
+```
+```
 1. Build tree from PreOrder and Inorder. here we build left subtree and then right subtree.
+
 2. Build tree from PostOrder and Inorder. Similar but opposite. here we first build right subtree and after that we build left subtree.
 
-NOTE: We can't build tree from just preorder and postorder traversal. It can only be possible if it is a complete binary tree else the tree structure may vary.
-
-3. LEVEL ORDER TRAVERSAL: We implement this using queue. It is similar to BFS where the firdt element is the root itself.
+NOTE: We can't build tree from just preorder and postorder traversal. 
+It can only be possible if it is a complete binary tree else the tree structure may vary.
+```
+```
+3. LEVEL ORDER TRAVERSAL: We implement this using queue. 
+It is similar to BFS where the first element is the root itself.
 Imagine a tree with Level order traversal: 1,2,3,4,5,6,7. O(n)
 
-so we use queue data structure here. We first insert root and then we insert a null representing the end of first level. So in our queue we have 1, NULL. elements inserted.
-Now we dequeue from queue and we get 1. so we now traverse for left and right childs of 1. so we push 2 and 3 to our queue so our queue becomes NULL, 2,3. so if we pop out hten we get NULL which represents the end of 1st level. So we pop out the null and push it back to the queue. Then pop out 2 and insert the elements in queue.
-so the elements in queue are 3, NULL, 4,5.
-Again we pop out 3 and push it back. so our queue becomes NULL, 4, 5, 6, 7. next we pop out NULL and it represents the end of 1st level. so we again push that NULL to the queue.
-We then pop 4 and print it and check if it has childrens or not. similarly for othed. 
-3. At each step, chek if sum divisible by 3 or not. If it is, then print the elements.TimeComplexity: O(n) and we finally print them all. we notice that after we pop out NULL after queue is empty so we have completed our traversal.
+so we use queue data structure here. 
+We first insert root and then we insert a null representing the end of first level. 
+So in our queue we have 1, NULL. elements inserted.
+Now we dequeue from queue and we get 1. So we now traverse for left and right childs of 1. 
+So we push 2 and 3 to our queue so our queue becomes NULL, 2,3. 
+So if we pop out then we get NULL which represents the end of 1st level.
+So we pop out the null and push it back to the queue. Then pop out 2 and insert the elements in queue.
+So the elements in queue are 3, NULL, 4,5.
+Again we pop out 3 and push it back. so our queue becomes NULL, 4, 5, 6, 7. 
+Next we pop out NULL and it represents the end of 1st level. so we again push that NULL to the queue.
+We then pop 4 and print it and check if it has childrens or not. similarly for other. 
 
+3. At each step, check if sum divisible by 3 or not. If it is, then print the elements.
+TimeComplexity: O(n) and we finally print them all. 
+We notice that after we pop out NULL after queue is empty so we have completed our traversal.
+```
+```
 4. Find the sum of nodes at kth level. O(n)
+```
+```cpp
 5. Count all the nodes in a binary tree. We have to count the number of nodes in a binary tree and return it. O(n)
-APPROACH: here we recursively count for the left sub tree and right sub tree and add +1 to it for including the root node. We do it recursively.
+APPROACH: here we recursively count for the left sub tree and right sub tree and add +1 to it for including the root node. 
+We do it recursively.
+
 int countNodes(Node* root){
     if(root==NULL){
         return 0;
     }
     return countNodes(root->left)+countNodes(root->right)+1;
 }
-
+```
+```
 6. Sum of all nodes in a bianry Tree: Left Subtree sum + Right Subtree Sum + node Value.
 Or you can easily do inorder traversal and add the values.O(n)
+```
+```cpp
+7. Height and diameter of a Binary tree: We recursively call for the height of the left subtree and right subtree 
+and find there maximum and add one to it. 
 
-7. Height and diameter of a Binary tree: We recursively call for the height of the left subtree and right subtree and find there maximum and add one to it. 
+TimeComplexity: Height: O(n), Diameter: O(n^2) it can be done in O(n) if we merge the height function in diameter only. 
+See the apni kaksha video.
 
-TimeComplexity: Height: O(n), Diameter: O(n^2) it can be done in O(n) if we merge the height function in diameter only. See the apni kaksha video.
 int findHeight(Node* root){
     if(root==NULL){
         return 0;
     }
     return max(findHeight(root->left),findHeight(root->right))+1;
 }
-Diameter of a tree: Number of nodes in the longest path between any two leaves. Diameter of the tree can pass through the root node or can't also pass through the root node.
-APPROACH: We find left diameter and left height and right diameter and right height. If our diameter is passing through the root then the diameter is leftheight+right height+1, else it is the max of leftDiameter or RightDiameter.
+
+Diameter of a tree: Number of nodes in the longest path between any two leaves. 
+Diameter of the tree can pass through the root node or can't also pass through the root node.
+
+APPROACH: We find left diameter and left height and right diameter and right height. 
+If our diameter is passing through the root then the diameter is leftheight+right height+1, 
+else it is the max of leftDiameter or RightDiameter.
+
 max(leftheight+rightHeight+1, leftDiameter, RightDiameter)
+```
+```
+8. Sum Replacement in Binary tree: Replace the value of each node with the sum of all subtree nodes and itself. 
+It is basic common sense question.
 
-8. Sum Replacement in Binary tree: Replace the value of each node with the sum of all subtree nodes and itself. It is basic common sense question. Time Complexity: O(n)
-
-9. Balanced Height Binary Tree: For each node, the difference between the heights of the left subtree and right subtree <=1
-abs(left height- right height)<=1. O(n^2) we can reduce it to O(n) with the same approach as diameter. we pass the height pointer in both.
-
-10. Right view of BT: here we go and see our binary tree from right side and whatever nodes we see we print them. 
-APPROACH: we do the level order traversal here and we print the right most node in level order traversal. Note: we used queue for level order traversal. 
 Time Complexity: O(n)
+```
+```
+9. Balanced Height Binary Tree: For each node, the difference between the heights of the left subtree and right subtree <=1
 
+abs(left height- right height)<=1. O(n^2) we can reduce it to O(n) with the same approach as diameter. 
+we pass the height pointer in both.
+```
+```
+10. Right view of BT: here we go and see our binary tree from right side and whatever nodes we see we print them. 
+
+APPROACH: we do the level order traversal here and we print the right most node in level order traversal. 
+Note: we used queue for level order traversal. 
+
+Time Complexity: O(n)
+```
+```
 11. Left view of BT: Very similar to right view of BT. Here just we have to print the first element of the order.
 Time Complexity: O(n)
+```
+```
+12. Find distance between 2 nodes of a binary tree: Find the distance between two nodes in a binary tree. 
+The distance between two nodes is minimum number of edges to be traversed to reach one node from another.
 
-12. Find distance between 2 nodes of a binary tree: Find the distance between two nodes in a binary tree. The distance between two nodes is minimum number of edges to be traversed to reach one node from another.
 APPROACH: Find the LCA(Lowest common ancestor). Find distance of n1 (d1) and n2 (d2) from LCA. return d1+d2.
+```
+```
+13. Flatten a binary Tree: Given a binary tree, flatten it into linked list inplace(means we have to solve int that tree only. 
+We dont have to do traversal and create a linked list from it). 
+After flattening, left or each node should point to NULL and right should contain next node in preorder sequence.
+(It is NOT allowed to use any other data structure)
 
-13. Flatten a binary Tree: Given a binary tree, flatten it into linked list inplace(means we have to solve int that tree only. we dont have to do traversal and create a linked list from it). After flattening, left or each node should point to NULL and right should contain next node in preorder sequence.(It is NOT allowed to use any other data structure)
-SIMPLE UNDERSTANDING: We have to leave the left subtree as it is. we have to append the right subtree to the left subtree to its last node. then recursively we have to do this only.
-APPROACH: 1. Recursively, flatten the left and right subtrees.
+SIMPLE UNDERSTANDING: We have to leave the left subtree as it is. we have to append the right subtree to the left subtree to its last node. 
+then recursively we have to do this only.
+
+APPROACH: 
+        1. Recursively, flatten the left and right subtrees.
         2. Store the left tail and right tail. Tail means the last element.
         3. Store the right Subtree in temp and make left subtree as right subtree.
         4. Join right subtree with left tail.
         5. return the right tail.
+```
+```
+14. Print all nodes at Distance K: we have to print all the nodes at distance k from the given node. 
+We can find and print the nodes in our subtrees and also we can find nodes in our ancestors tree. 
+We have to print all of them. We will be given a root node, a node from where we have to calculate the distance and k is the distance.
 
-14. Print all nodes at Distance K: we have to print all the nodes at distance k from the given node. We can find and print the nodes in our subtrees and also we can find nodes in our ancestors tree. We have to print all of them. We will be given a root node, a node from where we have to calculate the distance and k is the distance.
 Case 1: Nodes Subtree. we travel down and we decrease our k by 1. if k==0 then we have to print those nodes.
-Case 2: Node's ancestors. We have to find the distance of all ancestors from target node and store it in variable d. For all ancestors search for other subtree nodes like in CASE 1. for (k-d) distance.
-If the given node is in left subtree then we search in ancestors right subtree and if our node is in right subtree then we search in left subtree. In this way we reduce our case 2 in case 1.
 
+Case 2: Node's ancestors. We have to find the distance of all ancestors from target node and store it in variable d. 
+For all ancestors search for other subtree nodes like in CASE 1. for (k-d) distance.
+If the given node is in left subtree then we search in ancestors right subtree and if our node is 
+in right subtree then we search in left subtree. In this way we reduce our case 2 in case 1.
+```
+```
 15. LOWEST COMMON ANCESTOR for TWO nodes: we have already done it. It is simple.
-
+```
+```
 16. MAXIMUM PATH SUM IN A BINARY TREE: maximum possible sum of a path in a binary tree, starting and ending at any node.
 We use recursion.
 APPROACH:   1. Node Val.
             2. Max path through left child + node val
             3. Max path through right child + node val.
             4. Max path through left child + Max path through right child + node val.
+```
+---
 
----------------------------------BINARY SEARCH TREE--------------------------------------
+## BINARY SEARCH TREE
 1. Creating a BST and doing inorder traversal.
-
 2. Searching in a BST: easy hai.
-2. delete in a BST:
+3. delete in a BST:
 Case 1: If it is a leaf node then we directly free that node.
 Case 2: A node which has only one child: Replace the node with child and delete the node.
 Case 3: If it has 2 childrens. 
@@ -1157,11 +1226,11 @@ Case 3: If it has 2 childrens.
         Step 2: Replace(or swap) the node with inorder successor.
         Step 3: We now use the case 1 now to delete the leaf node.
 
-3. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find our inorder and in this way now we have both inorder and preorder So we can make our tree easily.
+1. BUILD BST from preorder: simple we know inorder is the sorted sequence then we can sort the given preorder and find our inorder and in this way now we have both inorder and preorder So we can make our tree easily.
 BUT here we will follow a different approach. We will define min and maximum value of node at each step. it is easy. (min, max). 
 TIME COMPLEXITY: O(n);
 
-4. Check for BST? We have to check if the given tree is BST or Not. we simply do the inorder traversal of the tree and check if the traversal is sorted or not.
+1. Check for BST? We have to check if the given tree is BST or Not. we simply do the inorder traversal of the tree and check if the traversal is sorted or not.
 We have to check the properties of bst.
 1. All nodes of the left subtree are lesser than the node itself.
 2. All nodes of the right subtree are greater than the node itself.
@@ -1170,13 +1239,13 @@ We have to check the properties of bst.
 5. The InOrder traversal of a binary search tree gives an ascending
 sorted array.
 
-5. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
+1. SORTED ARRAY TO A (balanced)BINARY SEARCH TREE? ye to easy hai.
 APPROACH:   1. make middle of the tree as root.
-            2. recusively do same for the subtrees.
+            1. recusively do same for the subtrees.
                 start to mid-1 for left subtree.
                 mid+1 to end for right subtree.
 
-6. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often involving recursively defined objects.
+1. CATALAN NUMBERS: Catalan numbers are sequence of natural numbers that occur in various counting problems often involving recursively defined objects.
 their closed form is in terms of binomial coefficents.
 Cn=(1/(n+1))2nCn
 C0=1; 
@@ -1236,18 +1305,22 @@ for CASE 2: {1,2,4,3,5,6,7,8,9}
             Mid: number where 1st number < previous[3]
             Last: NULL
 
-----------------------------------------SET---------------------------------------------
+---
+### SET
+```
 1. Ordered set              2. Unordered set
 NOTE: you can refer you book for set.
+
 1. Ordered Set: - implemented using balanced BST.
                 - O(log N) for everything.
                 - for insertion we use s.insert(); 
 2. Unordered Set: - implemented using Hashing.
                   - elements are not in sorted order.
                   - O(1) for searching but O(n) for deletion.
-----------------------------------------------------------------------------------------
+```                 
+---
 
----------------------------------Binary Search CHALLENGES------------------------------------------
+## Binary Search CHALLENGES
 1. PLACE ELEMENTS TO MAXIMUM MINIMUM DISTANCE: This is a Binary search problem.
 -->this is very interesting question and easy concepts. Just she explains it hard.
 Given is an array with n elements that represents n positions along a straight line. Find K elements such that the minimum distance between any 2 elements is the maximum possible.
