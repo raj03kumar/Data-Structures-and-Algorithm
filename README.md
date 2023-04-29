@@ -1901,21 +1901,29 @@ IDEA: We find the 'O's which we can't capture.
 ---
 ## DYNAMIC PROGRAMMING
 
-Properties of Dynamic Programming: 
+#### Properties of Dynamic Programming:
 1. Optimal Substructure: If we can write a recurrence relation, then a problem is said to have optimal substructure.
 2. Overlapping Subproblem: If our subproblems repeat, then a problem is said to have overlapping subproblem. For this we have to make a recursion tree and check.
 For example: if we have to compute fibonacci of 4. then we can use recurrence relation. And also we have to find fibonacci of some numbers again and again so we don't compute then again. we store and use it. So fibonacci follows both the properties.
 
-Ways to handle Overlapping Subproblem: 
-    1. Memoization(Top-Down): A lookup table is maintained and checked before computation of any state. Recursion is involved.
+#### Ways to handle Overlapping Subproblem: 
+```
+1. Memoization(Top-Down): A lookup table is maintained and checked before computation of any state. Recursion is involved.
 
-    2. Tabulation(Bottom-Up): Solution is built from base. It is an iterative process.
-KEY POINTS: Minimization and maximization problems are generally solved using dp where we want exhaustive solution.   (Sometimes with binary Search on answer).
+2. Tabulation(Bottom-Up): Solution is built from base. It is an iterative process.
+```
+```
+KEY POINTS: Minimization and maximization problems are generally solved using dp where we want exhaustive solution.   
+(Sometimes with binary Search on answer).
+
 "Find the number of ways" is also a very popular type of DP problems.
+
 Wherever we can form recurrence relation or given in question can be solved using DP. (Sometimes with matrix Exponentiation).
-
+```
+```
 Q1. FIBONACCI USING DYNAMIC PROGRAMMING: O(n) easy using array or vectors. You already know.
-
+```
+```
 Q2. Minimum number of squares whose sum equals to given number 'n'?
 Example: X=26 = 16+9+1 (square of 3 numbers are used)
          X=26 = 25+1 (only 2 squares are used)
@@ -1924,7 +1932,8 @@ Example: X=26 = 16+9+1 (square of 3 numbers are used)
     Hence, it follows optimal substructure property.
     It also has overlapping subproblems.
     ALGORITHM: 1. Write the recusion algorithm. 2. Memoize in dp table.
-
+```
+```
 Q3. Coin change problem?
 Given a set of coins and a value 'V'. Find the number of ways we can make change of 'V'.
 IDEA: Here we have two options: either take it or don't take it.
@@ -1944,7 +1953,8 @@ Approach 3: (Tabulation with Space Efficiency)
                 (ii) Do not take that coin. {We don't take an extra row, Update on the same cell}
 
 Time Complexity: O(V*m) and Space Complexity: O(n)
-
+```
+```
 Q. O-1 KNAPSACK DYNAMIC PROGRAMMING? We can't apply greedy here because the weights are indivisible.
 IDEA: We iterate from left to right in items array. For each item we have 2 choices.
     (i) Take it = remaining capacity of Knapsack
@@ -1952,7 +1962,8 @@ IDEA: We iterate from left to right in items array. For each item we have 2 choi
 DP[n][w]=max(dp[n-1][w], dp[n-1][w-wt[n]]+val[n]);
 
 Time complexity: O(n*w)
-
+```
+```
 Q4. Longest increasing subsequence?
 You are given an array. Find the length of longest increasing subsequence.
 We define: Lis(i)=Length of longest increasing subsequence ending at i'th element
@@ -1971,22 +1982,28 @@ Checking:
 (3) After loop ends, Output [dp(n-1)]
 
 Time complexity: O(n^2)
-
+```
+```
 Q5. Longest Common Subsequence?
 Given two strings S1 and S2. We need to output length of the longest common subsequence.
-
+```
+```
 Q6. Matrix Chain Multiplication?
 We are given 'n' matrices, we have to multiply them in such a way that total no. of operations are minimum.
 Time Complexity: O(n^3)
-
+```
+```
 Q. Minimum Jumps to reach end? more efficient is greedy solution and it is in O(n). Dp solution takes O(n^2).
-
+```
+```
 Q7. Optimal game strategy? 
 Rahul and Neha are playing a coin game. They are given n coins with values x1, x2...xn. where n is always even. They take alternate turns. In each turn, a player pics, either the first or the last coin from the row and removes it from the row. The value of coin is received by the player. Determine the maximum value that Rahul can win if he moves first. Both players play optimally.
+
 Input: 
 4
 1 2 3 4
 Rahul takes 4, Neha takes 3, Rahul takes 2, Neha takes 1. Hence Rahul has 6.
+
 DP Recurrence:
 For a given arrangement of coins A[i...j]
 We have two choices, 1. We can choose A[i] 2. We can choose A[j].
@@ -1995,7 +2012,8 @@ In each case, our opponent will also have two choices. She will try to maximize 
 Therefore, our subproblem will reduce to 
 Choice1 = a[i]+min(solve(i+2, j), solve(i+1, j-1));
 Choice2 = a[j]+min(solve(i, j-2), solve(i+1, j-1));
-
+```
+```
 Q8. Number of Subsequences? You are given a string s consisting of lower case latin letters ('a'-'z') and some '?'
 Your task is to find no. of subsequences 'abc'in all the strings '?' should be replaced with either of {'a', 'b', 'c'}. HINT: We make 3^x strings. where x is '?'
 BRUTEFORCE: 
@@ -2007,7 +2025,8 @@ Declare 4 variables
 (ii) a-> denoting count of subsequences ('a') in all the strings upto current element.
 (iii) ab-> denoting count of subsequence ('a b') in all the strings upto current element.
 (iv) abc-> denoting count of subsequence ('a b c') in all the strings upto current element.
-
+```
+```
 Q9. (IMPORTANT) Count the number of binary strings without consecutive 1s.
 Given a positive integer N, count all possible distinct binary strings of length N, such that there are no consecutive 1's.
 TESTCASE:
@@ -2017,18 +2036,22 @@ OUTPUT: 5
 The 5 strings are 000, 001, 010, 100, 101
 States of dp only depends on the last character and 'n' the states will be number of strings of lenght 'i' ending with 1 or 0.
 --> Finally the ans is fibonacci of (n+1);
-
+```
+```
 Q.10 O-N Knapsack?
 Given an array of items with their weight and value. Find the max number of items that can be stolen using a knapsack of capacity W.
 Note: You can choose infinite items of each type.
-
+```
+```
 Q11. Kadane's Algorithm?
-
+```
+```
 Q12. Maximum length of bitonic subsequence? (Remember LIS Longest increeasing Subsequence)
 Given an array of n numbers. Find the maximum length of bitonic subsequence. A subsequence is bitonic if it is firstly strictly increasing and then strictly decreasing or entirely increasing or decreasing.
 IDEA: We know LIS so we can also find LDS(longest decreasing subsequence) from an element i.
 Hence the bitonic subsequence = forward[i]+backward[i]-1; here -1 becauase we have already counted it in forward and backward.
-
+```
+```
 Q13. Friends pairing problem?
 Given n friends, each one can remain single or can be paired up with some other friend. Each friend can be paired only once. Find out the total number of ways in which friends can remain single or can be paired up.
 IDEA: Let f(n) = ways n people can remain single or pair up.
@@ -2037,7 +2060,8 @@ For n-th person there are two choices:
 2. n-th person pairs up with any of the remaining n-1 persons. We get (n-1)*f(n-2)
 
 f(n)=f(n-1)+(n-1)*f(n-2)
-
+```
+```
 Q14. UGLY NUMBERS?
 Ugly numbers are those numbers whose prime factors are 2, 3 or 5. The first 10 ugly numbers are 1, 2, 3, 4, 5, 6, 8, 9, 10, 12. By, convention 1, is included.
 Given, n print the n'th Ugly number.
@@ -2047,20 +2071,25 @@ DP: Keep 3 pointers, think of it as merging three sorted lists.
 Assume you have Uk, the k'th ugly number.
 Then uk+1 must be min(p1*2, p2*3, p3*5) where p1, p2 and p3 are already generated numbers.
 Next potential ugly number will be the smallest multiple of already calculated numbers.
-
+```
+```
 Q15. LCS with 3 Strings?
 Print the LCS of 3 Strings. Length of all the strings is |s|<200. EASY ONLY!!!
-
+```
+```
 Q16. K-ordered LCS? DP
 Print the LCS of two sequences given that you are allowed to change atmost K elements in the first sequence to any value you wish to.
+```
+---
+## TRIES
 
-------------------------------------TRIES-------------------------------------------
 Tries are also known as prefix trees.
-
+```
 Q. Maximum XOR of two numbers in an array?
 ARRAY = [3, 10, 5, 15, 2]
 BRUTE FORCE: run two loops and check for each pair. There will be nC2 combinations.
-
+```
+```
 Q. Trie Bash!
 Given an array arr. You are supposed to find the maximum value of (arr[a]^arr[a+1]....^arr[b])+(arr[c]^arr[c+1]....^arr[d]) where 1<=a<=b<=c<=d<=N, where N is the size of the array. ^ denotes XOR operation.
 Sample test case:
@@ -2075,7 +2104,8 @@ IDEA:
     1. We know how to calculate maximum XOR Subarray at 'i', let us denote it as lmax[]
     2. If we do the same from right side, we can get maximum XOR Subarray at 'i', let us denote it as rmax[]
     3. Final ans would be the maximum of lmax[i]+rmax[i+1]
-
+```
+```
 Q. Digital Dictionary?
 Neha has a digital dictionary. It has an input field in which one can search any string and the dictionary displays all the words whose prefix is that input string in lexicographical order.
 
@@ -2108,11 +2138,15 @@ rack
 rat
 
 IDEA: We will create a Trie data structure and store all the words that are in the dictionary. Now, in queries, we need to just check the words which have the prefix same as given in input. And then we need to use DFS for getting all the possiblities of words.
+```
+---
 
--------------------------------------ADVANCED NUMBER THEORY------------------------------------------
+## ADVANCED NUMBER THEORY
+```
 Diophantine Equations: These are the polynomial equations for which integral solution exists.
 Example: ax+by=c. Solution of this equation exists only when gcd(a,b) divides c.
-
+```
+```
 EXTENDED EUCLID ALGORITHM: 
 GCD(a,b) has the property that ax+by=gcd(a,b)
 
@@ -2130,7 +2164,8 @@ GCD(a,b) has the property that ax+by=gcd(a,b)
     Comparing the coefficients of a and b, we get
     x=y1
     y=x1-(a/b)*y1
-
+```
+```
 MULTIPLICATIVE MODULO INVERSE:
 Consider the equation: (AxB)%m=1;
 Note: Multiplicative modulo inverse exists only if A and m are co-prime i.e. gcd(A, m)=1;
@@ -2141,7 +2176,8 @@ We have to find B here. And B is our x in extended Euclid Algorithm.
     (A*B-1)==0 (over mod m)
     A*B-1=mq
     A*B+mq=1 where B is the value of x in our Extended Euclid Algorithm.
-
+```
+```
 EULER TOTIENT FUNCTION:
 number of numbers from 1 to n-1 which are co-prime with n.
     Boring derivation
@@ -2150,7 +2186,8 @@ IMPLEMENTATION: similar to Sieve of Eratosthenes
     2. Initialize the array with a[i]=i
     3. Iterate from 2 to n and check if(a[i]==i), if yes that means it is a prime number because it is not touched by previous numbers during the iteration. Change it to a[i]-1 and multiply all its multiples with (1-1/a[i])
     4. You have your array with totient values ready.
-
+```
+```
 Binary Exponentiation: Very Important in competitive coding
 Many times, our answer is out of range of int. To avoid this we use modulo operation to overcome this problem. Some of the properties of modulo operation are:
     (a+b)%m=(a%m)+(b%m)
@@ -2170,7 +2207,8 @@ Many times, our answer is out of range of int. To avoid this we use modulo opera
     Algorithm:
     1. Start with variable x=1. Keep multiplying it with itself.
     2. Whenever there is 1 in binary representation, multiply with ans.
-
+```
+```
 Fermat's Little Theorem:
     Fermat's Little theorem states that if p is a prime number then for any integer a, the number a^p-a, is an integer multiple of p.
     a^p=a (over mod p)
@@ -2191,12 +2229,14 @@ Fermat's Little Theorem:
         Only if p>n;
         1. Pre-calculate factorials taking modulo p
         2. nCr%p=(fact[n]*modInverse(fact[r])%p*modInverse(fac[n-r])%p)%p
-
+```
+```
 Wilson's Theorem:
     - A positive integer n>1 is a prime if and only if (n-1)! = -1 (over mod n) or (n-1)!=n-1 (over mod n)
     - In other words , (n-1)! is 1 less than a multiple of n.
     - For example, since we know that 101 is prime number, we can conclude immediately that 100! = 101k-1 for some integer k
-
+```
+```
 Q. Boring Factorials ?
 Neha gives you a prime number P and an integer N close to P, and ask you to Find N! modulo.
 Constraints: 
@@ -2218,57 +2258,72 @@ N being very large, hence calculating n!mod p is not possible.
     }
 
 Time Complexity: Taking inverse of 'p-n' numbers in log time. Hence, O((p-n)*logn)
-
+```
+```
 Q. Fibonacci in O(log n) using MATRIX EXPONENTIATION?
 Matrix exponentiation is made by Matrix Multiplication and Binary Exponentiation concept.
 Matrix multiplication takes O(k^3) time where k is constant and Binary Exponentiation takes O(log n) time. Hence the final time complexity is O(log n).
 
 Representing fibonacci series in the form of matrix multiplication.
 And the matrix is [1,1][1,0] i.e 2x2 matrix.
+```
+---
 
-------------------------------------------STRING ALGORITHM--------------------------------------
-
+## STRING ALGORITHMS
+```
 1. String Hash:
 a-> 1 ...... z-> 26
 "apna" -> 1*27^3 + 16*27^2 + 14*27^1 + 1*27^0 .... we have to use like this and the number should be greater than or equal to 27 atleast because we we can't assign 0 to a because then a, aa, aaa will have same hash function.
 
 But this grows exponentially so we use mod. 
-
+```
+```
 Q. Find the number of unique strings?
 Simply put then in unordered_set and return size of set.
-
+```
+```
 Q. Calculate the indices of the occurences of string s in t. (NAIVE STRING MATCHING ALGORITHM)
 LEARN: substr function s.substr(index, length_of_substr)
-
+```
+```
 Q. KMP Algorithm? O(m+n)
     Prefix Function: very easy. just we have to start from begin and the see if the pattern gets repeated of not. Watch Abdul Bari video.
-
+```
+```
 Q. Rabin Karp Algorithm?(HASHING) O(m+n) and worst case is O(mn)
-
---------------------------GUIDE TO INTERACTIVE PROBLEMS-----------------------------------------------
+```
+---
+### GUIDE TO INTERACTIVE PROBLEMS
+```
 LEETCODE API questions. Easy approach
 
 Only thing to remember is that we have to flush our input after each cin/cout.
 By default cin/ cout flushes but for other languages like JAVA and Python we have to do it manually.
-
+```
+```
 Q. Guess the number?
 There are two different responses testing program can provide: 
 string "<", if the hidden number is less than the integer in your query
 string ">=", if the hidden number is greater than or equal to the integer in your query.
 Your program can make only 25 queries atmost.
 When your program wants to guess the hidden number, print ! x, where x is the answer, and terminate your program immediately after flushing the output stream.
+```
+---
 
------------------------------------------SEGMENT TREE---------------------------------------------
+## SEGMENT TREE
+```
 Need of Segment Trees:
 Let us take an example of returning and updating sum of the subarray a[i...j] of size n.
-
+```
+```
 Approach 1: If we want the sum from index 1 to 5 then we can simply iterate and we can find the sum and hence it the query(sum) will take O(n) complexity. If we want to update any element then it will take O(1). So the query takes O(n) and update takes O(1).
 
 Approach 2: If we make prefix sum of the array then we can get the query in O(1) but for the update query we have to update all the elements in our prefix array till the last hence again it is O(n).
 So the query takes O(1) and O(n).
 
 If we want both the operations in reasonable time, then we use segment tree and it does both query and update in O(log n)
-
+```
+```
 Segment Tree Construction: It is same as in merge sort we divide the array till the last node.
     Given Array: 5 3 2 4 1 8 6 10
 
@@ -2277,24 +2332,28 @@ Segment Tree Construction: It is same as in merge sort we divide the array till 
     BUILDING OF SEGMENT TREE:
     -> It is very simple
     -> We use divide and conquer to build segment tree.
-
+```
+```
 Query: 
 For a query[1, 5] carefully see the process.
     (i) Complete Segment
     (ii) Partial Segment
     Learn better from video
-
+```
+```
 Maximum And Minimum Queries/Updates:
 Given an array a[] for size n. We have to answer and process following operations.
     (i) Query: Output the maximum/minimum for the sub-array a[i...j]
     (ii) Update: Update the ith element of the array arr(idx) = Updated Value.
     SEGMENT TREE IS VERY SIMPLE CONCEPT.
     NOTE: Update is just like binary search. we have to search for a value in tree and update it.
-
+```
+```
 Q. Number of minimums on a segment?
 This question is from CodeForces.
 Change the code of the segment tree so that, in addition to the minimum on a segment, it also counts the number of elements equals to the minimum.
-
+```
+```
 Q. Segment with Maximum Sum?
 This question is from CodeForces.
 In this problem, you need to write a segment tree to find the segment with the maximum sum.
@@ -2310,7 +2369,8 @@ For Updation:
     2. P.suff = max(R.suff, R.sum+L.suff)
     3. P.pref = max(L.pref, L.sum+R.pref)
     4. P.ans = max({L.ans, R.ans, L.suff+R.pref})
-
+```
+```
 Q. K-th One?
 This question is from CodeForces.
 In this problem, you need to add to the segment tree the operation of finding the K-th One.
@@ -2326,7 +2386,8 @@ In these kind of problems, we descend the segment tree
 When we are standing at any segment, we have the decision ability to either go to the left child of the segment or right child of the segment.
 
 SEGMENT TREE + BINARY SEARCH
-
+```
+```
 Q. First Element atleast X
 Problem: Given an array a[] of size n.
 Constraints: 1<n<10^5
@@ -2341,15 +2402,17 @@ APPROACH:
     Array --> 1 3 2 4 6
     Ans   --> 1 3 3 4 6 (sorted)
     2. Since our array is sorted, we can apply binary search
-
+```
+```
 Q. First Element atleast X (Part - 2)
 In this task, you need to add to the segment tree the operation of finding for the given x and l the minimum index j such that j>=l and a[j]>=x
 You are given m queries of the form:
     1 i v: change a[i] to V
     2 x l: Find the minimum index j such that j>=l and a[j]>=x
+```
 
-NESTED SEGMENTS:
-
+### NESTED SEGMENTS:
+```
 Q. Given an array of 2n numbers, each number from 1 to n in it and occurs exactly twice. We say that the segment x if both occurences of number x. Find for each segment i, how many segments are there that are nested inside it.
 Constraints: 1<=n<=10^5
 
@@ -2375,8 +2438,10 @@ Example: n = 5  Array: 5 1 2 2 3 1 3 4 5 4
     2. Start from the left and after calculating ans for each interval, mark the 'l' on the number line as present.
     3. When [1,5] comes, we need to find the number of 'present sir' on the number line from [1,5]
     4. Similarly for [4,6], [0,8] and [7,9]. Keep updating the query's response in the answer array.
+```
 
-INTERSECTING SEGMENTS:
+### INTERSECTING SEGMENTS:
+```
 Given an array of 2n numbers, each number from 1 to n in it occurs exactly twice. We say that the segment y intersects the segment x if exactly one occurence of the number y is between the occurences of the number x. Find for each segment i, how many segment are there that intersect with i'th segment.
 
 Same as before just here we have to count only one occurence and ignore the numbers with 2 occurences.
@@ -2390,19 +2455,23 @@ Let us make the intervals out of the given array.
     So our problem reduces to finding for each segment, the number of segments lying partially inside it.
 
     Number of segments lying partially inside it = Number of numbers between the segment - 2*(number of segments lying completely inside it) i.e our nested segment problem
-
----------------------FENWICK TREE (BINARY INDEX TREE)----------------------------------
+```
+---
+## FENWICK TREE (BINARY INDEX TREE)
+```
 Given an array, find the sum of array(L,R). This can be done using prefixSum array. O(N) for preprocessing and O(1) for query. Sum(L,R) = prefix[R]-prefix[L-1]. But what if we have to update the elements also. So for updating the prefix array we would need O(N) time.
 So the fenwick tree helps us to reduce the O(N) time. Rest finding the sum remains same.
 For each number LSB, we define its responsibility.
-
+```
+```
 FOR QUERY:
 Chain of responsibilities:
 Sum(1....11) = A[11]+A[10]+A[8] because only they are responsible.
 Dropping LSB, and getting the next number.
 
 Easy only check the diagram once again if confused. We have to count numbers down of what the LSB denotes. If LSB denotes 7 then the number is responsible for the 7 numbers below it. If it is 16 then if is responsible for 16 numbers below it. We have to add the numbers until we completely come to 0 or we take all the numbers responsible until 0.
-
+```
+```
 FOR UPDATES:
 - What if we have to do point updates?
 - update according to their responsibilty
@@ -2415,7 +2484,8 @@ ISOLATION OF LSB (Extraction of LSB):
 - Let a positive number be of the form: 'a1b' where 'a' contains random binary bits, and 'b' contains only '0's
 - hence, taking the two's complement of the number would be '~a1b'.
 - hence taking bitwise AND of a1b and ~a1b we get 1b or 10000......0
-
+```
+```cpp
 CODES:
 - For Query:
     int query(int idx){
@@ -2433,7 +2503,8 @@ CODES:
             idx+=idx & (-idx);
         }
     }
-
+```
+```
 TIME COMPLEXITY:
 - For Querying: In each iteration we are removing a LSB from the number. In the worst case, there will be O(log N) operations.
 - For Point Updates: In each iteration we are adding LSB in the number. In the worst case, there will be O(log N) operations.
@@ -2441,7 +2512,8 @@ TIME COMPLEXITY:
 Updates are of two types:
 - Range sum in Point Updates
 - Range sum with Range Updates
-
+```
+```
 Q. Range Sum with Point Updates using Fenwick Tree?
 Given an array A and Q queries. There are two types of queries:
     1. LR, Print the sum of Array[L....R]
@@ -2452,7 +2524,8 @@ For query of type 1: Sum(L...R) = Query(R)-Query(L-1)
 For query of type 2: 
     1. Push '-A[idx]' to all the nodes responsible for A[idx]
     2. Push 'val' to all the values which are responsible for A[idx]
-
+```
+```
 Q. Range Sum with Range Updates using Fenwick Tree?
     - update(L, R, val)
         Add val to arr[L], arr[L+1]....arr[R]
@@ -2468,8 +2541,8 @@ Q. Range Sum with Range Updates using Fenwick Tree?
         3. For L<i<j, update(i, j, val) net contribution in query(L) would be zero.
 
 Note: We can implement it using segment trees as well but the code of Fenwick tree is less than that of Segment trees so we prefer Fenwick tree
-
-
+```
+```cpp
 Q. Count Inversions using Fenwick Tree?
 Two elements a[i] and a[j] form an inversion if a[i] > a[j] and i < j
 
@@ -2481,7 +2554,8 @@ Explaination: (3,1), (3,2), (5,1), (5,2), (6,1), (6,2), (9,1), (9,2), (9,7), (9,
 Brute-force: O(N^2) using 2 for loops
 
 USING BIT(Binary Indexed Tree): O(nlogn)
-IDEA: Traverse through the array and for every index find the number of smaller elements on its right side of the array. Sum up the counts for all indexes in the array and print the sum.
+IDEA: Traverse through the array and for every index find the number of smaller elements on its right side of the array. 
+Sum up the counts for all indexes in the array and print the sum.
 
 APPROACH: 1. Convert the array into relative ordering: For example: if the array is {-3, 2, 0} then the array gets converted to {1,3,2}
 
@@ -2495,14 +2569,16 @@ for(int i=n-1; i>=0;i--){
     //Add current element to BIT
     update(BIT, n, arr[i], 1);
 }
-
+```
+```
 Q. Square Root Decomposition?
 We know that queries for calculating sum in range[l,r] by brute-force is O(n) but this Square root decomposition is O(sqrt(n))
 
 IDEA: We break our block of array into sqrt(arr.size()) segments.
 
 Easy only. Sometimes we get complete blocks, sometimes we get partial blocks
-
+```
+```
 Q. RMQSQ - Spoj question (Range min query using sqrt decomposition)
 You are given a list of N numbers and Q queries. Each query is specified by two numbers i and j; the answer to each query is the minimum number between the range [i,j] (inclusive)
 NOTE: the query ranges are specified using 0-based indexing.
@@ -2516,8 +2592,10 @@ INPUT:
 OUTPUT:
 4
 1
+```
 
-MO's ALGORITHM (Square Root Decomposition):
+#### MO's ALGORITHM (Square Root Decomposition):
+```
 You are given an array of size n and q queries. Each query is a range query. In each query, we have to perform some operation and output answer of each query.
 
 Brute-force: For each query -> Compute the answer for that query -> Jump onto next query
@@ -2546,7 +2624,8 @@ For sorting all the queries: Qlog(Q)
 Call for all blocks: n/sqrt(n)*n(i.e for each block)  (n/sqrt(n) is the T.C. for number of blocks)
 Number of times change in value of curr_l -> sqrt(n)*Q
 Total time complexity: O((n+Q)*sqrt(n))
-
+```
+```
 Q. DQUERY - SPOJ QUESTION using MO's Algorithm:
 Given a sequence of n numbers a1, a2, ..., an and a number of d-queries. A d-query is a pair (i, j) (1 ≤ i ≤ j ≤ n). For each d-query (i, j), you have to return the number of distinct elements in the subsequence ai, ai+1, ..., aj.
 
@@ -2572,15 +2651,18 @@ Output
 3
 2
 3 
+```
+---
 
-
------------------------------POLICY BASED DATA STRUCTURE--------------------------------
+## POLICY BASED DATA STRUCTURE
+```
 - Ordered Set (Special type of set)
 - Based on Red Black Tree
 - Other sets are implemented by balanced BST but this is implemented using Red Black Trees
 
 Fix for windows users if it doesn't work
-
+```
+```
 ORDERED SET:
 first declare the ordered set:
 template<class T> using oset = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>
@@ -2599,8 +2681,13 @@ OPERATIONS:
 CODE:
 - order_of_key(k): Number of items strictly smaller than k
 - find_by_order(k): k-th element in set (counting from zero)
-
+```
+```
 Q. Given q queries, of 3 types:
     1. Insert a number X into the set
     2. Print the k'th element
     3. Print the number of elements less than k
+```
+
+---
+© Maintained by Raj Kumar
