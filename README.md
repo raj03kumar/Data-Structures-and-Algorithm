@@ -1595,33 +1595,50 @@ So, we have: (i) Map prefix sum to a map
 ---
 
 ## GREEDY ALGORITHM
+```
 Generally sorting is applied while applying greedy technique.
+```
+```
+1. Indian coin change: You are given an array of Denominations and a value X. 
+You need to find the minimum number of coins required to make value X.
 
-1. Indian coin change: You are given an array of Denominations and a value X. You need to find the minimum number of coins required to make value X.
 NOTE: we have infinite supply of coins.
+
 APPROACH:   1. Start from the largest value, till we can include it, take it.
             2. Else move on the smaller value.
+```
+```
+2. Activity selection Problem: You are given n activities with their start and finish times. 
+Select the maximum number of activities that can be performed by a single person, 
+assuming that a person can only work on a single activity at a time.
 
-2. Activity selection Problem: You are given n activities with their start and finish times. Select the maximum number of activities that can be performed by a single person, assuming that a person can only work on a single activity at a time.
 APPROACH: Take the next activity which ends first. Sort the activities with respect to end times.
-
+```
+```
 3. Fractional knapsack: You have already done. But this is new one with comparator and lambda function.
-
+```
+```
 4. OPTIMAL MERGE PATTERN: -->very very easy.
 You are given n files with their computation times in an array.
-Choose/take any two files, add their computation times and append it to the list of computation times.{cost=Sum of computation time}.
+Choose/take any two files, add their computation times and append it to the list of computation times.
+{cost=Sum of computation time}.
 Do this until we are left with only one file in the array. We have to do this operation such that we get minimum cost finally.
-Given: arr[]={5,2,4,7}, so if we add 5+2 we get 7 and we again add 7+4 we get 11 and then we again add 11 and 7 we get 18. So the final computation time is 7+11+18. we get 36 as our answer. But this is not maximum.
+Given: arr[]={5,2,4,7}, so if we add 5+2 we get 7 and we again add 7+4 we get 11 and then we again add 11 and 7 we get 18. 
+So the final computation time is 7+11+18. we get 36 as our answer. But this is not maximum.
 We sort the array. {2,4,5,7}. So after this, 2+4 gives 6, 6+5 gives 11, 11+7 gives 18.
 So the final computation time is 6+11+18=35(i.e the minimum).
+
 APPROACH: 
     1. Push all elements to a MinHeap.
     2. Take 2 top elements one by one and add the cost to answer. Push the merged file to the MinHeap.
     3. When single element remains, output the cost.
-
+```
+```
 5. EXPEDI(EXPEDITION): This is a good question to build concept in greedy.
-Q. A group of cows grabbed a truck and ventured on an expedition deep into the jungle. The truck leak 1 unit of fuel every unit of distance it travels.
-To repair the truck, the cows need to drive to the nearest town(no more than 10^6 unit distance). On this road between the town and the current location, there are N stops where the cows can stop to acquire additional fuel.
+Q. A group of cows grabbed a truck and ventured on an expedition deep into the jungle. 
+The truck leak 1 unit of fuel every unit of distance it travels.
+To repair the truck, the cows need to drive to the nearest town(no more than 10^6 unit distance). 
+On this road between the town and the current location, there are N stops where the cows can stop to acquire additional fuel.
 The cows want to make MINIMUM POSSIBLE NUMBER OF STOPS FOR FUEL ON THE WAY TO TOWN.
 Capacity of the tank is sufficiently large to hold any amount of fuel.
 
@@ -1641,11 +1658,14 @@ BRUTE FORCE:
 OPTIMAL SOLUTION:
     1. Create a maxheap, which stores the fuels available at the stops that we have traversed.
     2. Sort the stops, on the basis of distance of stops from inital position of truck.
-    3. Keep iterating on the stops, and whenever fuel in the truck becomes empty, take the fuel from the max-heap and add it to the truck(greedy step).
+    3. Keep iterating on the stops, and whenever fuel in the truck becomes empty, take the fuel from the max-heap 
+       and add it to the truck(greedy step).
     4. Maintain the count of stops from which we have taken fuel.
-
+```
+```
 6. Maximum and minimum array difference: easy logic...
-You are given an array, A, of n elements. You have to remove exactly n/2 elements from array A and add it to another array B(initally empty).
+You are given an array, A, of n elements. You have to remove exactly n/2 elements from array A and add it to 
+another array B(initally empty).
 Find the maximum and minimum values of differences between these two arrays. 
 We define the difference between these two arrays as:
 sigmaof(abs(A[i]-B[i])) means sum of the difference of all the elements.
@@ -1663,8 +1683,10 @@ To minimise abs(A[i]-A[j])
 
 For sorted Array,
 Min Diff = (sum of odd elements)-(sum of even elements)
-
---------------------------------------GRAPH THEORY-----------------------------------------------
+```
+---
+## GRAPH THEORY
+```
 Components of a graph: 
 1. Nodes: These are the states or vertex. For instance, users in facebook.
 2. Edges: Links between states in a graph. For instance, connections between users.
@@ -1673,9 +1695,13 @@ Components of a graph:
 3. Representation: 
     1. Adjacency Matrix: 2D array, where a[i][j]=1 if there is an edge from i to j, else a[i][j]=0
     2. Adjacency List: Array of lists, where each a[i] is a list of nodes Xi, that are reachable from i.
-
-TRAVERSALS: BFS(queue) and DFS(stack).
-
+```
+```
+TRAVERSALS: 
+    BFS(queue)
+    DFS(stack).
+```
+```
 Terminologies in Graphs: 
 1. Adjacent Vertices: Adjacent vertices are two vertices with a direct edge connecting them.
 2. Degree of a vertex: There are two types of degree: 
@@ -1684,63 +1710,94 @@ Terminologies in Graphs:
 3. Connected graph: Each node has path from every other node.
 4. Disconnected graph: Each node doesn't have path from every other node.
 5. Cycle in a graph.
+```
+---
 
-Tree: Tree is connected acyclic graph.
-        Properties of a Tree with n nodes:
-        1. Number of edges=n-1
-        2. There are no cycles present.
-        3. Each node has path from every other vertex.
-
+### Tree: 
+```
+    Tree is connected acyclic graph.
+    Properties of a Tree with n nodes:
+    1. Number of edges=n-1
+    2. There are no cycles present.
+    3. Each node has path from every other vertex.
 NUMBER OF EDGES IN A COMPLETE GRAPH: nC2 =(n*(n-1))/2
 
 Graph Representation: BY Adjacency list and BY Adjacency Matrix
-
+```
+```
 Topological Sort: Proper sequence of order like birth->infant->adult->old is known as topological sort.
-A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from node A to node B, node A appears before node B in the ordering.
+A topological ordering is an ordering of the nodes in a directed graph where for each directed edge from 
+node A to node B, node A appears before node B in the ordering.
+
 Note: Topological ordering are NOT unique. NOT every graph has topological Sort!(In directed and cyclic graph)
 Only directed Acyclic graph (DAG) have a valid topological sort. 
 Basic idea is to write all the leave nodes, then remove them and repeat the process.
 ALGORITHM:
+
 while(all the nodes are not visited){
     nodes with zero indegree can be added to the output array.
     all the nodes which are adjacent to terminal nodes, gets their indegree subtracted.
 }
 --> can be used to detect cycle in a graph.
-
+```
+```
 Q. Cycle detection in undirected graph?
-Keep on traversing the graph. If you found an edge pointing to an already visited node(except the parent node), a cycle is found. We use dfs and check if we visit an already visited edge or not.
-
+Keep on traversing the graph. If you found an edge pointing to an already visited node(except the parent node), 
+a cycle is found. We use dfs and check if we visit an already visited edge or not.
+```
+```
 Q. Cycle detection in directed graph?
+
 Algorithm:
     1. Mark the current node as visited node and also mark the index in recursion stack.
     2. Find all the vertices which are not visited and are adjacent to the current node.
     3. If the adjacent vertices are already marked in the recursion stack then cycle is found.
-
+```
+```
 Q. What is connected component?
-A connected component is a subgraph in which any two vertices are connected to each other by paths, and which is connected to no additional vertices in the supergraph.
+A connected component is a subgraph in which any two vertices are connected to each other by paths, 
+and which is connected to no additional vertices in the supergraph.
+
 IDEA:
     1. visit the nodes in depth-first fashion.
     2. If the node is not visited, visit that node and its neighbour recursively.
 Each time a unvisited node is found, a new component will be found.
+```
+```
+Q. There are N friends numbered from 0 to N-1. You have to choose 2 person such that they are not related to each other. 
+You are given information in the form of M pairs(X,Y) i.e. there is a link between friend X and Y. 
+Find out the number of ways in which 2 person from different groups can be choosen?
 
-Q. There are N friends numbered from 0 to N-1. You have to choose 2 person such that they are not related to each other. You are given information in the form of M pairs(X,Y) i.e. there is a link between friend X and Y. Find out the number of ways in which 2 person from different groups can be choosen?
 IDEA:
     Find the components and their sizes. At i'th component, choose one person from it and other person from the rest of the groups.
+```
 
-Bipartite Graph: 
+#### Bipartite Graph: 
+```
     1. Its vertices can be divided into two disjoint and independent sets U and V such that every edge connects a vertex in U to one in V. 
     2. The graph doesnot contain any odd-length cycles.
     3. The graph is 2 Colorable.
 Note: If we are able to color the graph with only two colors then the graph is bipartite.
+```
 
-DISJOINT SET UNION(DSU) or UNION FIND:
-    Parent concept: Parent is any element of the set which we assign as the leader of the set. It can be any element. All the other elements are represented using that leader. For Example: If we want to see if two elements belongs to same set then we can simply check their leader and if the leaders are equal then we can conclude that both the elements belong to same set.
-
-Naive implementation: O(N) but with little optimisation we reduce the length of the tree with path compression i.e we join all the nodes independently so that the tree length is reduced and the width increases. Thus the Time complexity remains O(log N).
+#### DISJOINT SET UNION(DSU) or UNION FIND:
+```
+    Parent concept: Parent is any element of the set which we assign as the leader of the set. It can be any element. 
+    All the other elements are represented using that leader. 
+    For Example: If we want to see if two elements belongs to same set then we can simply check their leader and if 
+    the leaders are equal then we can conclude that both the elements belong to same set.
+```
+```
+Naive implementation: O(N) but with little optimisation we reduce the length of the tree with path compression 
+i.e we join all the nodes independently so that the tree length is reduced and the width increases. 
+Thus the Time complexity remains O(log N).
 
 O(alpha(n)) or O(1) implementation: here alpha is known as inverse Ackermann function.
-Union by Size/Rank: In naive implementation union(a,b) b gets attached a, long chains can be formed, which leads to O(n) complexity. What we do is that we join the set with less element to the set with more elements which reduces the time complexity.
-
+Union by Size/Rank: In naive implementation union(a,b) b gets attached a, long chains can be formed, 
+which leads to O(n) complexity. What we do is that we join the set with less element to the set with more 
+elements which reduces the time complexity.
+```
+```
 Q. Cycle detection in undirected graph using DSU?
 PSEUDOCODE:
     for all edge(u,v) in edges:
@@ -1756,50 +1813,70 @@ Applications:
     1. Minimum spanning tree
     2. Connected components in a graph
     3. Cycle detection and many more.
+```
 
-Spanning Tree: Given an undirected and connected graph G(V,E), a spanning tree of the graph G is a tree that spans G (that is, it includes every vertex of G) and is a subgroup of G(every edge in the tree belongs to G).
+#### Spanning Tree: 
+```
+Given an undirected and connected graph G(V,E), a spanning tree of the graph G is a tree that 
+spans G (that is, it includes every vertex of G) and is a subgroup of G(every edge in the tree belongs to G).
 
 The cost of the spanning tree is the sum of the weights of all the edges in the tree.
 Note: There can be many spanning trees.
+```
 
-MINIMUM SPANNING TREE: MST is the spanning tree where the cost is minimum among all the spanning trees. There can be many MST as well.
+#### MINIMUM SPANNING TREE: 
+MST is the spanning tree where the cost is minimum among all the spanning trees. There can be many MST as well.
 
-Kruskal's Algorithm: For minimum spanning tree. Time Complexity: O(E log V) Space Complexity: O(E+V)
+```
+Kruskal's Algorithm: 
+
+For minimum spanning tree. Time Complexity: O(E log V) Space Complexity: O(E+V)
+
 PSEUDOCODE:
     1. Sort the edges in increasing order of their weights.
     2. Iterate in the sorted edges,
         If inclusion of i'th edge leads to a cycle, then skip this edge.
         else
             include the edge in MST.
-
+```
+```
 Prim's Algorithm: Greedy algorithm
+
 IDEA: 
     Select an arbitrary vertex x s to start the tree from.
         While (there are still nontree vertices)
             Select the edge of minimum weight between a tree and nontree vertex.
             Add the selected edge and vertex to the tree.
+```
+```
+Dijkstra's Algorithm: Single source shortest path to all the vertices in weighted graph. 
+                      If the node is unreachable then print -1.
 
-Dijkstra's Algorithm: Single source shortest path to all the vertices in weighted graph. If the node is unreachable then print -1.
 Note: The weight of the edges should be positive.
 IDEA: 
-    1. Assign a distance value to all vertices in the input graph. Initialise all distance values as INFINITE. Assign distance value as 0 for the source vertex.
+    1. Assign a distance value to all vertices in the input graph. Initialise all distance values as INFINITE. 
+       Assign distance value as 0 for the source vertex.
     2. While set is not empty
         A. Pick a vertex u from set s that has minimum distance value.
         B. Update distance value of all adjacent vertices of u.
-
+```
+```
 Bellman Ford Algorithm: Single source shortest path to all the vertices in weighted graph.
 Idea: 
     1. Initially d[v]=0 and for all other elements d[]=infinity.
     2. On each pass, relax all the edges.
         i.e. for edge (a,b) having weight w,
             d[b]=min(d[b], d[a]+w)
-    3. Assuming no negative cycle, since there are n vertices , shortest path can only contain 'n-1' edges. Therefore, we will get our answer in at most 'n-1' passes.
+    3. Assuming no negative cycle, since there are n vertices , shortest path can only contain 'n-1' edges. 
+       Therefore, we will get our answer in at most 'n-1' passes.
 What makes it better than dijkstra?
 --> It will work for negative edges and negative cycles.
 --> It can detect negative cycle as well.
-
+```
+```
 Floyd Warshall Algorithm: To find all pair shortest path algorithm.
-
+```
+```
 Q. Snakes and Ladders? The game of snake and ladder.
 You are at square 1 and have to reach square 100. You have complete control over the die and can get any number from 1-6.
 For given ladders and snakes, find the minimum steps to reach.
@@ -1810,15 +1887,19 @@ IDEA:
             Check if the next position is ladder, snake or empty.
             Mark the square as visited and push into queue.
     3. Stop the traversal, when you reached 100.
-
-Q. Surrounded Regions? Given a 2D board containing 'X' and 'O'. Capture all regions surrounded by 'X'. A region is captured by flipping all 'O's into 'X' in that surrounded region.
+```
+```
+Q. Surrounded Regions? Given a 2D board containing 'X' and 'O'. Capture all regions surrounded by 'X'. 
+A region is captured by flipping all 'O's into 'X' in that surrounded region.
 
 IDEA: We find the 'O's which we can't capture.
 1. Traverse the 'O' components around the edges of the grid and change it to '*'
 2. Remaining 'O' components will be surrounded regions that can be captured.
 3. Change the '*' back to 'O'.
+```
+---
+## DYNAMIC PROGRAMMING
 
-------------------------------------DYNAMIC PROGRAMMING-------------------------------------------
 Properties of Dynamic Programming: 
 1. Optimal Substructure: If we can write a recurrence relation, then a problem is said to have optimal substructure.
 2. Overlapping Subproblem: If our subproblems repeat, then a problem is said to have overlapping subproblem. For this we have to make a recursion tree and check.
