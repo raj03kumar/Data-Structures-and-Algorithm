@@ -2122,7 +2122,9 @@ IDEA:
 ```
 ```
 Q. Digital Dictionary?
-Neha has a digital dictionary. It has an input field in which one can search any string and the dictionary displays all the words whose prefix is that input string in lexicographical order.
+Neha has a digital dictionary. 
+It has an input field in which one can search any string and the dictionary displays all the words 
+whose prefix is that input string in lexicographical order.
 
 Now you are given a task to make your own digital dictionary. 
 You will be given words that you can store in your database and then you need to design tbe search functionality. 
@@ -2353,9 +2355,12 @@ Need of Segment Trees:
 Let us take an example of returning and updating sum of the subarray a[i...j] of size n.
 ```
 ```
-Approach 1: If we want the sum from index 1 to 5 then we can simply iterate and we can find the sum and hence it the query(sum) will take O(n) complexity. If we want to update any element then it will take O(1). So the query takes O(n) and update takes O(1).
+Approach 1: If we want the sum from index 1 to 5 then we can simply iterate and we can find the sum and 
+hence it the query(sum) will take O(n) complexity. If we want to update any element then it will take O(1). 
+So the query takes O(n) and update takes O(1).
 
-Approach 2: If we make prefix sum of the array then we can get the query in O(1) but for the update query we have to update all the elements in our prefix array till the last hence again it is O(n).
+Approach 2: If we make prefix sum of the array then we can get the query in O(1) but for the update query we have to update all 
+the elements in our prefix array till the last hence again it is O(n).
 So the query takes O(1) and O(n).
 
 If we want both the operations in reasonable time, then we use segment tree and it does both query and update in O(log n)
