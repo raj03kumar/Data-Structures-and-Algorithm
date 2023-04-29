@@ -1076,7 +1076,8 @@ void preOrder(struct node* root){
 ```
 1. Build tree from PreOrder and Inorder. here we build left subtree and then right subtree.
 
-2. Build tree from PostOrder and Inorder. Similar but opposite. here we first build right subtree and after that we build left subtree.
+2. Build tree from PostOrder and Inorder. Similar but opposite. 
+Here we first build right subtree and after that we build left subtree.
 
 NOTE: We can't build tree from just preorder and postorder traversal. 
 It can only be possible if it is a complete binary tree else the tree structure may vary.
@@ -1180,7 +1181,8 @@ We dont have to do traversal and create a linked list from it).
 After flattening, left or each node should point to NULL and right should contain next node in preorder sequence.
 (It is NOT allowed to use any other data structure)
 
-SIMPLE UNDERSTANDING: We have to leave the left subtree as it is. we have to append the right subtree to the left subtree to its last node. 
+SIMPLE UNDERSTANDING: We have to leave the left subtree as it is. 
+We have to append the right subtree to the left subtree to its last node. 
 then recursively we have to do this only.
 
 APPROACH: 
@@ -1192,8 +1194,8 @@ APPROACH:
 ```
 ```
 14. Print all nodes at Distance K: we have to print all the nodes at distance k from the given node. 
-We can find and print the nodes in our subtrees and also we can find nodes in our ancestors tree. 
-We have to print all of them. We will be given a root node, a node from where we have to calculate the distance and k is the distance.
+We can find and print the nodes in our subtrees and also we can find nodes in our ancestors tree. We have to print all of them. 
+We will be given a root node, a node from where we have to calculate the distance and k is the distance.
 
 Case 1: Nodes Subtree. we travel down and we decrease our k by 1. if k==0 then we have to print those nodes.
 
