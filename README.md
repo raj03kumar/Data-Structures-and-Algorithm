@@ -1,7 +1,8 @@
 # Data Structures And Algorithms
 Complete Data Structures and Algorithms Documentation
 
--------------------------------------------------------
+---
+
 ### DATA STRUCTURES AND ALGORITHMS BEGIN
 
 ```cpp
