@@ -4,7 +4,6 @@ Complete Data Structures and Algorithms Documentation
 ---
 
 ### DATA STRUCTURES AND ALGORITHMS BEGIN
-
 ```cpp
 OPERATORS: 
 
@@ -22,7 +21,6 @@ int great=max(a,max(b,c));
 ```
 
 #### TO REVERSE A STRING:
-
 ```cpp
 int main(){
     string a;
