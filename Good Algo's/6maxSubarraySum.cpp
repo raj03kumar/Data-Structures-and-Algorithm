@@ -21,3 +21,17 @@ int main(){
     cout<<max_sum;
     return 0;
 }
+
+// Above one don't work for all negative values
+class Solution {
+public:
+    int maxSubArray(vector<int>& nums) {
+        int ans = -1e9, curr = 0;
+        for(int i : nums) {
+            curr += i;
+            ans = max(ans, curr);
+            if(curr < 0) curr = 0;
+        }
+        return ans;
+    }
+};
