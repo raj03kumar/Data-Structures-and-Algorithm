@@ -22,6 +22,11 @@ int great=max(a,max(b,c));
 
 #### TO REVERSE A STRING:
 ```cpp
+string s="raj";
+    reverse(s.begin(), s.end());
+    cout<<s;
+```
+```cpp
 int main(){
     string a;
     cin>>a;
